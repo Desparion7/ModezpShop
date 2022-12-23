@@ -1,0 +1,102 @@
+.placeorder {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	min-height: 75vh;
+}
+
+.placeorder-form-title {
+	margin: 1rem 0;
+	font-size: 1.5rem;
+	text-align: center;
+}
+.placeorder-box div {
+	text-align: center;
+}
+.placeorder-item-box {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	flex-direction: row;
+	margin-top: 2rem;
+	border-bottom: 1px solid gray;
+}
+.placeorder-image-box {
+	display: flex;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+}
+.placeorder-image-box img {
+	width: 100%;
+	height: 75%;
+	object-fit: scale-down;
+}
+.placeorder-product-name {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	width: 40%;
+	cursor: pointer;
+}
+.placeorder-amount-box {
+	display: flex;
+	padding: 0.5rem;
+	text-align: center;
+	align-items: center;
+}
+.placeorder-price-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 30%;
+	gap: 3px;
+	align-items: center;
+}
+.placeorder-multiple-price {
+	display: flex;
+	gap: 5px;
+}
+.placorder-product-total-price {
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: var(--bold-text);
+}
+.placeorder-second-summary-box-btn {
+	text-align: center;
+}
+.btn-placeorder-screen {
+	margin-top: 1rem;
+}
+.placeorder-full-price {
+	margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+	.placeorder {
+		flex-direction: column;
+	}
+}
+@media screen and (max-width: 700px) {
+	.placeorder-item-box {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0px;
+		margin-top: 1rem;
+	}
+}
+@media screen and (max-width: 567px) {
+	.placeorder-item-box {
+		padding-bottom: 0.5rem;
+	}
+	.placeorder-product-name {
+		flex: 0 0 40%;
+		justify-content: center;
+	}
+	.placorder-product-total-price {
+		font-size: 1rem;
+	}
+	.placeorder-box h1 {
+		font-size: 1rem;
+	}
+}

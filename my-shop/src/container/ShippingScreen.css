@@ -1,0 +1,38 @@
+.shipping {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	min-height: 75vh;
+}
+.shipping-box {
+	padding: 1rem;
+}
+.address-form-title {
+	text-align: center;
+	margin: 1rem 0;
+	font-size: 1.5rem;
+}
+.address-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.5rem 2rem;
+	background-color: var(--main-color);
+	border-radius: 8px;
+}
+.address-form input {
+	padding: 0.3rem;
+	margin-bottom: 0.3rem;
+}
+.address-form label {
+	margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+	.shipping {
+		flex-direction: column;
+	}
+}
+.btn-shipping-screen {
+	margin-top: 1rem;
+}

@@ -1,0 +1,139 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOrderUserList } from '../actions/orderActions';
+import LoadingSpinner from '../UI/LoadingSpinner';
+import Message from '../UI/Message';
+import './OrderListScreen.css';
+
+const OrdersListScreen = () => {
+	const dispatch = useDispatch();
+
+	const userOrdersList = useSelector((state) => state.ordersUserList);
+	const { ordersList, loading, error } = userOrdersList;
+	const reverseOrderList = ordersList.map((item) => item).reverse();
+
+	useEffect(() => {
+		dispatch(getOrderUserList());
+	}, [dispatch]);
+	return (
+		<div className='orders-list-main-box margin-section'>
+			<h1>Moje zamówienia</h1>
+			<div className='orders-list-box'>
+				{loading ? (
+					<LoadingSpinner />
+				) : error ? (
+					<Message>{error}</Message>
+				) : (
+					reverseOrderList.map((order) => (
+						<div className='order-list-border' key={order._id}>
+							<div className='order-list-detail'>
+								<h2>ID zamówinia: {order._id}</h2>
+							</div>
+							<div className='order-list-details'>
+								<div className='order-list-first-box box-shadow'>
+									<div className='order-list-detail'>
+										<div>Koszt zakupu:</div>
+										<div className='orders-list-info'>
+											{order.totalPrice} zł
+										</div>
+									</div>
+								</div>
+								<div className='order-list-second-box box-shadow'>
+									<div className='order-list-detail'>
+										<div>Data zamówienia:</div>
+										<div className='orders-list-info'>
+											{order.createdAt.substring(0, 10)}
+										</div>
+									</div>
+									<div className='order-list-detail'>
+										<div>Data opłacenia:</div>
+										{order.isPaid ? (
+											<div className='orders-list-info'>
+												{order.paidAt.substring(0, 10)}
+											</div>
+										) : (
+											<div>brak</div>
+										)}
+									</div>
+									<div className='order-list-detail'>
+										<div>Data dostarczenia:</div>
+										{order.isDelivered ? (
+											<div className='orders-list-info '>
+												{order.deliveredAt.substring(0, 10)}
+											</div>
+										) : (
+											<div>brak</div>
+										)}
+									</div>
+								</div>
+							</div>
+							{order.orderItems.map((product) => (
+								<div className='order-list-product' key={product._id}>
+									<div className='order-img-name-box'>
+										<div className='order-list-image-box'>
+											<img
+												src={
+													product.image.length > 1
+														? product.image[0]
+														: product.image
+												}
+												alt={product.name}
+											/>
+										</div>
+										<div className='order-list-product-name'>
+											<Link
+												className='link'
+												to={`/Modezp-Shop/products/${product._id}`}
+											>
+												{product.name}
+											</Link>
+										</div>
+									</div>
+									<div className='order-list-product-qty'>
+										{product.qty} szt.
+									</div>
+								</div>
+							))}
+							<div className='order-list-btn-box'>
+								<Link
+									className='orders-list-btn'
+									to={`/Modezp-Shop/order/${order._id}`}
+								>
+									Szczegóły{' '}
+								</Link>
+							</div>
+						</div>
+					))
+				)}
+			</div>
+		</div>
+	);
+};
+
+export default OrdersListScreen;
+{
+	/* <div key={order._id} className='orders-list-body'>
+	<div className='orders-list-id'>{order._id}</div>
+	<div className='orders-list-info'>{order.createdAt.substring(0, 10)}</div>
+	<div className='orders-list-info'>{order.totalPrice} zł</div>
+	{order.isPaid ? (
+		<div className='orders-list-info orders-list-info-paid'>
+			{order.paidAt.substring(0, 10)}
+		</div>
+	) : (
+		<i className='fas fa-times orders-list-info' style={{ color: 'red' }}></i>
+	)}
+	{order.isDelivered ? (
+		<div className='orders-list-info orders-list-info-delivered'>
+			{order.deliveredAt.substring(0, 10)}
+		</div>
+	) : (
+		<i className='fas fa-times orders-list-info' style={{ color: 'red' }}></i>
+	)}
+
+	<Link className='orders-list-btn' to={`/Modezp-Shop/order/${order._id}`}>
+		Szczegóły{' '}
+	</Link>
+</div>; */
+}

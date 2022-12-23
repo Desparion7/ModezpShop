@@ -1,0 +1,45 @@
+.paymentscreen {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	min-height: 75vh;
+}
+.payment-box,
+.payment-box-method {
+	padding: 1rem;
+}
+.payment-box-method input:disabled {
+	filter: grayscale(100%);
+}
+.payment-form-title {
+	text-align: center;
+	margin: 1rem 0;
+	font-size: 1.5rem;
+}
+.full-price {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.choose-payment-form {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.payment-icon {
+	width: 200px;
+	cursor: pointer;
+}
+.btn-payment-screen {
+	margin-top: 1rem;
+}
+.payment-photo-active {
+	border: 2px solid var(--buttons-hover-color);
+}
+.payment-second-summary-box-btn {
+	text-align: center;
+}
+@media screen and (max-width: 900px) {
+	.paymentscreen {
+		flex-direction: column;
+	}
+}

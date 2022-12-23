@@ -1,0 +1,44 @@
+.account-title {
+	margin-bottom: 1rem;
+}
+.management-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 75vh;
+}
+.management-container {
+	padding: 1rem 2rem;
+	background-color: var(--main-color);
+	border-radius: 5%;
+}
+.management-box-form form {
+	display: flex;
+	flex-direction: column;
+}
+.management-box-form input {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	min-width: 300px;
+	border: none;
+}
+
+.btn-management {
+	margin-top: 0.8rem;
+}
+.rediret-box {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 0.5rem;
+	text-align: center;
+}
+.management-box-redirect-link {
+	text-decoration: none;
+	color: var(--buttons-hover-color);
+	transition: text-decoration 10s;
+}
+.management-box-redirect-link:hover {
+	text-decoration: underline;
+}

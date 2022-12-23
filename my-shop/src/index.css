@@ -1,0 +1,11 @@
+:root {
+	/* --font-family: 'Manrope', sans-serif; */
+	--main-color: #cbd5f0;
+	--font-color: #124f99;
+	--buttons-color: #ebacbc;
+	--buttons-hover-color: #e38589;
+	--disabled-color: #d1cfcf;
+	--main-text: 'Open Sans', sans-serif;
+	--bold-text: 'Roboto', sans-serif;
+}
+

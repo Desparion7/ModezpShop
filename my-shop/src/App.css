@@ -1,0 +1,56 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	font-family: var(--main-text);
+}
+.app {
+	min-height: 75vh;
+}
+
+.padding-section {
+	padding: 2rem 4rem;
+}
+.margin-section {
+	position: relative;
+	margin: 2rem 4rem;
+}
+.box-shadow {
+	padding: 1rem;
+	border: 1px rgba(120, 120, 120, 0.867) solid;
+	border-radius: 5px;
+	box-shadow: 8px 8px 26px -12px rgba(66, 68, 90, 1);
+}
+
+@media screen and (max-width: 667px) {
+	.margin-section {
+		margin: 2rem 1rem;
+	}
+}
+.btn {
+	font-size: 1rem;
+	border-radius: 5px;
+	border: none;
+	padding: 0.7rem 1rem;
+	margin-bottom: 1rem;
+	background: var(--buttons-color);
+	transition: background 0.3s;
+	cursor: pointer;
+}
+.btn:hover {
+	background: var(--buttons-hover-color);
+}
+
+@media screen and (max-width: 850px) {
+	.btn {
+		padding: 0.5rem 2rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.btn {
+		font-size: 1rem;
+		padding: 0.5rem 1rem;
+	}
+}

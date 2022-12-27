@@ -142,9 +142,11 @@ const UsersListScreen = () => {
 										)}
 									</div>
 									<div>
-										<button className='btn-edit'>
-											<i className='fas fa-edit'></i>
-										</button>
+										<Link to={`/Modezp-Shop/admin/user/${user._id}/edit`}>
+											<button className='btn-edit'>
+												<i className='fas fa-edit'></i>
+											</button>
+										</Link>
 										<button
 											className='btn-remove'
 											onClick={() => {

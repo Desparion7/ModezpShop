@@ -11,6 +11,8 @@ const ProfileScreen = () => {
 	useEffect(() => {
 		if (userInfo.userDetailsInfo === null) {
 			navigate('/Modezp-Shop/login');
+		}else{
+			
 		}
 	}, [navigate, userInfo]);
 

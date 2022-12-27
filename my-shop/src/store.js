@@ -9,6 +9,8 @@ import userDetailsSlice from './reducers/userDetailReducer';
 import userUpdateSlice from './reducers/updateUserReducer';
 import usersListSlice from './reducers/usersListReducer';
 import userDeleteSlice from './reducers/userDeleteReducer';
+import userDetailsByAdminSlice from './reducers/userDetailsByAdminReducer';
+import userUpdateByAdminSlice from './reducers/updateUserByAdminReducer';
 
 import paymentSlice from './reducers/paymentReducer';
 import cartItemsSlice from './reducers/cartReducer';
@@ -36,6 +38,8 @@ const store = configureStore({
 		userUpdate: userUpdateSlice.reducer,
 		usersList: usersListSlice.reducer,
 		userDelete: userDeleteSlice.reducer,
+		userDetailsByAdmin: userDetailsByAdminSlice.reducer,
+		userUpdateByAdmin: userUpdateByAdminSlice.reducer,
 	},
 });
 export const productsListActions = productsListSlice.actions;
@@ -54,5 +58,7 @@ export const userDetailsActions = userDetailsSlice.actions;
 export const userUpdateActions = userUpdateSlice.actions;
 export const usersListActions = usersListSlice.actions;
 export const userDeleteActions = userDeleteSlice.actions;
+export const userDetailsByAdminActions = userDetailsByAdminSlice.actions;
+export const userUpdateByAdminActions = userUpdateByAdminSlice.actions;
 
 export default store;

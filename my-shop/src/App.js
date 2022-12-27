@@ -74,6 +74,7 @@ function App() {
 			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}
 			{/* poprwic wygląd listy zamówień */}
+			{/* dodać przyciski powrotu lub rozbudować nawigacje */}
 		</div>
 	);
 }

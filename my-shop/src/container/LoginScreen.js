@@ -33,7 +33,7 @@ const LoginScreen = () => {
 		<div className='management-box margin-section'>
 			{loading && <LoadingSpinner />}
 			{error && <Message>Nieprawidłowy email lub hasło</Message>}
-			<div className='management-container'>
+			<div className='management-container box-shadow'>
 				<div className='management-box-form'>
 					<form onSubmit={submitHandler}>
 						<label htmlFor='email'>Email:</label>

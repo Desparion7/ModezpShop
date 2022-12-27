@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Checkout from '../components/Checkout';
 import { updateUserProfile, getUserDetails } from '../actions/usersActions';
@@ -69,7 +69,7 @@ const ShippingScreen = () => {
 				<div>
 					<div className='address-form-title'>Dane odbiorcy przesyłki:</div>
 					<form
-						className='address-form'
+						className='address-form box-shadow'
 						id='form-address'
 						onSubmit={(e) => {
 							submitHandler(e);
@@ -124,11 +124,6 @@ const ShippingScreen = () => {
 						Razem <span>{fullPrice} zł</span>
 					</div>
 				</div>
-				<Link to='/Modezp-Shop'>
-					<button className='btn cart-add-products-btn'>
-						Dobierz produkty
-					</button>
-				</Link>
 			</div>
 
 			<div className='second-summary-box'>
@@ -138,7 +133,11 @@ const ShippingScreen = () => {
 					<div>
 						Razem z dostawą: <span className='full-price'> {fullPrice}</span> zł
 					</div>
-					<button type='submit' form='form-address' className='btn btn-shipping-screen'>
+					<button
+						type='submit'
+						form='form-address'
+						className='btn btn-shipping-screen'
+					>
 						Wybierz formę płatności
 					</button>
 				</div>

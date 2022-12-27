@@ -11,7 +11,7 @@ import './PlaceOrderScreen.css';
 const OrderScreen = () => {
 	const dispatch = useDispatch();
 	const params = useParams();
-	// const [sdkReady, setSdkReady] = useState(false);
+	
 
 	const orderInfo = useSelector((state) => state.orderDetails);
 	const { order, loading, error } = orderInfo;
@@ -30,22 +30,11 @@ const OrderScreen = () => {
 	);
 
 	useEffect(() => {
-		// const addPayPalScript = async () => {
-		// 	const { data: clientId } = await axios.get('/api/config/paypal');
-		// };
 		if (!order || successPay) {
 			dispatch(orderPayActions.orderReset());
 			dispatch(detailsOrder(params.id));
 		}
-		// else {
-		// 	if (!order.isPaid) {
-		// 		if (!window.paypal) {
-		// 			addPayPalScript();
-		// 		} else {
-		// 			setSdkReady(true);
-		// 		}
-		// 	}
-		// }
+
 
 		if (!order || order._id !== params.id) dispatch(detailsOrder(params.id));
 	}, [dispatch, params, order, successPay]);
@@ -62,8 +51,8 @@ const OrderScreen = () => {
 			) : error ? (
 				<Message>{error}</Message>
 			) : (
-				<div className='placeorder margin-section'>
-					<div className='placeorder-summary'>
+				<div className='placeorder margin-section '>
+					<div className='placeorder-summary box-shadow'>
 						<div className='placeorder-box'>
 							<h1>Zamówienie: {order._id}</h1>
 							<div className='placeorder-form-title'>Adres do wysyłki:</div>
@@ -149,7 +138,7 @@ const OrderScreen = () => {
 						</div>
 					</div>
 
-					<div className='second-summary-box-order'>
+					<div className='box-shadow'>
 						<div>Wartość produktów: {itemsPrice} zł</div>
 						<div>Dostawa od: 0,00 zł</div>
 						<div className='placeorder-full-price'>

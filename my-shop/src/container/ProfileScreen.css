@@ -34,7 +34,18 @@
 .link-on-profile:hover {
 	color: var(--font-color);
 }
-
+.profile-admin {
+	margin-top: 2rem;
+	margin-right: 1rem;
+}
+.profile-user {
+	margin-right: 1rem;
+}
+.profile-admin-options,
+.profile-user {
+	display: flex;
+	flex-direction: column;
+}
 @media screen and (max-width: 766px) {
 	.profile-menu {
 		margin: 1rem 2rem;

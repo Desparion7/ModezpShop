@@ -68,7 +68,7 @@ const ProfileUpdateScreen = () => {
 				{message && <Message>{message}</Message>}
 				<div className='management-container'>
 					<div className='management-box-form'>
-						<form onSubmit={submitHandler}>
+						<form className='box-shadow' onSubmit={submitHandler}>
 							<label htmlFor='name'>Nazawa konta:</label>
 							<input
 								autoComplete='name'

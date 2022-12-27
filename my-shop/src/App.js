@@ -14,6 +14,8 @@ import PaymentScreen from './container/PaymentScreen';
 import PlaceOrderScreen from './container/PlaceOrderScreen';
 import OrderScreen from './container/OrderScreen';
 import OrdersListScreen from './container/OrdersListScreen';
+import UsersListScreen from './container/UsersListScreen';
+import UserEditScreen from './container/UserEditScreen';
 
 import './App.css';
 
@@ -23,16 +25,21 @@ function App() {
 			<Navbar></Navbar>
 			<main>
 				<Routes>
-					<Route path='/Modezp-Shop' element={<Home></Home>}></Route>
+					<Route path='/Modezp-Shop' element={<Home />}></Route>
+					<Route
+						path='/Modezp-Shop/admin/userslist'
+						element={<UsersListScreen />}
+					></Route>
+					<Route
+						path='/Modezp-Shop/admin/user/:id/edit'
+						element={<UserEditScreen />}
+					></Route>
 					<Route
 						path='/Modezp-Shop/products/:id'
-						element={<DetailLoading></DetailLoading>}
+						element={<DetailLoading />}
 					></Route>
-					<Route path='/Modezp-Shop/cart' element={<CartScreen></CartScreen>} />
-					<Route
-						path='/Modezp-Shop/shipping'
-						element={<ShippingScreen></ShippingScreen>}
-					/>
+					<Route path='/Modezp-Shop/cart' element={<CartScreen />} />
+					<Route path='/Modezp-Shop/shipping' element={<ShippingScreen />} />
 					<Route
 						path='/Modezp-Shop/payment'
 						element={<PaymentScreen />}
@@ -64,9 +71,9 @@ function App() {
 			</main>
 			<Footer></Footer>
 			{/* poprawić w nawwigacji zamykanie się po kliknięciu wyboru */}
-			{/* poprawić wyzualnie wygląd głównego profilu */}
-			{/* dodac box shadowy */}
+			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}
+			{/* poprwic wygląd listy zamówień */}
 		</div>
 	);
 }

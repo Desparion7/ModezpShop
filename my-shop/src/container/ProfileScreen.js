@@ -9,38 +9,83 @@ const ProfileScreen = () => {
 	const { userDetailsInfo } = userInfo;
 
 	useEffect(() => {
-		if (!userDetailsInfo) {
+		if (userInfo.userDetailsInfo === null) {
 			navigate('/Modezp-Shop/login');
 		}
-	}, [navigate, userDetailsInfo]);
+	}, [navigate, userInfo]);
 
 	return (
-		<div className='profile-menu'>
-			<div className='profile-user-name'>
-				<h2>{userDetailsInfo? `Witaj ${userDetailsInfo.name}!` : ''}</h2>
-				<h3>{userDetailsInfo ? userDetailsInfo.email : ''}</h3>
-			</div>
-			<div className='profil-info'>
-				<div className='profile-info-account'>
-					<h2>Ustawienia konta</h2>
-					<div className='subtitle'>Adres do wysyłki:</div>
-					<div>
-						<div>Mateusz Woś</div>
-						<div>37-716 Orły</div>
-						<div>ul Lipowa 88</div>
-						<div>tel 456 456 456</div>
+		<>
+			{userDetailsInfo && (
+				<div className='profile-menu'>
+					<div className='profile-user-name box-shadow '>
+						<h2>{userDetailsInfo ? `Witaj ${userDetailsInfo.name}!` : ''}</h2>
+						<h3>{userDetailsInfo ? userDetailsInfo.email : ''}</h3>
 					</div>
-					<Link className='link-on-profile'to='/Modezp-Shop/profile/address'>Zmień adres do wysyłki</Link>
-					<Link className='link-on-profile' to='/Modezp-Shop/profile/update'>Zmień ustawienia konta</Link>
+					<div className='profil-info'>
+						<div className='profile-info-account'>
+							<div className='profile-user box-shadow '>
+								<h2>Ustawienia konta</h2>
+								<div className='subtitle'>Adres do wysyłki:</div>
+								{userDetailsInfo.addressName ? (
+									<div>
+										<div>
+											{userDetailsInfo.addressName} {userDetailsInfo.surname}
+										</div>
+										<div>{`${userDetailsInfo.postalCode} ${userDetailsInfo.city}`}</div>
+										<div>{`ul. ${userDetailsInfo.street}`}</div>
+										<div>{`tel ${userDetailsInfo.phone}`}</div>
+									</div>
+								) : (
+									<div>Brak adresu do wysyłki</div>
+								)}
+
+								<Link
+									className='link-on-profile'
+									to='/Modezp-Shop/profile/address'
+								>
+									Zmień adres do wysyłki
+								</Link>
+								<Link
+									className='link-on-profile'
+									to='/Modezp-Shop/profile/update'
+								>
+									Zmień ustawienia konta
+								</Link>
+							</div>
+							{userDetailsInfo.isAdmin && (
+								<div className='profile-admin box-shadow '>
+									<h2>Opcje Administratora</h2>
+									<div className='profile-admin-options'>
+										<Link
+											className='link-on-profile'
+											to='/Modezp-Shop/admin/userslist'
+										>
+											Lista użytkowników
+										</Link>
+										<Link className='link-on-profile' to='/Modezp-Shop/'>
+											Lista produktów
+										</Link>
+										<Link className='link-on-profile' to='/Modezp-Shop/'>
+											Lista zamówień
+										</Link>
+									</div>
+								</div>
+							)}
+						</div>
+						<div className='profile-info-orders box-shadow '>
+							<h2>Zamówienia</h2>
+							<Link
+								className='link-on-profile'
+								to='/Modezp-Shop/profile/orderlist'
+							>
+								Przejdz do moich zamówień
+							</Link>
+						</div>
+					</div>
 				</div>
-				<div className='profile-info-orders'>
-					<h2>Zamówienia</h2>
-					<Link className='link-on-profile' to='/Modezp-Shop/profile/orderlist'>
-						Przejdz do moich zamówień
-					</Link>
-				</div>
-			</div>
-		</div>
+			)}
+		</>
 	);
 };
 

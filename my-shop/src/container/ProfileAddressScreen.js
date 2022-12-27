@@ -77,7 +77,7 @@ const ProfileAddressScreen = () => {
 					{error && <Message>{error}</Message>}
 					<div className='management-container'>
 						<div className='management-box-form'>
-							<form onSubmit={submitHandler}>
+							<form className='box-shadow' onSubmit={submitHandler}>
 								<label>Imię:</label>
 								<input
 									type='text'

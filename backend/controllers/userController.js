@@ -26,7 +26,7 @@ const authUser = asyncHandler(async (req, res) => {
 		});
 	} else {
 		res.status(401);
-		throw new Error('Invalid email or password');
+		throw new Error('Niepoprawne hasło lub login');
 	}
 });
 
@@ -40,7 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
 	if (userExists) {
 		res.status(400);
-		throw new Error('User already exists');
+		throw new Error('Dany użytkownik już istnieje');
 	}
 	const user = await User.create({
 		name,
@@ -58,7 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
 		});
 	} else {
 		res.status(400);
-		throw new Error('Invalid user data');
+		throw new Error('Bład danych');
 	}
 });
 
@@ -83,7 +83,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 		});
 	} else {
 		res.status(404);
-		throw new Error('User not found');
+		throw new Error('Nie znaleziono użytkownika o podanym id');
 	}
 });
 
@@ -121,8 +121,38 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 		});
 	} else {
 		res.status(404);
-		throw new Error('User not found');
+		throw new Error('Nie znaleziono użytkownika o podanym id');
 	}
 });
 
-export { authUser, registerUser, getUserProfile, updateUserProfile };
+//@desc Get all users
+//@route GET /api/users
+//@access Admin/Private
+const getUsers = asyncHandler(async (req, res) => {
+	const users = await User.find({});
+
+	res.json(users);
+});
+
+//@desc Delete user
+//@route DELETE /api/users/:id
+//@access Admin/Private
+const deleteUser = asyncHandler(async (req, res) => {
+	const user = await User.findById(req.params.id);
+	if (user) {
+		await user.remove();
+		res.json({ message: 'Użytkownik został usunęty' });
+	} else {
+		res.status(404);
+		throw new Error('Nie znaleziono użytkownika o podanym id');
+	}
+});
+
+export {
+	authUser,
+	registerUser,
+	getUserProfile,
+	updateUserProfile,
+	getUsers,
+	deleteUser,
+};

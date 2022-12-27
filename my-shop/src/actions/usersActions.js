@@ -4,6 +4,8 @@ import {
 	userRegisterActions,
 	userDetailsActions,
 	userUpdateActions,
+	usersListActions,
+	userDeleteActions,
 } from '../store';
 import store from '../store';
 
@@ -139,10 +141,75 @@ export const updateUserProfile = (user) => {
 
 				const { data } = await axios.put(`/api/users/profile`, user, config);
 				dispatch(userUpdateActions.userUpdateSuccess(data));
-				
 			} catch (error) {
 				dispatch(
 					userUpdateActions.userUpdateFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+
+export const getUsersList = () => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(usersListActions.usersListRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				const { data } = await axios.get(`/api/users`, config);
+
+				dispatch(usersListActions.usersListSuccess(data));
+			} catch (error) {
+				dispatch(
+					usersListActions.usersListFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+export const deleteUser = (id) => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(userDeleteActions.userDeleteRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				await axios.delete(`/api/users/${id}`, config);
+
+				dispatch(userDeleteActions.userDeleteSuccess());
+			} catch (error) {
+				dispatch(
+					userDeleteActions.userDeleteFail(
 						error.response && error.response.data.message
 							? error.response.data.message
 							: error.message

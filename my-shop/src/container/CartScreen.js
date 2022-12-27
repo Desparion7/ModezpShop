@@ -139,7 +139,9 @@ const CartScreen = () => {
 							<div>Dostawa od: 0,00 zł</div>
 							<div>Razem z dostawą: {fullPrice} zł</div>
 							<Link to='/Modezp-Shop/shipping'>
-								<button className='btn btn-cart-screen'>Dostawa i płatność</button>
+								<button className='btn btn-cart-screen'>
+									Dostawa i płatność
+								</button>
 							</Link>
 						</div>
 					</div>

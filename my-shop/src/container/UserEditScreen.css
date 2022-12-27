@@ -1,0 +1,49 @@
+.change-user {
+	min-height: 75vh;
+}
+.change-user-form-box {
+	display: flex;
+	justify-content: center;
+}
+.change-user-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.change-user-form-title {
+	text-align: center;
+}
+.change-user-form-id {
+	margin: 1rem 0;
+	text-align: center;
+}
+
+.change-user-form-options {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.change-user-form-options input {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	min-width: 300px;
+}
+.change-user-checbox {
+	width: 20px;
+	height: 20px;
+    cursor: pointer;
+}
+.change-user-btn {
+	font-size: 1rem;
+	border-radius: 5px;
+	border: none;
+	padding: 0.7rem 1rem;
+	margin: 1rem 0;
+	background: var(--buttons-color);
+	transition: background 0.3s;
+	cursor: pointer;
+}
+.change-user-btn:hover {
+	background: var(--buttons-hover-color);
+}

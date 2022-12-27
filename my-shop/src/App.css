@@ -4,6 +4,10 @@
 	padding: 0;
 	scroll-behavior: smooth;
 	font-family: var(--main-text);
+	
+}
+body{
+	background-color: rgba(246, 245, 245);
 }
 .app {
 	min-height: 75vh;
@@ -18,9 +22,9 @@
 }
 .box-shadow {
 	padding: 1rem;
-	border: 1px rgba(120, 120, 120, 0.867) solid;
+	border: 1px rgba(196, 195, 195, 0.867) solid;
 	border-radius: 5px;
-	box-shadow: 8px 8px 26px -12px rgba(66, 68, 90, 1);
+	box-shadow: 8px 8px 8px -12px rgb(172, 172, 172);
 }
 
 @media screen and (max-width: 667px) {

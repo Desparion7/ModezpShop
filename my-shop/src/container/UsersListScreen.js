@@ -62,6 +62,9 @@ const UsersListScreen = () => {
 					<Message>{error}</Message>
 				) : (
 					<div className='margin-section'>
+						<Link to='/Modezp-Shop/profile'>
+							<button className='btn'>Wróć</button>
+						</Link>
 						<div className='userslist'>
 							<div className='userslist-box'>
 								<div className='userslist-header'>
@@ -131,7 +134,9 @@ const UsersListScreen = () => {
 										<div>{user.email}</div>
 									</div>
 									<div className='userslist-small-body'>
-										<div className='userslist-small-header'>Status admina: </div>
+										<div className='userslist-small-header'>
+											Status admina:{' '}
+										</div>
 										{user.isAdmin ? (
 											<i
 												className='fas fa-check'

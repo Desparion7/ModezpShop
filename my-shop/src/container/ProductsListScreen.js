@@ -4,7 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
 	productsFetching,
 	productDeleteById,
+	productCreate,
 } from '../actions/productsActions';
+import { productCreateActions } from '../store';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
 import Modal from '../UI/Modal';
@@ -19,11 +21,19 @@ const ProductsListScreen = () => {
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const productsList = useSelector((state) => state.products);
+	const { loading, error, products } = productsList;
 	const productDelete = useSelector((state) => state.productDelete);
 	const { success, error: deleteError } = productDelete;
-	const { loading, error, products } = productsList;
+	const newProductCreate = useSelector((state) => state.productCreate);
+	const {
+		success: createSuccess,
+		error: createError,
+		loading: createLoading,
+		product: createProdukt,
+	} = newProductCreate;
 
 	useEffect(() => {
+		dispatch(productCreateActions.productReset());
 		if (userLogin.userDetailsInfo !== null) {
 			if (userLogin.userDetailsInfo.isAdmin) {
 				dispatch(productsFetching());
@@ -31,7 +41,10 @@ const ProductsListScreen = () => {
 		} else {
 			navigate('/Modezp-Shop');
 		}
-	}, [dispatch, navigate, userLogin, success]);
+		if (createSuccess) {
+			navigate(`/Modezp-Shop/admin/product/${createProdukt._id}/edit`);
+		}
+	}, [dispatch, navigate, userLogin, success, createSuccess, createProdukt]);
 
 	const showModalHandler = () => {
 		setShowModal(true);
@@ -42,6 +55,9 @@ const ProductsListScreen = () => {
 	const deleteHandler = (id) => {
 		dispatch(productDeleteById(id));
 		setShowModal(false);
+	};
+	const createProductHandler = () => {
+		dispatch(productCreate());
 	};
 
 	return (
@@ -59,6 +75,7 @@ const ProductsListScreen = () => {
 					modalID={modalProductID}
 				></Modal>
 			)}
+
 			<div className='productslist-container'>
 				{loading ? (
 					<LoadingSpinner />
@@ -67,7 +84,15 @@ const ProductsListScreen = () => {
 				) : (
 					<>
 						{deleteError && <Message>{deleteError}</Message>}
+						{createError && <Message>{deleteError}</Message>}
+						{createLoading && <LoadingSpinner />}
 						<div className='margin-section'>
+							<Link to='/Modezp-Shop/profile'>
+								<button className='btn'>Wróć</button>
+							</Link>
+							<button className='btn btn-add' onClick={createProductHandler}>
+								Dodaj nowy produkt
+							</button>
 							<div className='productslist'>
 								<div className='productslist-box'>
 									<div className='productslist-header'>
@@ -153,7 +178,7 @@ const ProductsListScreen = () => {
 											<div>{product.category}</div>
 										</div>
 										<div>
-											<Link to={`/Modezp-Shop/admin/user/${product._id}/edit`}>
+											<Link to={`/Modezp-Shop/admin/product/${product._id}/edit`}>
 												<button className='btn-edit'>
 													<i className='fas fa-edit'></i>
 												</button>

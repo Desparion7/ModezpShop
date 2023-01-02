@@ -40,6 +40,9 @@
 	display: flex;
 	align-items: center;
 }
+.btn-add {
+	margin-left: 1rem;
+}
 .btn-edit,
 .btn-remove {
 	padding: 0.7rem;

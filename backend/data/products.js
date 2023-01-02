@@ -18,7 +18,7 @@ const products = [
 		image: ['/Modezp-Shop/images/big-koala-1.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
-		size: ['S', 'M', 'L', 'Xl'],
+		size: ['S', 'M', 'L', 'XL'],
 		category: 'piżamy zwierząt',
 		price: 139.99,
 		countInStock: 100,

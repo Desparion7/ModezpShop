@@ -2,6 +2,8 @@ import {
 	productsListActions,
 	productDetailActions,
 	productDeleteActions,
+	productCreateActions,
+	productUpdateActions,
 } from '../store';
 import axios from 'axios';
 
@@ -67,6 +69,74 @@ export const productDeleteById = (id) => {
 			} catch (error) {
 				dispatch(
 					productDeleteActions.productDeleteFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+export const productCreate = () => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(productCreateActions.productCreateRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				const { data } = await axios.post(`/api/products`, {}, config);
+				dispatch(productCreateActions.productCreateSuccess(data));
+			} catch (error) {
+				dispatch(
+					productCreateActions.productCreateFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+export const productUpdate = (productId, product) => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(productUpdateActions.productUpdateRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				const { data } = await axios.put(
+					`/api/products/${productId}`,
+					product,
+					config
+				);
+				dispatch(productUpdateActions.productUpdateSuccess(data));
+			} catch (error) {
+				dispatch(
+					productUpdateActions.productUpdateFail(
 						error.response && error.response.data.message
 							? error.response.data.message
 							: error.message

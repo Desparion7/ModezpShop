@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Message from '../UI/Message';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import { productDetails } from '../actions/productsActions';
-import { userUpdateByAdminActions } from '../store';
+import { productDetails, productUpdate } from '../actions/productsActions';
+import { productUpdateActions } from '../store';
 import './ProductEditScreen.css';
 
 const ProductEditScreen = () => {
@@ -23,16 +23,16 @@ const ProductEditScreen = () => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const productInfo = useSelector((state) => state.product);
 	const { product, error, loading } = productInfo;
-	// const userUpdateByAdmin = useSelector((state) => state.userUpdateByAdmin);
-	// const {
-	// 	error: updateError,
-	// 	loading: updateLoading,
-	// 	success: updateSuccess,
-	// } = userUpdateByAdmin;
+	const productUpdateInfo = useSelector((state) => state.productUpdate);
+	const {
+		error: updateError,
+		loading: updateLoading,
+		success: updateSuccess,
+	} = productUpdateInfo;
 	useEffect(() => {
-		if (false) {
+		if (updateSuccess) {
 			dispatch(productDetails(productId));
-			dispatch(userUpdateByAdminActions.userUpdateByAdminReset());
+			dispatch(productUpdateActions.productUpdateReset());
 		} else {
 			if (userLogin.userDetailsInfo !== null) {
 				if (userLogin.userDetailsInfo.isAdmin) {
@@ -51,17 +51,20 @@ const ProductEditScreen = () => {
 				navigate('/Modezp-Shop');
 			}
 		}
-	}, [dispatch, navigate, userLogin, product, productId]);
+	}, [dispatch, navigate, userLogin, product, productId, updateSuccess]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// dispatch(
-		// 	updateUserByAdmin(userId, {
-		// 		name,
-		// 		email,
-		// 		isAdmin,
-		// 	})
-		// );
+		dispatch(
+			productUpdate(productId, {
+				name,
+				price,
+				description,
+				image: images,
+				category,
+				countInStock,
+			})
+		);
 	};
 
 	return (
@@ -69,8 +72,8 @@ const ProductEditScreen = () => {
 			<Link to='/Modezp-Shop/admin/productslist'>
 				<button className='btn'>Wróć</button>
 			</Link>
-			{/* {updateLoading && <LoadingSpinner />}
-			{updateError && <Message>{error}</Message>} */}
+			{updateLoading && <LoadingSpinner />}
+			{updateError && <Message>{error}</Message>}
 			{loading ? (
 				<LoadingSpinner />
 			) : error ? (

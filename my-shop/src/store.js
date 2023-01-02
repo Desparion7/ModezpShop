@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import productsListSlice from './reducers/productsListReducer';
 import productDetailSlice from './reducers/productDetailReducer';
+import productDeleteSlice from './reducers/productDeleteReducer';
 
 import userLoginSlice from './reducers/userLoginReducer';
 import userRegisterSlice from './reducers/userRegisterReducer';
@@ -24,6 +25,7 @@ const store = configureStore({
 	reducer: {
 		products: productsListSlice.reducer,
 		product: productDetailSlice.reducer,
+		productDelete: productDeleteSlice.reducer,
 
 		cart: cartItemsSlice.reducer,
 		payment: paymentSlice.reducer,
@@ -44,6 +46,7 @@ const store = configureStore({
 });
 export const productsListActions = productsListSlice.actions;
 export const productDetailActions = productDetailSlice.actions;
+export const productDeleteActions = productDeleteSlice.actions;
 
 export const cartActions = cartItemsSlice.actions;
 export const paymentActions = paymentSlice.actions;

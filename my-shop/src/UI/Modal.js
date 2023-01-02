@@ -13,7 +13,7 @@ const Popup = ({
 	leftBtnText,
 	rightBtn,
 	rightBtnText,
-	modalUserID,
+	modalID,
 }) => {
 	return (
 		<div className='popup slide-bottom'>
@@ -30,7 +30,7 @@ const Popup = ({
 						</button>
 						<button
 							className='popup-window-btn popup-btn-right'
-							onClick={() => rightBtn(modalUserID)}
+							onClick={() => rightBtn(modalID)}
 						>
 							{rightBtnText}
 						</button>
@@ -47,10 +47,10 @@ const Modal = ({
 	leftBtnText,
 	rightBtn,
 	rightBtnText,
-	modalUserID,
+	modalID,
 }) => {
 	return (
-		<div>
+		<div className='modal'>
 			{ReactDOM.createPortal(
 				<Backdrop />,
 				document.getElementById('backdrop-root')
@@ -63,7 +63,7 @@ const Modal = ({
 					leftBtnText={leftBtnText}
 					rightBtn={rightBtn}
 					rightBtnText={rightBtnText}
-					modalUserID={modalUserID}
+					modalID={modalID}
 				></Popup>,
 				document.getElementById('popup-root')
 			)}

@@ -15,7 +15,7 @@ const Menu = () => {
 		dispatch(userRegisterActions.userRegisterReset());
 	};
 	return (
-		<div className='menu'>
+		<div className='menu box-shadow'>
 			{user ? (
 				<div className='menu-links'>
 					<Link to='/Modezp-Shop/profile' className='menu-link'>

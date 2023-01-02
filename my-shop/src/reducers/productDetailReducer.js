@@ -7,6 +7,7 @@ const productDetailSlice = createSlice({
 	reducers: {
 		productDetailRequest(state) {
 			state.loading = true;
+			state.success = false;
 		},
 		productDetailSuccess(state, action) {
 			state.product = action.payload;

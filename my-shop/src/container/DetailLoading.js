@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
 import ProductDetail from '../components/ProductDetail';
-import { productDetailActions } from '../store';
+import { productDetails } from '../actions/productsActions';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
-
 
 const DetailLoading = () => {
 	const dispatch = useDispatch();
@@ -14,27 +12,10 @@ const DetailLoading = () => {
 	const loading = useSelector((state) => state.product.loading);
 	const error = useSelector((state) => state.product.error);
 
-	const [loaded, setIsLoaded] = useState(false);
 	const params = useParams();
 
 	useEffect(() => {
-		const fetchProduct = async () => {
-			try {
-				dispatch(productDetailActions.productDetailRequest());
-				const res = await axios.get(`/api/products/${params.id}`);
-				dispatch(productDetailActions.productDetailSuccess(res.data));
-				setIsLoaded(true);
-			} catch (error) {
-				dispatch(
-					productDetailActions.productDetailFail(
-						error.response && error.response.data.message
-							? error.response.data.message
-							: error.message
-					)
-				);
-			}
-		};
-		fetchProduct();
+		dispatch(productDetails(params.id));
 	}, [params.id, dispatch]);
 
 	return (
@@ -49,7 +30,7 @@ const DetailLoading = () => {
 			) : error ? (
 				<Message>{error}</Message>
 			) : (
-				loaded && <ProductDetail product={product}></ProductDetail>
+				product._id && <ProductDetail product={product}></ProductDetail>
 			)}
 		</>
 	);

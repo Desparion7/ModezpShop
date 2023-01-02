@@ -65,10 +65,10 @@ const ProfileScreen = () => {
 										>
 											Lista użytkowników
 										</Link>
-										<Link className='link-on-profile' to='/Modezp-Shop/'>
+										<Link className='link-on-profile' to='/Modezp-Shop/admin/productslist'>
 											Lista produktów
 										</Link>
-										<Link className='link-on-profile' to='/Modezp-Shop/'>
+										<Link className='link-on-profile' to='/Modezp-Shop/admin/orderlist'>
 											Lista zamówień
 										</Link>
 									</div>

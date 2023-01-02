@@ -16,6 +16,7 @@ import OrderScreen from './container/OrderScreen';
 import OrdersListScreen from './container/OrdersListScreen';
 import UsersListScreen from './container/UsersListScreen';
 import UserEditScreen from './container/UserEditScreen';
+import ProductsListScreen from './container/ProductsListScreen';
 
 import './App.css';
 
@@ -31,7 +32,15 @@ function App() {
 						element={<UsersListScreen />}
 					></Route>
 					<Route
+						path='/Modezp-Shop/admin/productslist'
+						element={<ProductsListScreen />}
+					></Route>
+					<Route
 						path='/Modezp-Shop/admin/user/:id/edit'
+						element={<UserEditScreen />}
+					></Route>
+					<Route
+						path='/Modezp-Shop/admin/product/:id/edit'
 						element={<UserEditScreen />}
 					></Route>
 					<Route

@@ -52,7 +52,7 @@ const UsersListScreen = () => {
 					rightBtnText={'Usuń'}
 					leftBtn={closeModalHandler}
 					leftBtnText={'Anuluj'}
-					modalUserID={modalUserID}
+					modalID={modalUserID}
 				></Modal>
 			)}
 			<div className='userslist-container'>
@@ -117,21 +117,21 @@ const UsersListScreen = () => {
 						</div>
 						<div className='userslist-small'>
 							{users.map((user) => (
-								<div className='userlist-small-user' key={user._id}>
-									<div className='userlist-small-body'>
-										<div className='userlist-small-header'>ID: </div>
+								<div className='userslist-small-user' key={user._id}>
+									<div className='userslist-small-body'>
+										<div className='userslist-small-header'>ID: </div>
 										<div>{user._id}</div>
 									</div>
-									<div className='userlist-small-body'>
-										<div className='userlist-small-header'>Nazwa:</div>
+									<div className='userslist-small-body'>
+										<div className='userslist-small-header'>Nazwa:</div>
 										<div> {user.name}</div>
 									</div>
-									<div className='userlist-small-body'>
-										<div className='userlist-small-header'>Email: </div>
+									<div className='userslist-small-body'>
+										<div className='userslist-small-header'>Email: </div>
 										<div>{user.email}</div>
 									</div>
-									<div className='userlist-small-body'>
-										<div className='userlist-small-header'>Status admina: </div>
+									<div className='userslist-small-body'>
+										<div className='userslist-small-header'>Status admina: </div>
 										{user.isAdmin ? (
 											<i
 												className='fas fa-check'

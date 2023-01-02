@@ -1,0 +1,56 @@
+.change-product {
+	min-height: 75vh;
+}
+.change-product-form-box {
+	display: flex;
+	justify-content: center;
+}
+.change-product-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.change-product-form-title {
+	text-align: center;
+}
+.change-product-form-id {
+	margin: 1rem 0;
+	text-align: center;
+}
+
+.change-product-form-options {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.change-product-form-options input {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	min-width: 300px;
+}
+.change-product-form-options textarea {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	min-width: 600px;
+	min-height: 200px;
+}
+
+.change-product-checbox {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.change-product-btn {
+	font-size: 1rem;
+	border-radius: 5px;
+	border: none;
+	padding: 0.7rem 1rem;
+	margin: 1rem 0;
+	background: var(--buttons-color);
+	transition: background 0.3s;
+	cursor: pointer;
+}
+.change-product-btn:hover {
+	background: var(--buttons-hover-color);
+}

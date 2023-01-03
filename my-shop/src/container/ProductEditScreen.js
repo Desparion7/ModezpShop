@@ -6,6 +6,7 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import { productDetails, productUpdate } from '../actions/productsActions';
 import { productUpdateActions } from '../store';
 import './ProductEditScreen.css';
+import axios from 'axios';
 
 const ProductEditScreen = () => {
 	const navigate = useNavigate();
@@ -16,9 +17,18 @@ const ProductEditScreen = () => {
 	const [name, setName] = useState('');
 	const [price, setPrice] = useState('');
 	const [category, setCategory] = useState('');
-	const [images, setImages] = useState('');
+	const [images, setImages] = useState([]);
 	const [countInStock, setCountInStock] = useState('');
 	const [description, setDescription] = useState('');
+
+	const [uploading1, setUploading1] = useState(false);
+	const [uploading2, setUploading2] = useState(false);
+	const [uploading3, setUploading3] = useState(false);
+	const [uploading4, setUploading4] = useState(false);
+	const [photo1, setPhoto1] = useState('/Modezp-Shop/images/plus.png');
+	const [photo2, setPhoto2] = useState('/Modezp-Shop/images/plus.png');
+	const [photo3, setPhoto3] = useState('/Modezp-Shop/images/plus.png');
+	const [photo4, setPhoto4] = useState('/Modezp-Shop/images/plus.png');
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const productInfo = useSelector((state) => state.product);
@@ -45,6 +55,26 @@ const ProductEditScreen = () => {
 						setImages(product.image);
 						setCountInStock(product.countInStock);
 						setDescription(product.description);
+						if (product.image[0]) {
+							setPhoto1(product.image[0]);
+						} else {
+							setPhoto1('/Modezp-Shop/images/plus.png');
+						}
+						if (product.image[1]) {
+							setPhoto2(product.image[1]);
+						} else {
+							setPhoto2('/Modezp-Shop/images/plus.png');
+						}
+						if (product.image[2]) {
+							setPhoto3(product.image[2]);
+						} else {
+							setPhoto3('/Modezp-Shop/images/plus.png');
+						}
+						if (product.image[3]) {
+							setPhoto4(product.image[3]);
+						} else {
+							setPhoto4('/Modezp-Shop/images/plus.png');
+						}
 					}
 				}
 			} else {
@@ -65,6 +95,37 @@ const ProductEditScreen = () => {
 				countInStock,
 			})
 		);
+	};
+	const uploadFileHandler = async (e, setPhoto, setUploading, index) => {
+		const file = e.target.files[0];
+		const formData = new FormData();
+		formData.append('image', file);
+		setUploading(true);
+
+		try {
+			const config = {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			};
+
+			const { data } = await axios.post('/api/upload', formData, config);
+			setPhoto(data);
+
+			const newImages = images.slice();
+			newImages.splice(index, 1, data);
+			setImages(newImages);
+			setUploading(false);
+		} catch (error) {
+			console.error(error);
+			setUploading(false);
+		}
+	};
+
+	const removePhotoHandler = (index) => {
+		const newImages = images.slice();
+		newImages.splice(index, 1);
+		setImages(newImages);
 	};
 
 	return (
@@ -111,12 +172,84 @@ const ProductEditScreen = () => {
 								onChange={(e) => setCategory(e.target.value)}
 							></input>
 							<label>Zdjęcia:</label>
-							<input
-								type='text'
-								value={images}
-								required
-								onChange={(e) => setImages(e.target.value)}
-							></input>
+							<div className='photo-upload box-shadow'>
+								<div className='photo-upload-box'>
+									<label htmlFor='upload-photo-1'>
+										<button
+											className='upload-photo-remove'
+											onClick={(index = 0) => removePhotoHandler(index)}
+										>
+											<i className='fa-solid fa-xmark'></i>
+										</button>
+										{uploading1 && <LoadingSpinner />}
+										{!uploading1 && <img src={photo1} alt='plus'></img>}
+									</label>
+									<input
+										type='file'
+										name='photo'
+										id='upload-photo-1'
+										onChange={(e, index = 0) =>
+											uploadFileHandler(e, setPhoto1, setUploading1, index)
+										}
+									/>
+									<label htmlFor='upload-photo-2'>
+										<button
+											className='upload-photo-remove'
+											onClick={(index = 1) => removePhotoHandler(index)}
+										>
+											<i className='fa-solid fa-xmark'></i>
+										</button>
+										{uploading2 && <LoadingSpinner />}
+										{!uploading2 && <img src={photo2} alt='plus'></img>}
+									</label>
+									<input
+										type='file'
+										name='photo'
+										id='upload-photo-2'
+										onChange={(e, index = 1) =>
+											uploadFileHandler(e, setPhoto2, setUploading2, index)
+										}
+									/>
+								</div>
+								<div className='photo-upload-box'>
+									<label htmlFor='upload-photo-3'>
+										<button
+											className='upload-photo-remove'
+											onClick={(index = 2) => removePhotoHandler(index)}
+										>
+											<i className='fa-solid fa-xmark'></i>
+										</button>
+										{uploading3 && <LoadingSpinner />}
+										{!uploading3 && <img src={photo3} alt='plus'></img>}
+									</label>
+									<input
+										type='file'
+										name='photo'
+										id='upload-photo-3'
+										onChange={(e, index = 2) =>
+											uploadFileHandler(e, setPhoto3, setUploading3, index)
+										}
+									/>
+									<label htmlFor='upload-photo-4'>
+										<button
+											className='upload-photo-remove'
+											onClick={(index = 3) => removePhotoHandler(index)}
+										>
+											<i className='fa-solid fa-xmark'></i>
+										</button>
+										{uploading4 && <LoadingSpinner />}
+										{!uploading4 && <img src={photo4} alt='plus'></img>}
+									</label>
+									<input
+										type='file'
+										name='photo'
+										id='upload-photo-4'
+										onChange={(e, index = 3) =>
+											uploadFileHandler(e, setPhoto4, setUploading4, index)
+										}
+									/>
+								</div>
+							</div>
 							<label>Dostępna ilość:</label>
 							<input
 								type='number'

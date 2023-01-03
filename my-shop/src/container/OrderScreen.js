@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { detailsOrder, payOrder, deliverOrder } from '../actions/orderActions';
-import { orderPayActions } from '../store';
+import { orderPayActions, orderDeliverActions } from '../store';
 import Message from '../UI/Message';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import './PlaceOrderScreen.css';
@@ -41,6 +41,7 @@ const OrderScreen = () => {
 		}
 		if (!order || successPay || successDeliver) {
 			dispatch(orderPayActions.orderReset());
+			dispatch(orderDeliverActions.orderReset());
 			dispatch(detailsOrder(params.id));
 		}
 

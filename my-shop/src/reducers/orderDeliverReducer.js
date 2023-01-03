@@ -18,9 +18,8 @@ const orderDeliverSlice = createSlice({
 			state.error = action.payload;
 		},
 		orderReset(state) {
-			state.loading = false;
 			state.success = false;
-			state.error = null;
+			
 		},
 	},
 });

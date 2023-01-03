@@ -23,6 +23,7 @@ import orderDetailsSlice from './reducers/orderDetailsReducer';
 import orderPaySlice from './reducers/orderPayReducer';
 import ordersUserListSlice from './reducers/ordersUserListReducer';
 import ordersAdminListSlice from './reducers/ordersAdminListReducer';
+import orderDeliverSlice from './reducers/orderDeliverReducer';
 
 const store = configureStore({
 	reducer: {
@@ -38,6 +39,7 @@ const store = configureStore({
 		order: orderSlice.reducer,
 		orderDetails: orderDetailsSlice.reducer,
 		orderPay: orderPaySlice.reducer,
+		orderDeliver: orderDeliverSlice.reducer,
 		ordersUserList: ordersUserListSlice.reducer,
 		ordersAdminList: ordersAdminListSlice.reducer,
 
@@ -63,6 +65,7 @@ export const paymentActions = paymentSlice.actions;
 export const orderActions = orderSlice.actions;
 export const orderDetailsActions = orderDetailsSlice.actions;
 export const orderPayActions = orderPaySlice.actions;
+export const orderDeliverActions = orderDeliverSlice.actions;
 export const ordersUserListActions = ordersUserListSlice.actions;
 export const ordersAdminListActions = ordersAdminListSlice.actions;
 

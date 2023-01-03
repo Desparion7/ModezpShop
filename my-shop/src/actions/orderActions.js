@@ -4,6 +4,7 @@ import {
 	orderPayActions,
 	ordersUserListActions,
 	ordersAdminListActions,
+	orderDeliverActions,
 } from '../store';
 import axios from 'axios';
 
@@ -71,42 +72,42 @@ export const detailsOrder = (id) => {
 	};
 };
 
-export const orderUpdatePaid = (orderId, paymentResult) => {
-	return (dispatch, getState) => {
-		const sendRequest = async () => {
-			try {
-				dispatch(orderPayActions.orderPayRequest());
+// export const orderUpdatePaid = (orderId, paymentResult) => {
+// 	return (dispatch, getState) => {
+// 		const sendRequest = async () => {
+// 			try {
+// 				dispatch(orderPayActions.orderPayRequest());
 
-				const {
-					userLogin: { userDetailsInfo },
-				} = getState();
-				const config = {
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${userDetailsInfo.token}`,
-					},
-				};
+// 				const {
+// 					userLogin: { userDetailsInfo },
+// 				} = getState();
+// 				const config = {
+// 					headers: {
+// 						'Content-Type': 'application/json',
+// 						Authorization: `Bearer ${userDetailsInfo.token}`,
+// 					},
+// 				};
 
-				const { data } = await axios.put(
-					`/api/orders/${orderId}/pay`,
-					paymentResult,
-					config
-				);
+// 				const { data } = await axios.put(
+// 					`/api/orders/${orderId}/pay`,
+// 					paymentResult,
+// 					config
+// 				);
 
-				dispatch(orderPayActions.orderPaySuccess(data));
-			} catch (error) {
-				dispatch(
-					orderPayActions.orderPayFail(
-						error.response && error.response.data.message
-							? error.response.data.message
-							: error.message
-					)
-				);
-			}
-		};
-		sendRequest();
-	};
-};
+// 				dispatch(orderPayActions.orderPaySuccess(data));
+// 			} catch (error) {
+// 				dispatch(
+// 					orderPayActions.orderPayFail(
+// 						error.response && error.response.data.message
+// 							? error.response.data.message
+// 							: error.message
+// 					)
+// 				);
+// 			}
+// 		};
+// 		sendRequest();
+// 	};
+// };
 
 export const payOrder = (orderId, paymentResult) => {
 	return (dispatch, getState) => {
@@ -135,6 +136,42 @@ export const payOrder = (orderId, paymentResult) => {
 			} catch (error) {
 				dispatch(
 					orderPayActions.orderPayFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+export const deliverOrder = (order) => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(orderDeliverActions.orderDeliverRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				const { data } = await axios.put(
+					`/api/orders/${order._id}/deliver`,
+					{},
+					config
+				);
+
+				dispatch(orderDeliverActions.orderDeliverSuccess(data));
+			} catch (error) {
+				dispatch(
+					orderDeliverActions.orderDeliverFail(
 						error.response && error.response.data.message
 							? error.response.data.message
 							: error.message

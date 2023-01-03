@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import { Link, useParams } from 'react-router-dom';
-import { detailsOrder, payOrder } from '../actions/orderActions';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { detailsOrder, payOrder, deliverOrder } from '../actions/orderActions';
 import { orderPayActions } from '../store';
 import Message from '../UI/Message';
 import LoadingSpinner from '../UI/LoadingSpinner';
@@ -11,7 +11,10 @@ import './PlaceOrderScreen.css';
 const OrderScreen = () => {
 	const dispatch = useDispatch();
 	const params = useParams();
-	
+	const navigate = useNavigate();
+
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userDetailsInfo } = userLogin;
 
 	const orderInfo = useSelector((state) => state.orderDetails);
 	const { order, loading, error } = orderInfo;
@@ -20,6 +23,9 @@ const OrderScreen = () => {
 
 	const orderPay = useSelector((state) => state.orderPay);
 	const { success: successPay, loading: loadingPay } = orderPay;
+
+	const orderDeliver = useSelector((state) => state.orderDeliver);
+	const { success: successDeliver, loading: loadingDeliver } = orderDeliver;
 
 	//caluculate price
 	const addDecimals = (num) => {
@@ -30,18 +36,31 @@ const OrderScreen = () => {
 	);
 
 	useEffect(() => {
-		if (!order || successPay) {
+		if (!userLogin) {
+			navigate('/Shop/login');
+		}
+		if (!order || successPay || successDeliver) {
 			dispatch(orderPayActions.orderReset());
 			dispatch(detailsOrder(params.id));
 		}
 
-
 		if (!order || order._id !== params.id) dispatch(detailsOrder(params.id));
-	}, [dispatch, params, order, successPay]);
+	}, [
+		dispatch,
+		params,
+		order,
+		successPay,
+		successDeliver,
+		userLogin,
+		navigate,
+	]);
 
 	const successPaymentHandler = (paymentResult) => {
-		console.log(params.id);
 		dispatch(payOrder(params.id, paymentResult));
+	};
+
+	const deliveredHandler = () => {
+		dispatch(deliverOrder(order));
 	};
 
 	return (
@@ -69,7 +88,8 @@ const OrderScreen = () => {
 								<Message
 									style={{ backgroundColor: '#b3ebac', fontSize: '16px' }}
 								>
-									Zamówienie dostarczone {order.deliveredAt}
+									Zamówienie dostarczone {order.deliveredAt.substring(0, 10)}{' '}
+									{order.deliveredAt.substring(11, 16)}
 								</Message>
 							) : (
 								<Message style={{ fontSize: '16px' }}>
@@ -176,6 +196,15 @@ const OrderScreen = () => {
 								/>
 							</PayPalScriptProvider>
 						)}
+						{loadingDeliver && <LoadingSpinner />}
+						{userDetailsInfo &&
+							userDetailsInfo.isAdmin &&
+							order.isPaid &&
+							!order.isDelivered && (
+								<button className='btn' onClick={deliveredHandler}>
+									Odznacz jako dostarczone
+								</button>
+							)}
 					</div>
 				</div>
 			)}

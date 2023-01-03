@@ -1,0 +1,106 @@
+.orderslist-container {
+	min-height: 75vh;
+}
+
+.orderslist-box {
+	margin: 1rem 4rem;
+	padding: 2rem;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+.orderslist-header {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid black;
+}
+.orderslist-header-text {
+	font-weight: bold;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.orderslist-text-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.orderslist-body {
+	margin-top: 1rem;
+}
+
+.orderslist-body-user {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid grey;
+}
+.orderslist-body-text {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+}
+.btn-edit,
+.btn-remove {
+	padding: 0.7rem;
+	margin: 0 1rem;
+	cursor: pointer;
+}
+.btn-edit i,
+.btn-remove i {
+	font-size: 20px;
+	color: grey;
+	transition: color 0.3s;
+}
+.btn-remove {
+	border-radius: 5px;
+	border: none;
+}
+.btn-remove:hover i {
+	color: rgb(240, 105, 105);
+}
+.btn-edit {
+	border-radius: 5px;
+	border: none;
+}
+
+.btn-edit:hover i {
+	color: rgb(58, 92, 230);
+}
+.orderslist-small {
+	min-height: 75vh;
+	display: none;
+}
+.orderslist-small-user {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+	gap: 1rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+.orderslist-small-body {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem;
+	border-bottom: 1px solid grey;
+}
+.orderslist-small-header {
+	font-weight: bold;
+}
+
+@media screen and (max-width: 1048px) {
+	.orderslist {
+		display: none;
+	}
+	.orderslist-small {
+		display: block;
+	}
+}

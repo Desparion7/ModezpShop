@@ -3,6 +3,7 @@ import {
 	orderDetailsActions,
 	orderPayActions,
 	ordersUserListActions,
+	ordersAdminListActions,
 } from '../store';
 import axios from 'axios';
 
@@ -167,6 +168,39 @@ export const getOrderUserList = () => {
 			} catch (error) {
 				dispatch(
 					ordersUserListActions.ordersUserListFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+
+export const getOrderAdminList = () => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(ordersAdminListActions.ordersAdminListRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+				const { data } = await axios.get(`/api/orders`, config);
+
+				dispatch(ordersAdminListActions.ordersAdminListSuccess(data));
+			} catch (error) {
+				dispatch(
+					ordersAdminListActions.ordersAdminListFail(
 						error.response && error.response.data.message
 							? error.response.data.message
 							: error.message

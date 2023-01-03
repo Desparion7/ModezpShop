@@ -68,7 +68,7 @@ const ProfileScreen = () => {
 										<Link className='link-on-profile' to='/Modezp-Shop/admin/productslist'>
 											Lista produktów
 										</Link>
-										<Link className='link-on-profile' to='/Modezp-Shop/admin/orderlist'>
+										<Link className='link-on-profile' to='/Modezp-Shop/admin/orderslist'>
 											Lista zamówień
 										</Link>
 									</div>

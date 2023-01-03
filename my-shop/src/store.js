@@ -22,6 +22,7 @@ import orderSlice from './reducers/orderReducer';
 import orderDetailsSlice from './reducers/orderDetailsReducer';
 import orderPaySlice from './reducers/orderPayReducer';
 import ordersUserListSlice from './reducers/ordersUserListReducer';
+import ordersAdminListSlice from './reducers/ordersAdminListReducer';
 
 const store = configureStore({
 	reducer: {
@@ -33,10 +34,12 @@ const store = configureStore({
 
 		cart: cartItemsSlice.reducer,
 		payment: paymentSlice.reducer,
+
 		order: orderSlice.reducer,
 		orderDetails: orderDetailsSlice.reducer,
 		orderPay: orderPaySlice.reducer,
 		ordersUserList: ordersUserListSlice.reducer,
+		ordersAdminList: ordersAdminListSlice.reducer,
 
 		userLogin: userLoginSlice.reducer,
 		userRegister: userRegisterSlice.reducer,
@@ -56,10 +59,12 @@ export const productUpdateActions = productUpdateSlice.actions;
 
 export const cartActions = cartItemsSlice.actions;
 export const paymentActions = paymentSlice.actions;
+
 export const orderActions = orderSlice.actions;
 export const orderDetailsActions = orderDetailsSlice.actions;
 export const orderPayActions = orderPaySlice.actions;
 export const ordersUserListActions = ordersUserListSlice.actions;
+export const ordersAdminListActions = ordersAdminListSlice.actions;
 
 export const userLoginActions = userLoginSlice.actions;
 export const userRegisterActions = userRegisterSlice.actions;

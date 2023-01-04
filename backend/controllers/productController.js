@@ -94,7 +94,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 		if (alreadyReviewed) {
 			res.status(400);
-			throw new Error('Można oceniać produkt tylko 1 raz');
+			throw new Error('Produkt został już oceniony');
 		}
 		const review = {
 			name: req.user.name,

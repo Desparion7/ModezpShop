@@ -25,6 +25,7 @@ const PlaceOrderScreen = () => {
 		if (success) {
 			navigate(`/Modezp-Shop/order/${orderInfo._id}`);
 			dispatch(cartActions.resetCart());
+			localStorage.setItem('cartItems', []);
 		}
 	}, [navigate, success, orderInfo, dispatch]);
 

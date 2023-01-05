@@ -4,6 +4,7 @@ import {
 	productDeleteActions,
 	productCreateActions,
 	productUpdateActions,
+	reviewCreateActions,
 } from '../store';
 import axios from 'axios';
 
@@ -137,6 +138,74 @@ export const productUpdate = (productId, product) => {
 			} catch (error) {
 				dispatch(
 					productUpdateActions.productUpdateFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+
+export const reviewCreate = (productId, review) => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(reviewCreateActions.reviewCreateRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				await axios.post(`/api/products/${productId}/review`, review, config);
+				dispatch(reviewCreateActions.reviewCreateSuccess());
+			} catch (error) {
+				dispatch(
+					reviewCreateActions.reviewCreateFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+		sendRequest();
+	};
+};
+export const checkReview = (productId) => {
+	return (dispatch, getState) => {
+		const sendRequest = async () => {
+			try {
+				dispatch(reviewCreateActions.reviewCreateRequest());
+
+				const {
+					userLogin: { userDetailsInfo },
+				} = getState();
+
+				const config = {
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${userDetailsInfo.token}`,
+					},
+				};
+
+				const { data } = await axios.post(
+					`/api/products/${productId}/check`,{},
+					config
+				);
+				dispatch(reviewCreateActions.reviewCheck(data));
+			} catch (error) {
+				dispatch(
+					reviewCreateActions.reviewCreateFail(
 						error.response && error.response.data.message
 							? error.response.data.message
 							: error.message

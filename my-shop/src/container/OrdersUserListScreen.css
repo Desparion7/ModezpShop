@@ -79,21 +79,27 @@
 	align-items: center;
 	cursor: pointer;
 }
-.order-list-product-qty {
+.order-review-qty-box {
 	display: flex;
-	align-items: center;
 }
+
 .order-list-product-review {
 	display: flex;
 	align-items: center;
 	text-align: center;
 	text-transform: uppercase;
+	margin-right: 1rem;
+}
+.order-list-product-qty {
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+	padding: 0.5rem;
 }
 .order-list-product-review-link {
 	text-align: center;
 	color: var(--font-color);
 	padding: 0.5rem;
-	padding-top: 0.8rem;
 	border-radius: 5px;
 	text-decoration: none;
 }

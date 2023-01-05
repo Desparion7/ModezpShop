@@ -68,7 +68,7 @@ const CartScreen = () => {
 					</Link>
 				</div>
 			) : (
-				<div className='cart margin-section'>
+				<div className='cart margin-section box-shadow'>
 					<div className='cart-box'>
 						<Checkout step1 />
 						{cartItems.map((product) => (

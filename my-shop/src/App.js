@@ -19,7 +19,7 @@ import UserEditScreen from './container/UserEditScreen';
 import ProductsListScreen from './container/ProductsListScreen';
 import ProductEditScreen from './container/ProductEditScreen';
 import OrdersAdminListScreen from './container/OrdersAdminListScreen';
-import ProductReview from './container/ProductReview';
+import ProductCreateReview from './container/ProductCreateReview';
 
 import './App.css';
 
@@ -56,7 +56,7 @@ function App() {
 					></Route>
 					<Route
 						path='/Modezp-Shop/product/review/:id'
-						element={<ProductReview />}
+						element={<ProductCreateReview />}
 					></Route>
 					<Route path='/Modezp-Shop/cart' element={<CartScreen />} />
 					<Route path='/Modezp-Shop/shipping' element={<ShippingScreen />} />
@@ -90,6 +90,7 @@ function App() {
 				</Routes>
 			</main>
 			<Footer></Footer>
+			{/* Zerowanie koszta w local storage po wysłaniu zamówienia */}
 			{/* poprawić w nawwigacji zamykanie się po kliknięciu wyboru */}
 			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}

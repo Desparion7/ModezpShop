@@ -90,16 +90,18 @@ const OrdersUserListScreen = () => {
 											</Link>
 										</div>
 									</div>
-									<div className='order-list-product-review'>
-										<Link
-											className='order-list-product-review-link'
-											to={`/Modezp-Shop/product/review/${product._id}`}
-										>
-											Oceń
-										</Link>
-									</div>
-									<div className='order-list-product-qty'>
-										{product.qty} szt.
+									<div className='order-review-qty-box'>
+										<div className='order-list-product-review'>
+											<Link
+												className='order-list-product-review-link'
+												to={`/Modezp-Shop/product/review/${product._id}`}
+											>
+												Oceń
+											</Link>
+										</div>
+										<div className='order-list-product-qty'>
+											{product.qty} szt.
+										</div>
 									</div>
 								</div>
 							))}

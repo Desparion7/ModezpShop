@@ -89,12 +89,12 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 	if (product) {
 		const alreadyReviewed = product.reviews.find(
-			(r) => r.user.toString === req.user._id.toString()
+			(r) => r.user.toString() === req.user._id.toString()
 		);
 
 		if (alreadyReviewed) {
 			res.status(400);
-			throw new Error('Produk można ocenić tylko jeden raz');
+			throw new Error('Produkt można ocenić tylko jeden raz.');
 		}
 		const review = {
 			name: req.user.name,
@@ -116,6 +116,28 @@ const createProductReview = asyncHandler(async (req, res) => {
 	}
 });
 
+//@desc Check review
+//@route POST /api/products/:id/checkreview
+//@access Private
+const checktReview = asyncHandler(async (req, res) => {
+	const product = await Product.findById(req.params.id);
+
+	if (product) {
+		const alreadyReviewed = product.reviews.find(
+			(r) => r.user.toString() === req.user._id.toString()
+		);
+
+		if (alreadyReviewed) {
+			res.json(true);
+		} else {
+			res.json(false);
+		}
+	} else {
+		res.status(404);
+		throw new Error('Nie znaleziono produktu o podanym id');
+	}
+});
+
 export {
 	getProductById,
 	getProducts,
@@ -123,4 +145,5 @@ export {
 	createProduct,
 	updateProduct,
 	createProductReview,
+	checktReview,
 };

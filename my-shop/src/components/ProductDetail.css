@@ -76,7 +76,7 @@
 	margin: 1rem 0;
 }
 .detail-box {
-	margin: 2rem 6rem;
+	margin: 2rem 3rem;
 }
 .detail-description-tittle {
 	font-size: 1.5rem;
@@ -105,6 +105,30 @@
 	cursor: pointer;
 	font-size: 20px;
 }
+.comments-box {
+	margin-top: 1rem;
+	border: 1px rgba(205, 205, 205, 0.867) solid;
+	border-radius: 5px;
+	box-shadow: 8px 8px 26px -12px rgba(66, 68, 90, 1);
+}
+.comments-tittle {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+.one-comment-box{
+	margin-bottom: 0.5rem;
+}
+.comment-user-name{
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+.comment-rating {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 0.5rem;
+}
+
 @media screen and (max-width: 900px) {
 	.detail-box {
 		margin: 1rem 0 0 0;

@@ -69,9 +69,9 @@ const ProductDetail = ({ product }) => {
 	const navigateHandler = () => {
 		navigate('/Modezp-Shop/cart');
 	};
-	const closeModalHandler =()=>{
-		setShowModal(false)
-	}
+	const closeModalHandler = () => {
+		setShowModal(false);
+	};
 
 	const buyByCartHandler = () => {
 		navigate('/Modezp-Shop/cart');
@@ -163,6 +163,23 @@ const ProductDetail = ({ product }) => {
 					<div className='detail-box'>
 						<div className='detail-description-tittle'>Opis</div>
 						<div className='detail-description'>{product.description}</div>
+					</div>
+				</div>
+				<div className='comments-box '>
+					<div className='detail-box'>
+						<div className='comments-tittle'>Opinie o produkcie</div>
+						{product.reviews < 1 && <div>Brak opinii, możesz być pierwszy.</div>}
+						{product.reviews.map((review) => (
+							<div className='one-comment-box box-shadow'>
+								<div className='comment-user-name'>{review.name}</div>
+								<div className=''>
+									<div className='comment-rating'>
+										<Rating value={review.rating}></Rating>
+									</div>
+									<div className='comment-text'>{review.comment}</div>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

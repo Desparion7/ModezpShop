@@ -8,7 +8,7 @@
 	text-align: center;
 	font-size: 2rem;
 	text-transform: uppercase;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 .review-product-details {
 	display: flex;
@@ -61,4 +61,24 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+	.review-form {
+		margin: 2rem 3rem;
+	}
+	.review-title {
+		font-size: 1.5rem;
+	}
+	.review-product-title {
+		font-size: 1.1rem;
+	}
+}
+@media screen and (max-width: 400px) {
+	.review-title {
+		font-size: 1.3rem;
+	}
+	.review-form {
+		margin: 2rem 1rem;
+	}
 }

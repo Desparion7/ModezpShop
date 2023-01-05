@@ -90,7 +90,7 @@ function App() {
 				</Routes>
 			</main>
 			<Footer></Footer>
-			{/* Zerowanie koszta w local storage po wysłaniu zamówienia */}
+		
 			{/* poprawić w nawwigacji zamykanie się po kliknięciu wyboru */}
 			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}

@@ -168,9 +168,11 @@ const ProductDetail = ({ product }) => {
 				<div className='comments-box '>
 					<div className='detail-box'>
 						<div className='comments-tittle'>Opinie o produkcie</div>
-						{product.reviews < 1 && <div>Brak opinii, możesz być pierwszy.</div>}
+						{product.reviews < 1 && (
+							<div>Brak opinii, możesz być pierwszy.</div>
+						)}
 						{product.reviews.map((review) => (
-							<div className='one-comment-box box-shadow'>
+							<div className='one-comment-box box-shadow' key={review._id}>
 								<div className='comment-user-name'>{review.name}</div>
 								<div className=''>
 									<div className='comment-rating'>

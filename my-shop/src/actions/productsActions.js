@@ -8,12 +8,12 @@ import {
 } from '../store';
 import axios from 'axios';
 
-export const productsFetching = () => {
+export const productsFetching = (keyword='') => {
 	return (dispatch) => {
 		const fetchProducts = async () => {
 			try {
 				dispatch(productsListActions.productsListRequest());
-				const res = await axios.get('/api/products');
+				const res = await axios.get(`/api/products?keyword=${keyword}`);
 				dispatch(productsListActions.productsListSuccess(res.data));
 			} catch (error) {
 				dispatch(

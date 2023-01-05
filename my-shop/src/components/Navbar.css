@@ -4,6 +4,8 @@
 	background: var(--main-color);
 	width: 100%;
 	color: var(--font-color);
+	margin-top: 0.5rem;
+	border-bottom: 1px solid rgb(184, 184, 184);
 }
 .navbar span {
 	margin-left: 10px;
@@ -17,6 +19,7 @@
 	color: var(--font-color);
 	cursor: pointer;
 }
+
 .nav-options {
 	display: flex;
 	justify-content: flex-end;
@@ -50,8 +53,8 @@
 }
 .my-account {
 	position: relative;
-
 }
+.fa-user,
 .btn-my-account {
 	cursor: pointer;
 }
@@ -78,5 +81,10 @@
 		font-size: 18px;
 		margin: 0.5rem;
 		margin-right: 1rem;
+	}
+}
+@media screen and (max-width: 1313px) {
+	.icon-name {
+		display: none;
 	}
 }

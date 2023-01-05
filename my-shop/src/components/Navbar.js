@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux';
 import React from 'react';
 import Menu from './Menu';
 import './Navbar.css';
+import SearchBox from './SearchBox';
 
 const Navbar = () => {
 	const cartItems = useSelector((state) => state.cart.cartItems);
 	const stateUser = useSelector((state) => state.userLogin.userDetailsInfo);
-	
+
 	const cartItemsAmount = cartItems.reduce((acc, items) => acc + +items.qty, 0);
 	const [showMyAccountOptions, setMyAccountOptions] = useState(false);
 	const menuRef = useRef();
@@ -36,6 +37,7 @@ const Navbar = () => {
 				<Link className='name' to='/Modezp-Shop'>
 					<h1>Modezp</h1>
 				</Link>
+				<SearchBox/>
 				<div className='nav-options'>
 					<div className='btn-cart'>
 						<Link className='link' to='/Modezp-Shop/cart'>

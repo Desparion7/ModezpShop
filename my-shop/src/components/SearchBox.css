@@ -1,0 +1,29 @@
+.navbar-search-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+	margin: 1rem;
+	width: 100%;
+}
+.navbar-search-box input {
+	height: 80%;
+	width: 100%;
+	font-size: 1rem;
+	padding: 0.3rem;
+}
+.navbar-search-btn {
+	height: 80%;
+	font-size: 1rem;
+	text-transform: uppercase;
+	padding: 0.5rem 2rem;
+	border: none;
+	background: var(--buttons-color);
+	transition: background 0.3s;
+	cursor: pointer;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.navbar-search-btn:hover {
+	background: var(--buttons-hover-color);
+}

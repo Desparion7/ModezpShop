@@ -30,6 +30,7 @@ function App() {
 			<main>
 				<Routes>
 					<Route path='/Modezp-Shop' element={<Home />}></Route>
+					<Route path='/Modezp-Shop/search/:keyword' element={<Home />}></Route>
 					<Route
 						path='/Modezp-Shop/admin/userslist'
 						element={<UsersListScreen />}
@@ -90,7 +91,7 @@ function App() {
 				</Routes>
 			</main>
 			<Footer></Footer>
-		
+			{/* przenieść wyszukiwanie na mienisjzych ekranach poniżej pozostałych elemtów */}
 			{/* poprawić w nawwigacji zamykanie się po kliknięciu wyboru */}
 			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}

@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOrderUserList } from '../actions/orderActions';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
-import './OrderListScreen.css';
+import './OrdersUserListScreen.css';
 
-const OrdersListScreen = () => {
+const OrdersUserListScreen = () => {
 	const dispatch = useDispatch();
 
 	const userOrdersList = useSelector((state) => state.ordersUserList);
@@ -90,6 +90,14 @@ const OrdersListScreen = () => {
 											</Link>
 										</div>
 									</div>
+									<div className='order-list-product-review'>
+										<Link
+											className='order-list-product-review-link'
+											to={`/Modezp-Shop/product/review/${product._id}`}
+										>
+											Oceń
+										</Link>
+									</div>
 									<div className='order-list-product-qty'>
 										{product.qty} szt.
 									</div>
@@ -111,29 +119,4 @@ const OrdersListScreen = () => {
 	);
 };
 
-export default OrdersListScreen;
-{
-	/* <div key={order._id} className='orders-list-body'>
-	<div className='orders-list-id'>{order._id}</div>
-	<div className='orders-list-info'>{order.createdAt.substring(0, 10)}</div>
-	<div className='orders-list-info'>{order.totalPrice} zł</div>
-	{order.isPaid ? (
-		<div className='orders-list-info orders-list-info-paid'>
-			{order.paidAt.substring(0, 10)}
-		</div>
-	) : (
-		<i className='fas fa-times orders-list-info' style={{ color: 'red' }}></i>
-	)}
-	{order.isDelivered ? (
-		<div className='orders-list-info orders-list-info-delivered'>
-			{order.deliveredAt.substring(0, 10)}
-		</div>
-	) : (
-		<i className='fas fa-times orders-list-info' style={{ color: 'red' }}></i>
-	)}
-
-	<Link className='orders-list-btn' to={`/Modezp-Shop/order/${order._id}`}>
-		Szczegóły{' '}
-	</Link>
-</div>; */
-}
+export default OrdersUserListScreen;

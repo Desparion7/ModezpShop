@@ -83,6 +83,23 @@
 	display: flex;
 	align-items: center;
 }
+.order-list-product-review {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+}
+.order-list-product-review-link {
+	text-align: center;
+	color: var(--font-color);
+	padding: 0.5rem;
+	padding-top: 0.8rem;
+	border-radius: 5px;
+	text-decoration: none;
+}
+.order-list-product-review-link:hover {
+	background-color: rgb(225, 225, 225);
+}
 
 @media screen and (max-width: 976px) {
 	.order-list-details {
@@ -103,5 +120,11 @@
 	}
 	.order-list-border {
 		padding: 1rem;
+	}
+	.order-list-product-qty {
+		display: none;
+	}
+	.order-list-product-review {
+		font-size: 0.8rem;
 	}
 }

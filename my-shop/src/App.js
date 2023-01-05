@@ -13,12 +13,13 @@ import ProfileAddressScreen from './container/ProfileAddressScreen';
 import PaymentScreen from './container/PaymentScreen';
 import PlaceOrderScreen from './container/PlaceOrderScreen';
 import OrderScreen from './container/OrderScreen';
-import OrdersListScreen from './container/OrdersListScreen';
+import OrdersUserListScreen from './container/OrdersUserListScreen';
 import UsersListScreen from './container/UsersListScreen';
 import UserEditScreen from './container/UserEditScreen';
 import ProductsListScreen from './container/ProductsListScreen';
 import ProductEditScreen from './container/ProductEditScreen';
 import OrdersAdminListScreen from './container/OrdersAdminListScreen';
+import ProductReview from './container/ProductReview';
 
 import './App.css';
 
@@ -53,6 +54,10 @@ function App() {
 						path='/Modezp-Shop/products/:id'
 						element={<DetailLoading />}
 					></Route>
+					<Route
+						path='/Modezp-Shop/product/review/:id'
+						element={<ProductReview />}
+					></Route>
 					<Route path='/Modezp-Shop/cart' element={<CartScreen />} />
 					<Route path='/Modezp-Shop/shipping' element={<ShippingScreen />} />
 					<Route
@@ -80,7 +85,7 @@ function App() {
 					/>
 					<Route
 						path='/Modezp-Shop/profile/orderlist'
-						element={<OrdersListScreen />}
+						element={<OrdersUserListScreen />}
 					/>
 				</Routes>
 			</main>

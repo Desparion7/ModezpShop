@@ -1,0 +1,64 @@
+.review-main-box {
+	min-height: 75vh;
+}
+.review-form {
+	margin: 2rem 6rem;
+}
+.review-title {
+	text-align: center;
+	font-size: 2rem;
+	text-transform: uppercase;
+	margin-bottom: 2rem;
+}
+.review-product-details {
+	display: flex;
+	flex-direction: row;
+}
+.review-image-box {
+	display: flex;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+}
+.review-image-box img {
+	width: 100%;
+	height: 75%;
+	object-fit: scale-down;
+}
+.review-product-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.3rem;
+}
+.review-rating {
+	display: flex;
+	text-align: center;
+}
+.review-rating-stars {
+	display: flex;
+	align-items: center;
+	margin-right: 0.5rem;
+}
+.review-rating span {
+	cursor: pointer;
+	padding: 0.3rem;
+}
+.review-comment {
+	margin: 2rem 0;
+}
+.review-textarea {
+	width: 100%;
+	height: 100px;
+	padding: 0.5rem;
+	font-size: 1rem;
+	resize: vertical;
+}
+.review-textarea:hover {
+	border: 2px solid black;
+}
+.review-form-button {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 1rem;
+}

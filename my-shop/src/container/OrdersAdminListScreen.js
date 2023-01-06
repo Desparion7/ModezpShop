@@ -50,47 +50,48 @@ const OrdersAdminListScreen = () => {
 									<div className='orderslist-buttons'></div>
 								</div>
 								<div className='orderslist-body'>
-									{ordersList.map((order) => (
-										<div className='orderslist-body-user' key={order._id}>
-											<div className='orderslist-body-text'>{order._id}</div>
-											<div className='orderslist-body-text'>
-												{order.user.name}
+									{(ordersList.length > 0) &&
+										ordersList.map((order) => (
+											<div className='orderslist-body-user' key={order._id}>
+												<div className='orderslist-body-text'>{order._id}</div>
+												<div className='orderslist-body-text'>
+													{order.user.name}
+												</div>
+												<div className='orderslist-body-text'>
+													{order.totalPrice} zł
+												</div>
+												<div className='orderslist-body-text'>
+													{order.createdAt.substring(0, 10)}
+												</div>
+												<div className='orderslist-text-center'>
+													{order.isPaid ? (
+														order.paidAt.substring(0, 10)
+													) : (
+														<i
+															className='fas fa-times'
+															style={{ color: 'red' }}
+														></i>
+													)}
+												</div>
+												<div className='orderslist-text-center'>
+													{order.isDelivered ? (
+														order.deliveredAt.substring(0, 10)
+													) : (
+														<i
+															className='fas fa-times'
+															style={{ color: 'red' }}
+														></i>
+													)}
+												</div>
+												<div className='orderslist-body-text'>
+													<Link to={`/Modezp-Shop/order/${order._id}`}>
+														<button className='btn-edit'>
+															<i className='fas fa-edit'></i>
+														</button>
+													</Link>
+												</div>
 											</div>
-											<div className='orderslist-body-text'>
-												{order.totalPrice} zł
-											</div>
-											<div className='orderslist-body-text'>
-												{order.createdAt.substring(0, 10)}
-											</div>
-											<div className='orderslist-text-center'>
-												{order.isPaid ? (
-													order.paidAt.substring(0, 10)
-												) : (
-													<i
-														className='fas fa-times'
-														style={{ color: 'red' }}
-													></i>
-												)}
-											</div>
-											<div className='orderslist-text-center'>
-												{order.isDelivered ? (
-													order.deliveredAt.substring(0, 10)
-												) : (
-													<i
-														className='fas fa-times'
-														style={{ color: 'red' }}
-													></i>
-												)}
-											</div>
-											<div className='orderslist-body-text'>
-												<Link to={`/Modezp-Shop/order/${order._id}`}>
-													<button className='btn-edit'>
-														<i className='fas fa-edit'></i>
-													</button>
-												</Link>
-											</div>
-										</div>
-									))}
+										))}
 								</div>
 							</div>
 						</div>

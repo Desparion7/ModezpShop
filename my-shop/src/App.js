@@ -103,9 +103,10 @@ function App() {
 				</Routes>
 			</main>
 			<Footer></Footer>
+			{/* dodać karuzele top produktów */}
+			{/* dodać sortowanie po kategoriach */}
 			{/*  W przyszłośći dodać wyszukiwanie produktów w panelu administaratora */}
 			{/* dodac mozliwość ustawienia ilości obektów na stronie */}
-			{/* poprawić w nawwigacji zamykanie się po kliknięciu wyboru */}
 			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
 			{/* poprzenosić stany ze storage do backendu */}
 			{/* poprwic wygląd listy zamówień */}

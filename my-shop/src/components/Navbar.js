@@ -30,6 +30,9 @@ const Navbar = () => {
 	const showMyAccount = () => {
 		setMyAccountOptions(!showMyAccountOptions);
 	};
+	const hideMenuHandler = () => {
+		setMyAccountOptions(false);
+	};
 
 	return (
 		<>
@@ -37,7 +40,7 @@ const Navbar = () => {
 				<Link className='name' to='/Modezp-Shop'>
 					<h1>Modezp</h1>
 				</Link>
-				<SearchBox/>
+				<SearchBox />
 				<div className='nav-options'>
 					<div className='btn-cart'>
 						<Link className='link' to='/Modezp-Shop/cart'>
@@ -62,7 +65,9 @@ const Navbar = () => {
 								<i className='fa-solid fa-chevron-down'></i>
 							)}
 						</p>
-						<div>{showMyAccountOptions ? <Menu /> : ''}</div>
+						<div>
+							{showMyAccountOptions ? <Menu hideMenu={hideMenuHandler} /> : ''}
+						</div>
 					</div>
 				</div>
 			</div>

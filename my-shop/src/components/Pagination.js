@@ -30,14 +30,13 @@ const Pagination = ({ pages, isAdmin = false, keyword = '' }) => {
 				<ReactPaginate
 					marginPagesDisplayed={1}
 					breakLabel='...'
-					nextLabel={<i class='fa-solid fa-angle-right'></i>}
+					nextLabel={<i className='fa-solid fa-angle-right'></i>}
 					onPageChange={(e) => pageChange(e)}
 					pageRangeDisplayed={2}
 					pageCount={pages}
-					previousLabel={<i class='fa-solid fa-chevron-left'></i>}
+					previousLabel={<i className='fa-solid fa-chevron-left'></i>}
 					renderOnZeroPageCount={null}
 					containerClassName={'pagination-container'}
-					pageLinkClassName={''}
 					activeClassName={'active-page'}
 				/>
 			</>

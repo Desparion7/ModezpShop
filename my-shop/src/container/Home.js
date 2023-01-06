@@ -5,19 +5,21 @@ import Product from '../components/Product';
 import { productsFetching } from '../actions/productsActions';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
+import Pagination from '../components/Pagination';
 import './Home.css';
 
 const Home = () => {
 	const params = useParams();
 	const keyword = params.keyword;
+	const pageNumber = params.pageNumber;
+
 	const dispatch = useDispatch();
-	const products = useSelector((state) => state.products.products);
-	const loading = useSelector((state) => state.products.loading);
-	const error = useSelector((state) => state.products.error);
+	const productsInfo = useSelector((state) => state.products);
+	const { products, loading, error, pages } = productsInfo;
 
 	useEffect(() => {
-		dispatch(productsFetching(keyword));
-	}, [dispatch, keyword]);
+		dispatch(productsFetching(keyword, pageNumber));
+	}, [dispatch, keyword, pageNumber]);
 
 	return (
 		<div>
@@ -32,6 +34,7 @@ const Home = () => {
 					))}
 				</div>
 			)}
+			<Pagination pages={pages} keyword={keyword}></Pagination>
 		</div>
 	);
 };

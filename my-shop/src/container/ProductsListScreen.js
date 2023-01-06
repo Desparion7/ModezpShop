@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
 	productsFetching,
 	productDeleteById,
@@ -10,18 +10,22 @@ import { productCreateActions } from '../store';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
 import Modal from '../UI/Modal';
+import Pagination from '../components/Pagination';
 import './ProductsListScreen.css';
 
 const ProductsListScreen = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const params = useParams();
+
+	const pageNumber = params.pageNumber;
 
 	const [showModal, setShowModal] = useState(false);
 	const [modalProductID, setModalProductID] = useState(2);
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const productsList = useSelector((state) => state.products);
-	const { loading, error, products } = productsList;
+	const { loading, error, products, pages } = productsList;
 	const productDelete = useSelector((state) => state.productDelete);
 	const { success, error: deleteError } = productDelete;
 	const newProductCreate = useSelector((state) => state.productCreate);
@@ -36,7 +40,7 @@ const ProductsListScreen = () => {
 		dispatch(productCreateActions.productReset());
 		if (userLogin.userDetailsInfo !== null) {
 			if (userLogin.userDetailsInfo.isAdmin) {
-				dispatch(productsFetching());
+				dispatch(productsFetching('', pageNumber));
 			}
 		} else {
 			navigate('/Modezp-Shop');
@@ -44,7 +48,15 @@ const ProductsListScreen = () => {
 		if (createSuccess) {
 			navigate(`/Modezp-Shop/admin/product/${createProdukt._id}/edit`);
 		}
-	}, [dispatch, navigate, userLogin, success, createSuccess, createProdukt]);
+	}, [
+		dispatch,
+		navigate,
+		userLogin,
+		success,
+		createSuccess,
+		createProdukt,
+		pageNumber,
+	]);
 
 	const showModalHandler = () => {
 		setShowModal(true);
@@ -178,7 +190,9 @@ const ProductsListScreen = () => {
 											<div>{product.category}</div>
 										</div>
 										<div>
-											<Link to={`/Modezp-Shop/admin/product/${product._id}/edit`}>
+											<Link
+												to={`/Modezp-Shop/admin/product/${product._id}/edit`}
+											>
 												<button className='btn-edit'>
 													<i className='fas fa-edit'></i>
 												</button>
@@ -199,6 +213,7 @@ const ProductsListScreen = () => {
 						</div>
 					</>
 				)}
+				<Pagination pages={pages} isAdmin={true} />
 			</div>
 		</>
 	);

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 const productsInitialState = { products: [], loading: false, error: null };
 
 const productsListSlice = createSlice({
@@ -9,7 +9,9 @@ const productsListSlice = createSlice({
 			state.loading = true;
 		},
 		productsListSuccess(state, action) {
-			state.products = action.payload;
+			state.products = action.payload.products;
+			state.page = action.payload.page;
+			state.pages = action.payload.pages;
 			state.loading = false;
 		},
 		productsListFail(state, action) {
@@ -18,4 +20,4 @@ const productsListSlice = createSlice({
 		},
 	},
 });
-export default productsListSlice
+export default productsListSlice;

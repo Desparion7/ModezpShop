@@ -8,13 +8,15 @@ import {
 } from '../store';
 import axios from 'axios';
 
-export const productsFetching = (keyword='') => {
+export const productsFetching = (keyword = '', pageNumber = '') => {
 	return (dispatch) => {
 		const fetchProducts = async () => {
 			try {
 				dispatch(productsListActions.productsListRequest());
-				const res = await axios.get(`/api/products?keyword=${keyword}`);
-				dispatch(productsListActions.productsListSuccess(res.data));
+				const { data } = await axios.get(
+					`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+				);
+				dispatch(productsListActions.productsListSuccess(data));
 			} catch (error) {
 				dispatch(
 					productsListActions.productsListFail(
@@ -199,7 +201,8 @@ export const checkReview = (productId) => {
 				};
 
 				const { data } = await axios.post(
-					`/api/products/${productId}/check`,{},
+					`/api/products/${productId}/check`,
+					{},
 					config
 				);
 				dispatch(reviewCreateActions.reviewCheck(data));

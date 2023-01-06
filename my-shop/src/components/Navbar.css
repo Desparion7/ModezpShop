@@ -24,7 +24,7 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	width: 50%;
+	width: 40%;
 	margin: 1rem;
 	margin-right: 2rem;
 	font-size: 24px;
@@ -64,11 +64,6 @@
 	margin-left: 1rem;
 }
 
-@media screen and (max-width: 675px) {
-	.nav-options {
-		font-size: 18px;
-	}
-}
 @media screen and (max-width: 545px) {
 	.name {
 		margin-left: 1rem;
@@ -83,7 +78,21 @@
 		margin-right: 1rem;
 	}
 }
-@media screen and (max-width: 1313px) {
+@media screen and (max-width: 675px) {
+	.nav-options {
+		font-size: 18px;
+	}
+}
+@media screen and (max-width: 740px) {
+	.navbar {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.nav-options{
+		width: 35%;
+	}
+}
+@media screen and (max-width: 1450px) {
 	.icon-name {
 		display: none;
 	}

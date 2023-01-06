@@ -11,8 +11,13 @@
 	width: 100%;
 	font-size: 1rem;
 	padding: 0.3rem;
+	border: 1px solid grey;
+	border-right: none;
 }
 .navbar-search-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 80%;
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -26,4 +31,26 @@
 }
 .navbar-search-btn:hover {
 	background: var(--buttons-hover-color);
+}
+
+@media screen and (max-width: 740px) {
+	.navbar-search-box {
+		order: 2;
+		margin: 0.5rem 3rem;
+	}
+	.navbar-search-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+@media screen and (max-width: 550px) {
+	.navbar-search-box {
+		margin: 0.5rem 2rem;
+	}
+}
+@media screen and (max-width: 400px) {
+	.navbar-search-box {
+		margin: 0.5rem 1rem;
+	}
 }

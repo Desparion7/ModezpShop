@@ -1,0 +1,26 @@
+.bottom-slider-title {
+	text-align: center;
+	margin: 2rem 0;
+	text-transform: uppercase;
+}
+.bottom-slider {
+	text-align: center;
+}
+.bottom-slider-products {
+	display: flex;
+	justify-content: center;
+}
+.bottom-slider-products-img {
+	display: flex;
+	justify-content: center;
+}
+.bottom-slider-products img {
+	height: 200px;
+	object-fit: scale-down;
+}
+.bottom-slider-products h3 {
+	margin: 0.5rem;
+}
+.bottom-slider-products-price {
+	color: var(--font-color);
+}

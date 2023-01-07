@@ -7,6 +7,7 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
 import Pagination from '../components/Pagination';
 import Category from '../components/Category';
+import Carousel from '../components/Carousel';
 import './Home.css';
 
 const Home = () => {
@@ -36,10 +37,11 @@ const Home = () => {
 							<Product key={product._id} product={product} />
 						))}
 					</div>
-					<div>karuzela zdjęć</div>
+					<Pagination pages={pages} keyword={keyword}></Pagination>
 				</>
 			)}
-			<Pagination pages={pages} keyword={keyword}></Pagination>
+
+			<Carousel />
 		</div>
 	);
 };

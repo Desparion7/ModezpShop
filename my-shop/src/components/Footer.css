@@ -1,7 +1,7 @@
 .footer-box {
-	position:relative;
+	position: relative;
 	width: 100%;
-	bottom: -50px;
+	bottom: -3rem;
 	text-align: center;
 	background-color: var(--main-color);
 	margin: 3rem 0;

@@ -5,6 +5,7 @@ import {
 	productCreateActions,
 	productUpdateActions,
 	reviewCreateActions,
+	topProductsListActions,
 } from '../store';
 import axios from 'axios';
 
@@ -217,5 +218,29 @@ export const checkReview = (productId) => {
 			}
 		};
 		sendRequest();
+	};
+};
+
+export const topProductsFetching = () => {
+	return (dispatch) => {
+		const fetchProducts = async () => {
+			try {
+				dispatch(topProductsListActions.topProductsListRequest());
+				const { data } = await axios.get(
+					`/api/products/top`
+				);
+				dispatch(topProductsListActions.topProductsListSuccess(data));
+			} catch (error) {
+				dispatch(
+					topProductsListActions.topProductsListFail(
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message
+					)
+				);
+			}
+		};
+
+		fetchProducts();
 	};
 };

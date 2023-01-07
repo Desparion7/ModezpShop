@@ -6,6 +6,7 @@ import { productsFetching } from '../actions/productsActions';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Message from '../UI/Message';
 import Pagination from '../components/Pagination';
+import Category from '../components/Category';
 import './Home.css';
 
 const Home = () => {
@@ -23,16 +24,20 @@ const Home = () => {
 
 	return (
 		<div>
+			<Category />
 			{loading ? (
 				<LoadingSpinner />
 			) : error ? (
 				<Message>{error}</Message>
 			) : (
-				<div className='products-section margin-section'>
-					{products.map((product) => (
-						<Product key={product._id} product={product} />
-					))}
-				</div>
+				<>
+					<div className='products-section margin-section box-shadow'>
+						{products.map((product) => (
+							<Product key={product._id} product={product} />
+						))}
+					</div>
+					<div>karuzela zdjęć</div>
+				</>
 			)}
 			<Pagination pages={pages} keyword={keyword}></Pagination>
 		</div>

@@ -48,6 +48,7 @@
 .small-photo-box img {
 	width: 100%;
 	height: 100%;
+	cursor: pointer;
 }
 .small-photo-box-active {
 	border: 2px solid var(--buttons-hover-color);

@@ -1,16 +1,16 @@
 .product-box {
-	width: 400px;
-	height: 400px;
+	width: 300px;
+	height: 300px;
 	border: 1px rgba(120, 120, 120, 0.867) solid;
 	border-radius: 5px;
 	margin: 1rem;
-	padding: 1rem 0;
+	padding: 0.5rem;
 	box-shadow: 8px 8px 26px -12px rgba(66, 68, 90, 1);
 }
 
 .product-box img {
 	width: 100%;
-	height: 75%;
+	height: 63%;
 	object-fit: scale-down;
 	cursor: pointer;
 }
@@ -19,7 +19,7 @@
 	color: black;
 }
 .title {
-	font-size: 16px;
+	font-size: 0.8rem;
 	text-align: center;
 	margin: 0 0.3rem;
 	margin-bottom: 0.6rem;
@@ -33,7 +33,7 @@
 	text-align: center;
 }
 .price {
-	font-size: 22px;
+	font-size: 1rem;
 	text-align: center;
     margin-top: 0.5rem;
 }
@@ -43,6 +43,6 @@
         line-height: 1.2rem;
     }
 	.price  {
-		font-size: 18px;
+		font-size: 1.1rem;
 	}
 }

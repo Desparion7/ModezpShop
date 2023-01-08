@@ -1,7 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { categoryActions } from '../store';
 import './CategorySmall.css';
 
 const CategorySmall = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const hoodiesRef = useRef(false);
 	const sweaterRef = useRef(false);
 	const shirtRef = useRef(false);
@@ -11,6 +17,7 @@ const CategorySmall = () => {
 	const [hoodies, setHoodies] = useState(false);
 	const [sweater, setSweater] = useState(false);
 	const [shirts, setShirts] = useState(false);
+	const [category, setCategory] = useState('');
 
 	useEffect(() => {
 		let handler = (e) => {
@@ -44,9 +51,21 @@ const CategorySmall = () => {
 			document.removeEventListener('mousedown', handler);
 		};
 	});
+	const changeCategoryHandler = (e) => {
+		e.preventDefault();
+		navigate(`/Modezp-Shop/category/${category}`);
+		dispatch(categoryActions.categoryChoose(category));
+		setHoodies(false);
+		setSweater(false);
+		setShirts(false);
+		setCategories(false);
+	};
 
 	return (
-		<div className='products-category-box-small'>
+		<form
+			className='products-category-box-small'
+			onSubmit={changeCategoryHandler}
+		>
 			<div className='products-category-small-menu'>
 				<div className='products-category-small-button category-btn-toggle'>
 					<div
@@ -70,17 +89,25 @@ const CategorySmall = () => {
 					<div
 						className='products-category-small-undercategory-menu'
 						ref={categoriesRef}
-						onClick={() => {
-							setCategories(false);
-						}}
 					>
 						<div className='products-category-small-undercategory'>
-							<div className='category-type-small'>Piżamy</div>
+							<button
+								type='submit'
+								className='category-type-small'
+								onClick={() => {
+									setCategory('piżamy');
+								}}
+							>
+								Piżamy
+							</button>
 						</div>
 						<div className='products-category-small-undercategory'>
 							<div
 								className='category-type-small'
-								onClick={() => setHoodies(!hoodies)}
+								onClick={() => {
+									setHoodies(!hoodies);
+									setCategories(false);
+								}}
 							>
 								Bluzy
 							</div>
@@ -88,7 +115,10 @@ const CategorySmall = () => {
 						<div className='products-category-small-undercategory'>
 							<div
 								className='category-type-small'
-								onClick={() => setSweater(!sweater)}
+								onClick={() => {
+									setSweater(!sweater);
+									setCategories(false);
+								}}
 							>
 								Swetry
 							</div>
@@ -96,59 +126,106 @@ const CategorySmall = () => {
 						<div className='products-category-small-undercategory'>
 							<div
 								className='category-type-small'
-								onClick={() => setShirts(!shirts)}
+								onClick={() => {
+									setShirts(!shirts);
+									setCategories(false);
+								}}
 							>
 								Koszulki
 							</div>
 						</div>
 						<div className='products-category-small-undercategory'>
-							<div className='category-type-small'>Stroje kąpielowe</div>
+							<button
+								className='category-type-small'
+								onClick={() => {
+									setCategory('stroje kąpielowe');
+								}}
+							>
+								Stroje kąpielowe
+							</button>
 						</div>
 						<div className='products-category-small-undercategory'>
-							<div className='category-type-small'>Pozostałe</div>
+							<button
+								className='category-type-small'
+								onClick={() => {
+									setCategory('pozostałe');
+								}}
+							>
+								Pozostałe
+							</button>
 						</div>
 					</div>
 				)}
 				{hoodies && (
 					<div
-						className='under-categories-box'
+						className='under-categories-box-small'
 						onMouseLeave={() => setHoodies(false)}
 						ref={hoodiesRef}
 					>
-						<div className='under-categorie' onClick={() => setHoodies(false)}>
+						<button
+							type='submit'
+							className='under-categorie-small'
+							onClick={() => {
+								setCategory('bluzy damskie');
+							}}
+						>
 							Bluzy damskie
-						</div>
-						<div className='under-categorie' onClick={() => setHoodies(false)}>
+						</button>
+						<button
+							type='submit'
+							className='under-categorie-small'
+							onClick={() => {
+								setCategory('bluzy męskie');
+							}}
+						>
 							Bluzy męskie
-						</div>
+						</button>
 					</div>
 				)}
 				{sweater && (
 					<div
-						className='under-categories-box'
+						className='under-categories-box-small'
 						onMouseLeave={() => setSweater(false)}
 						ref={sweaterRef}
 					>
-						<div className='under-categorie' onClick={() => setSweater(false)}>
+						<button
+							type='submit'
+							className='under-categorie-small'
+							onClick={() => {
+								setCategory('swetry damskie');
+							}}
+						>
 							Swetry damskie
-						</div>
-						<div className='under-categorie' onClick={() => setSweater(false)}>
+						</button>
+						<button
+							className='under-categorie-small'
+							onClick={() => {
+								setCategory('swetry męskie');
+							}}
+						>
 							Swetry męskie
-						</div>
+						</button>
 					</div>
 				)}
 				{shirts && (
-					<div className='under-categories-box' ref={shirtRef}>
-						<div className='under-categorie' onClick={() => setShirts(false)}>
+					<div className='under-categories-box-small' ref={shirtRef}>
+						<button
+							type='submit'
+							className='under-categorie-small'
+							onClick={() => setCategory('koszulki damskie')}
+						>
 							Koszulki damskie
-						</div>
-						<div className='under-categorie' onClick={() => setShirts(false)}>
+						</button>
+						<button
+							className='under-categorie-small'
+							onClick={() => setCategory('koszulki męskie')}
+						>
 							Koszulki męskie
-						</div>
+						</button>
 					</div>
 				)}
 			</div>
-		</div>
+		</form>
 	);
 };
 

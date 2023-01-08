@@ -9,13 +9,17 @@ import {
 } from '../store';
 import axios from 'axios';
 
-export const productsFetching = (keyword = '', pageNumber = '') => {
+export const productsFetching = (
+	keyword = '',
+	pageNumber = '',
+	category = ''
+) => {
 	return (dispatch) => {
 		const fetchProducts = async () => {
 			try {
 				dispatch(productsListActions.productsListRequest());
 				const { data } = await axios.get(
-					`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+					`/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
 				);
 				dispatch(productsListActions.productsListSuccess(data));
 			} catch (error) {
@@ -226,9 +230,7 @@ export const topProductsFetching = () => {
 		const fetchProducts = async () => {
 			try {
 				dispatch(topProductsListActions.topProductsListRequest());
-				const { data } = await axios.get(
-					`/api/products/top`
-				);
+				const { data } = await axios.get(`/api/products/top`);
 				dispatch(topProductsListActions.topProductsListSuccess(data));
 			} catch (error) {
 				dispatch(

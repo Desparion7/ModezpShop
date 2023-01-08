@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { categoryActions } from '../store';
 import React from 'react';
 import Menu from './Menu';
 import './Navbar.css';
 import SearchBox from './SearchBox';
 
 const Navbar = () => {
+	const dispatch = useDispatch();
 	const cartItems = useSelector((state) => state.cart.cartItems);
 	const stateUser = useSelector((state) => state.userLogin.userDetailsInfo);
 
@@ -37,7 +39,13 @@ const Navbar = () => {
 	return (
 		<>
 			<div className='navbar'>
-				<Link className='name' to='/Modezp-Shop'>
+				<Link
+					className='name'
+					to='/Modezp-Shop'
+					onClick={() => {
+						dispatch(categoryActions.categoryReset());
+					}}
+				>
 					<h1>Modezp</h1>
 				</Link>
 				<SearchBox />

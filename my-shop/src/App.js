@@ -31,6 +31,18 @@ function App() {
 				<Routes>
 					<Route path='/Modezp-Shop' element={<Home />}></Route>
 					<Route
+						path='/Modezp-Shop/category/:category'
+						element={<Home />}
+					></Route>
+					<Route
+						path='/Modezp-Shop/category/:category/page/:pageNumber'
+						element={<Home />}
+					></Route>
+					<Route
+						path='/Modezp-Shop/category/:category/search/:keyword'
+						element={<Home />}
+					></Route>
+					<Route
 						path='/Modezp-Shop/page/:pageNumber'
 						element={<Home />}
 					></Route>
@@ -48,7 +60,7 @@ function App() {
 						element={<ProductsListScreen />}
 					></Route>
 					<Route
-						path='/Modezp-Shop/admin/productslist/:pageNumber'
+						path='/Modezp-Shop/admin/productslist/page/:pageNumber'
 						element={<ProductsListScreen />}
 					></Route>
 					<Route

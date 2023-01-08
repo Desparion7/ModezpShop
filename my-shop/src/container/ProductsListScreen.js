@@ -20,14 +20,17 @@ const ProductsListScreen = () => {
 
 	const pageNumber = params.pageNumber;
 
+
 	const [showModal, setShowModal] = useState(false);
 	const [modalProductID, setModalProductID] = useState(2);
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const productsList = useSelector((state) => state.products);
-	const { loading, error, products, pages } = productsList;
+	const { products, loading, error, pages, page } = productsList;
+
 	const productDelete = useSelector((state) => state.productDelete);
 	const { success, error: deleteError } = productDelete;
+
 	const newProductCreate = useSelector((state) => state.productCreate);
 	const {
 		success: createSuccess,
@@ -36,11 +39,13 @@ const ProductsListScreen = () => {
 		product: createProdukt,
 	} = newProductCreate;
 
+	
+
 	useEffect(() => {
 		dispatch(productCreateActions.productReset());
 		if (userLogin.userDetailsInfo !== null) {
 			if (userLogin.userDetailsInfo.isAdmin) {
-				dispatch(productsFetching('', pageNumber));
+				dispatch(productsFetching('', pageNumber, ''));
 			}
 		} else {
 			navigate('/Modezp-Shop');
@@ -213,7 +218,12 @@ const ProductsListScreen = () => {
 						</div>
 					</>
 				)}
-				<Pagination pages={pages} isAdmin={true} />
+				<Pagination
+					pages={pages}
+					page={page}
+					isAdmin={true}
+				
+				/>
 			</div>
 		</>
 	);

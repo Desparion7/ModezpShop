@@ -1,33 +1,42 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategorySmall from './CategorySmall';
+import { useSelector } from 'react-redux';
 import './SearchBox.css';
 
 const SearchBox = () => {
 	const navigate = useNavigate();
 	const [keyword, setKeyword] = useState('');
 
+	const category = useSelector((state) => state.category.category);
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (keyword === '') {
 			navigate(`/Modezp-Shop`);
 		} else {
-			navigate(`/Modezp-Shop/search/${keyword}`);
+			if (category) {
+				navigate(`/Modezp-Shop/category/${category}/search/${keyword}`);
+			} else {
+				navigate(`/Modezp-Shop/search/${keyword}`);
+			}
 		}
 	};
 
 	return (
-		<form className='navbar-search-box' onSubmit={submitHandler}>
+		<div className='navbar-category-search-box'>
 			<CategorySmall />
-			<input
-				type='text'
-				placeholder='Czego szukasz?'
-				onChange={(e) => setKeyword(e.target.value.trim())}
-			></input>
-			<button type='submit' className='navbar-search-btn'>
-				Szukaj
-			</button>
-		</form>
+			<form className='navbar-search-box'>
+				<input
+					type='text'
+					placeholder='Czego szukasz?'
+					onChange={(e) => setKeyword(e.target.value.trim())}
+				></input>
+				<button className='navbar-search-btn' onClick={submitHandler}>
+					Szukaj
+				</button>
+			</form>
+		</div>
 	);
 };
 

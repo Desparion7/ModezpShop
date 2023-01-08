@@ -8,6 +8,8 @@ import productUpdateSlice from './reducers/productUpdateReducer';
 import reviewCreateSlice from './reducers/reviewCreateReducer';
 import topProductsListSlice from './reducers/topProductsReducer';
 
+import categorySlice from './reducers/categoryReducer';
+
 import userLoginSlice from './reducers/userLoginReducer';
 import userRegisterSlice from './reducers/userRegisterReducer';
 import userDetailsSlice from './reducers/userDetailReducer';
@@ -37,6 +39,8 @@ const store = configureStore({
 		reviewCreate: reviewCreateSlice.reducer,
 		topProducts: topProductsListSlice.reducer,
 
+		category: categorySlice.reducer,
+
 		cart: cartItemsSlice.reducer,
 		payment: paymentSlice.reducer,
 
@@ -64,6 +68,8 @@ export const productCreateActions = productCreateSlice.actions;
 export const productUpdateActions = productUpdateSlice.actions;
 export const reviewCreateActions = reviewCreateSlice.actions;
 export const topProductsListActions = topProductsListSlice.actions;
+
+export const categoryActions = categorySlice.actions;
 
 export const cartActions = cartItemsSlice.actions;
 export const paymentActions = paymentSlice.actions;

@@ -3,7 +3,13 @@ import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
 import './Pagination.css';
 
-const Pagination = ({ pages, isAdmin = false, keyword = '' }) => {
+const Pagination = ({
+	pages,
+	page,
+	isAdmin = false,
+	keyword = '',
+	category = '',
+}) => {
 	const navigate = useNavigate();
 
 	const pageChange = (e) => {
@@ -14,13 +20,17 @@ const Pagination = ({ pages, isAdmin = false, keyword = '' }) => {
 					`/Modezp-Shop/admin/productslist/${keyword}/page/${e.selected + 1}`
 				);
 			} else {
-				navigate(`/Modezp-Shop/admin/productslist/${e.selected + 1}`);
+				navigate(`/Modezp-Shop/admin/productslist/page/${e.selected + 1}`);
 			}
 		} else {
 			if (keyword) {
 				navigate(`/Modezp-Shop/search/${keyword}/page/${e.selected + 1}`);
 			} else {
-				navigate(`/Modezp-Shop/page/${e.selected + 1}`);
+				if (category) {
+					navigate(`/Modezp-Shop/category/piżamy/page/${e.selected + 1}`);
+				} else {
+					navigate(`/Modezp-Shop/page/${e.selected + 1}`);
+				}
 			}
 		}
 	};
@@ -34,6 +44,7 @@ const Pagination = ({ pages, isAdmin = false, keyword = '' }) => {
 					onPageChange={(e) => pageChange(e)}
 					pageRangeDisplayed={2}
 					pageCount={pages}
+					forcePage={page - 1}
 					previousLabel={<i className='fa-solid fa-chevron-left'></i>}
 					renderOnZeroPageCount={null}
 					containerClassName={'pagination-container'}

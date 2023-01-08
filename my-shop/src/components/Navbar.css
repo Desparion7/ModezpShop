@@ -11,8 +11,12 @@
 	margin-left: 10px;
 }
 .name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 1rem;
 	margin-left: 3rem;
+	padding-bottom: 0.4rem;
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 3px;
@@ -27,6 +31,7 @@
 	width: 40%;
 	margin: 1rem;
 	margin-right: 2rem;
+	padding-bottom: 0.4rem;
 	font-size: 24px;
 }
 .link i,
@@ -48,6 +53,7 @@
 	right: -8px;
 	padding: 4px;
 	border-radius: 50%;
+	padding: 0.2rem 0.4rem;
 	font-size: 16px;
 	font-style: normal;
 }
@@ -62,6 +68,14 @@
 .fa-chevron-up,
 .fa-chevron-down {
 	margin-left: 1rem;
+}
+@media screen and (max-width: 900px) {
+	.name {
+		margin-bottom: 0;
+	}
+	.nav-options {
+		margin-bottom: 0;
+	}
 }
 
 @media screen and (max-width: 545px) {
@@ -88,7 +102,7 @@
 		display: flex;
 		flex-wrap: wrap;
 	}
-	.nav-options{
+	.nav-options {
 		width: 35%;
 	}
 }

@@ -14,14 +14,15 @@ const Home = () => {
 	const params = useParams();
 	const keyword = params.keyword;
 	const pageNumber = params.pageNumber;
+	const category = params.category;
 
 	const dispatch = useDispatch();
 	const productsInfo = useSelector((state) => state.products);
-	const { products, loading, error, pages } = productsInfo;
+	const { products, loading, error, pages, page } = productsInfo;
 
 	useEffect(() => {
-		dispatch(productsFetching(keyword, pageNumber));
-	}, [dispatch, keyword, pageNumber]);
+		dispatch(productsFetching(keyword, pageNumber, category));
+	}, [dispatch, keyword, pageNumber, category]);
 
 	return (
 		<div>
@@ -37,7 +38,12 @@ const Home = () => {
 							<Product key={product._id} product={product} />
 						))}
 					</div>
-					<Pagination pages={pages} keyword={keyword}></Pagination>
+					<Pagination
+						pages={pages}
+						page={page}
+						keyword={keyword}
+						category={category}
+					></Pagination>
 				</>
 			)}
 

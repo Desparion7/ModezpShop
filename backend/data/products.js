@@ -10,7 +10,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 139.99,
 		countInStock: 100,
 		rating: 5,
@@ -27,7 +27,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
 		size: ['S', 'M', 'L', 'XL'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 139.99,
 		countInStock: 100,
 		rating: 4.5,
@@ -44,7 +44,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 139.99,
 		countInStock: 100,
 		rating: 5,
@@ -61,7 +61,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 129.99,
 		countInStock: 100,
 		rating: 5,
@@ -73,7 +73,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 129.99,
 		countInStock: 100,
 		rating: 5,
@@ -85,7 +85,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 129.99,
 		countInStock: 100,
 		rating: 5,
@@ -97,7 +97,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 169.99,
 		countInStock: 100,
 		rating: 5,
@@ -109,7 +109,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 139.99,
 		countInStock: 100,
 		rating: 5,
@@ -121,7 +121,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 139.99,
 		countInStock: 100,
 		rating: 5,
@@ -133,7 +133,7 @@ const products = [
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
-		category: 'piżamy zwierząt',
+		category: 'piżamy',
 		price: 129.99,
 		countInStock: 100,
 		rating: 5,
@@ -145,7 +145,7 @@ const products = [
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
-		category: 'bluza męska',
+		category: 'bluzy męskie',
 		price: 125.99,
 		countInStock: 100,
 		rating: 5,
@@ -157,7 +157,7 @@ const products = [
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
-		category: 'bluza męska',
+		category: 'bluzy męskie',
 		price: 125.99,
 		countInStock: 100,
 		rating: 5,
@@ -169,7 +169,7 @@ const products = [
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
-		category: 'bluza męska',
+		category: 'bluzy męskie',
 		price: 125.99,
 		countInStock: 100,
 		rating: 5,
@@ -181,7 +181,7 @@ const products = [
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'sweter damski',
+		category: 'swetry damskie',
 		price: 145.99,
 		countInStock: 100,
 		rating: 4.5,
@@ -193,7 +193,7 @@ const products = [
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'sweter damski',
+		category: 'swetry damskie',
 		price: 145.99,
 		countInStock: 100,
 		rating: 5,
@@ -205,7 +205,7 @@ const products = [
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
-		category: 'sweter damski',
+		category: 'swetry damskie',
 		price: 145.99,
 		countInStock: 100,
 		rating: 4.5,
@@ -217,7 +217,7 @@ const products = [
 		description:
 			'Termoaktywne koszulki w oryginalnych wzorach. Wysoka jakość nadruku HD, Koszulki produkowane ze specjalnie projektowanych dzianin syntetycznych, które posiadają zdolność sprawnego odprowadzania potu i pary wodnej ze skóry pozostawiając ją suchą, nawet przy intensywnym wysiłku fizycznym',
 		size: ['S', 'M', 'L', 'Xl', '2Xl', '3Xl'],
-		category: 'koszulka męska',
+		category: 'koszulki męskie',
 		price: 89.99,
 		countInStock: 100,
 		rating: 5,
@@ -229,7 +229,7 @@ const products = [
 		description:
 			'SPORTOWY Strój kąpielowy. Przysłania ramiona i plecy dzięki temu idealnie się sprawdza do osłonięcia mocno opalonych miejsc. Wysoka jakość materiału wykonanie z dbałością o szczegóły',
 		size: ['S', 'M', 'L'],
-		category: 'strój kąpielowy',
+		category: 'stroje kąpielowe',
 		price: 99.99,
 		countInStock: 100,
 		rating: 4.5,
@@ -241,7 +241,7 @@ const products = [
 		description:
 			'Wyjątkowo BLUZA kangurek wykonana pod wzór pieska Shiba. Bluza wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału',
 		size: ['S', 'M', 'L', 'Xl', '2Xl'],
-		category: 'bluza damska',
+		category: 'bluzy damskie',
 		price: 159.99,
 		countInStock: 100,
 		rating: 5,
@@ -253,7 +253,7 @@ const products = [
 		description:
 			'Koszulka Baby Yoda. Produkt w 100% nowy nie używany. Azjatyckie rozmiary',
 		size: ['S', 'M', 'L', 'Xl', '2Xl'],
-		category: 'koszulka damska',
+		category: 'koszulki damskie',
 		price: 75.99,
 		countInStock: 100,
 		rating: 5,

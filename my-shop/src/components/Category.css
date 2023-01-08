@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin: 0.5rem 0;
+	margin: 0.5rem 4rem;
 	padding: 0.5rem;
 	border-bottom: 1px solid rgb(184, 184, 184);
 }
@@ -16,6 +16,9 @@
 	letter-spacing: 1.5px;
 	transition: color 0.3s, font-weight 0.3s;
 	cursor: pointer;
+	border: none;
+	font-size: 1rem;
+	background-color: transparent;
 }
 .category-type:hover {
 	color: var(--font-color);
@@ -26,22 +29,26 @@
 	flex-direction: column;
 	justify-content: space-between;
 	position: absolute;
-	padding: 0.9rem 1.5rem;
+	padding: 0.9rem 1rem;
 	z-index: 100;
 	background-color: rgb(255, 255, 255);
 	border-radius: 5px;
 	border: 1px rgba(196, 195, 195, 0.867) solid;
 }
 .under-categorie {
+	padding: 0;
+	border: none;
+	font-size: 1rem;
 	margin: 0.5rem 0;
+	text-align: left;
 	cursor: pointer;
+	background-color: transparent;
 	transition: color 0.3s, font-weight 0.3s;
 }
 .under-categorie:hover {
 	color: var(--font-color);
 	font-weight: bold;
 }
-
 
 @media screen and (max-width: 900px) {
 	.products-category-box-big {

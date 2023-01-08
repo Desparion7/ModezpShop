@@ -1,13 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { categoryActions } from '../store';
 import './Category.css';
 
 const Category = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const hoodiesRef = useRef(false);
 	const sweaterRef = useRef();
 	const shirtRef = useRef();
+
 	const [hoodies, setHoodies] = useState(false);
 	const [sweater, setSweater] = useState(false);
 	const [shirts, setShirts] = useState(false);
+	const [category, setCategory] = useState('');
 
 	useEffect(() => {
 		let handler = (e) => {
@@ -34,11 +41,31 @@ const Category = () => {
 		};
 	});
 
+	const changeCategoryHandler = (e) => {
+		e.preventDefault();
+		navigate(`/Modezp-Shop/category/${category}`);
+		dispatch(categoryActions.categoryChoose(category));
+		setHoodies(false);
+		setSweater(false);
+		setShirts(false);
+	};
+
 	return (
 		<>
-			<div className='products-category-box-big'>
+			<form
+				className='products-category-box-big'
+				onSubmit={changeCategoryHandler}
+			>
 				<div className='products-category'>
-					<div className='category-type'>Piżamy</div>
+					<button
+						type='submit'
+						className='category-type'
+						onClick={() => {
+							setCategory('piżamy');
+						}}
+					>
+						Piżamy
+					</button>
 				</div>
 				<div className='products-category'>
 					<div className='category-type' onClick={() => setHoodies(!hoodies)}>
@@ -50,18 +77,24 @@ const Category = () => {
 							onMouseLeave={() => setHoodies(false)}
 							ref={hoodiesRef}
 						>
-							<div
+							<button
+								type='submit'
 								className='under-categorie'
-								onClick={() => setHoodies(false)}
+								onClick={() => {
+									setCategory('bluzy damskie');
+								}}
 							>
 								Bluzy damskie
-							</div>
-							<div
+							</button>
+							<button
+								type='submit'
 								className='under-categorie'
-								onClick={() => setHoodies(false)}
+								onClick={() => {
+									setCategory('bluzy męskie');
+								}}
 							>
 								Bluzy męskie
-							</div>
+							</button>
 						</div>
 					)}
 				</div>
@@ -75,18 +108,24 @@ const Category = () => {
 							onMouseLeave={() => setSweater(false)}
 							ref={sweaterRef}
 						>
-							<div
+							<button
+								type='submit'
 								className='under-categorie'
-								onClick={() => setSweater(false)}
+								onClick={() => {
+									setCategory('swetry damskie');
+								}}
 							>
 								Swetry damskie
-							</div>
-							<div
+							</button>
+							<button
+								type='submit'
 								className='under-categorie'
-								onClick={() => setSweater(false)}
+								onClick={() => {
+									setCategory('swetry męskie');
+								}}
 							>
 								Swetry męskie
-							</div>
+							</button>
 						</div>
 					)}
 				</div>
@@ -100,22 +139,45 @@ const Category = () => {
 							onMouseLeave={() => setShirts(false)}
 							ref={shirtRef}
 						>
-							<div className='under-categorie' onClick={() => setShirts(false)}>
+							<button
+								type='submit'
+								className='under-categorie'
+								onClick={() => {
+									setCategory('koszulki damskie');
+								}}
+							>
 								Koszulki damskie
-							</div>
-							<div className='under-categorie' onClick={() => setShirts(false)}>
+							</button>
+							<button
+								type='submit'
+								className='under-categorie'
+								onClick={() => {
+									setCategory('koszulki męskie');
+								}}
+							>
 								Koszulki męskie
-							</div>
+							</button>
 						</div>
 					)}
 				</div>
 				<div className='products-category'>
-					<div className='category-type'>Stroje kąpielowe</div>
+					<button
+						className='category-type'
+						onClick={() => setCategory('stroje kąpielowe')}
+					>
+						Stroje kąpielowe
+					</button>
 				</div>
 				<div className='products-category'>
-					<div className='category-type'>Pozostałe</div>
+					<button
+						type='submit'
+						className='category-type'
+						onClick={() => setCategory('pozostałe')}
+					>
+						Pozostałe
+					</button>
 				</div>
-			</div>
+			</form>
 		</>
 	);
 };

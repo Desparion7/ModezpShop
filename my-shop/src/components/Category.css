@@ -1,4 +1,4 @@
-.products-category-box {
+.products-category-box-big {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -40,4 +40,14 @@
 .under-categorie:hover {
 	color: var(--font-color);
 	font-weight: bold;
+}
+
+
+@media screen and (max-width: 900px) {
+	.products-category-box-big {
+		display: none;
+	}
+	.products-category-box-small {
+		display: flex;
+	}
 }

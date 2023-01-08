@@ -309,12 +309,4 @@ const products = [
 	},
 ];
 
-const info = [
-	'piżamy',
-	'swetry',
-	'bluzy',
-	'koszulki',
-	'stroje kąpielowe',
-	'pozostałe',
-];
 export default products;

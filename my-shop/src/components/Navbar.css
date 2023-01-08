@@ -80,10 +80,10 @@
 }
 @media screen and (max-width: 675px) {
 	.nav-options {
-		font-size: 18px;
+		font-size: 0.9rem;
 	}
 }
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 900px) {
 	.navbar {
 		display: flex;
 		flex-wrap: wrap;

@@ -24,3 +24,17 @@
 .bottom-slider-products-price {
 	color: var(--font-color);
 }
+
+@media screen and (max-width: 550px) {
+	.bottom-slider-products-name {
+		font-size: 0.8rem;
+	}
+	.bottom-slider-products img {
+		height: 100px;
+	}
+}
+@media screen and (max-width: 420px) {
+	.bottom-slider-products-name {
+		display: none;
+	}
+}

@@ -40,7 +40,7 @@ const Carousel = () => {
 							<img src={product.image[0]} alt={product.name} />
 						</div>
 
-						<h3>{product.name}</h3>
+						<h3 className='bottom-slider-products-name'>{product.name}</h3>
 						<h3 className='bottom-slider-products-price'>{product.price} zł</h3>
 					</Link>
 				))}

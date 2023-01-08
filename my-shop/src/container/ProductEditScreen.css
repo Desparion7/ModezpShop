@@ -24,6 +24,9 @@
 	justify-content: center;
 	align-items: center;
 }
+.change-product-form-options label {
+	margin: 0.5rem 0;
+}
 .change-product-form-options input {
 	margin: 0.5rem 0;
 	padding: 0.5rem;
@@ -102,4 +105,15 @@
 	opacity: 0;
 	position: absolute;
 	z-index: -1;
+}
+
+@media screen and (max-width: 660px) {
+	.change-product-form-options textarea {
+		min-width: 400px;
+	}
+}
+@media screen and (max-width: 430px) {
+	.change-product-form-options textarea {
+		min-width: 300px;
+	}
 }

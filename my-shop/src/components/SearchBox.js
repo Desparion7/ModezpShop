@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CategorySmall from './CategorySmall';
 import './SearchBox.css';
 
 const SearchBox = () => {
@@ -17,6 +18,7 @@ const SearchBox = () => {
 
 	return (
 		<form className='navbar-search-box' onSubmit={submitHandler}>
+			<CategorySmall />
 			<input
 				type='text'
 				placeholder='Czego szukasz?'

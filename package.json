@@ -9,7 +9,7 @@
 		"server": "nodemon backend/server",
 		"client": "npm start --prefix my-shop",
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix my-shop && npmrun build --prefix my-shop",
+		"render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix my-shop && npm run build --prefix my-shop",
 		"data:import": "node backend/seeder",
 		"data:destroy": "node backend/seeder -d"
 	},

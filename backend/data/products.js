@@ -129,7 +129,7 @@ const products = [
 	},
 	{
 		name: 'PIŻAMA KROWA KRÓWKA DLA DZIECKA ZWIERZĘTA',
-		image: ['/images/small-cow.jpg'],
+		image: ['public/images/small-cow.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],

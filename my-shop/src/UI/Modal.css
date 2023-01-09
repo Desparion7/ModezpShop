@@ -37,7 +37,6 @@
 	margin-bottom: 0.5rem;
 	padding: 1rem;
 	color: var(--font-color);
-	/* background-color: var(--popup-title); */
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	border: none;
@@ -59,20 +58,20 @@
 	cursor: pointer;
 	background-color: white;
 }
-.popup-btn-left {
+.popup-btn-right {
 	border-radius: 5px;
 	border: 1px solid var(--font-color);
 	transition: background-color 0.3s;
 }
-.popup-btn-right {
+.popup-btn-left {
 	border-radius: 5px;
 	border: 1px solid var(--buttons-color);
 	transition: background-color 0.3s;
 }
-.popup-btn-right:hover {
+.popup-btn-left:hover {
 	background-color: var(--buttons-color);
 }
-.popup-btn-left:hover {
+.popup-btn-right:hover {
 	background-color: var(--font-color);
 }
 

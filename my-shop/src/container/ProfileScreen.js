@@ -11,8 +11,7 @@ const ProfileScreen = () => {
 	useEffect(() => {
 		if (userInfo.userDetailsInfo === null) {
 			navigate('/Modezp-Shop/login');
-		}else{
-			
+		} else {
 		}
 	}, [navigate, userInfo]);
 
@@ -24,67 +23,77 @@ const ProfileScreen = () => {
 						<h2>{userDetailsInfo ? `Witaj ${userDetailsInfo.name}!` : ''}</h2>
 						<h3>{userDetailsInfo ? userDetailsInfo.email : ''}</h3>
 					</div>
-					<div className='profil-info'>
-						<div className='profile-info-account'>
-							<div className='profile-user box-shadow '>
-								<h2>Ustawienia konta</h2>
-								<div className='subtitle'>Adres do wysyłki:</div>
-								{userDetailsInfo.addressName ? (
+					<div className='profil-info box-shadow'>
+						<div className='profile-user'>
+							<h2 className='profile-user'>Ustawienia konta</h2>
+							<div className='subtitle'>Adres do wysyłki:</div>
+							{userDetailsInfo.addressName ? (
+								<div className='profil-user-address'>
 									<div>
-										<div>
-											{userDetailsInfo.addressName} {userDetailsInfo.surname}
-										</div>
-										<div>{`${userDetailsInfo.postalCode} ${userDetailsInfo.city}`}</div>
-										<div>{`ul. ${userDetailsInfo.street}`}</div>
-										<div>{`tel ${userDetailsInfo.phone}`}</div>
+										{userDetailsInfo.addressName} {userDetailsInfo.surname}
 									</div>
-								) : (
-									<div>Brak adresu do wysyłki</div>
-								)}
-
-								<Link
-									className='link-on-profile'
-									to='/Modezp-Shop/profile/address'
-								>
-									Zmień adres do wysyłki
-								</Link>
-								<Link
-									className='link-on-profile'
-									to='/Modezp-Shop/profile/update'
-								>
-									Zmień ustawienia konta
-								</Link>
-							</div>
-							{userDetailsInfo.isAdmin && (
-								<div className='profile-admin box-shadow '>
-									<h2>Opcje Administratora</h2>
-									<div className='profile-admin-options'>
-										<Link
-											className='link-on-profile'
-											to='/Modezp-Shop/admin/userslist'
-										>
-											Lista użytkowników
-										</Link>
-										<Link className='link-on-profile' to='/Modezp-Shop/admin/productslist'>
-											Lista produktów
-										</Link>
-										<Link className='link-on-profile' to='/Modezp-Shop/admin/orderslist'>
-											Lista zamówień
-										</Link>
-									</div>
+									<div>{`${userDetailsInfo.postalCode} ${userDetailsInfo.city}`}</div>
+									<div>{`ul. ${userDetailsInfo.street}`}</div>
+									<div>{`tel ${userDetailsInfo.phone}`}</div>
 								</div>
+							) : (
+								<div className='no-address'>Brak adresu do wysyłki</div>
 							)}
+
+							<Link
+								className='link-on-profile'
+								to='/Modezp-Shop/profile/address'
+							>
+								Zmień adres do wysyłki {' '}
+								<i className="fa-solid fa-arrow-right"></i>
+							</Link>
+							<Link
+								className='link-on-profile'
+								to='/Modezp-Shop/profile/update'
+							>
+								Zmień ustawienia konta {' '}
+								<i className="fa-solid fa-arrow-right"></i>
+							</Link>
 						</div>
-						<div className='profile-info-orders box-shadow '>
+						<div className='profile-info-orders'>
 							<h2>Zamówienia</h2>
 							<Link
 								className='link-on-profile'
 								to='/Modezp-Shop/profile/orderlist'
 							>
-								Przejdz do moich zamówień
+								Przejdz do moich zamówień {' '}
+								<i className="fa-solid fa-arrow-right"></i>
 							</Link>
 						</div>
 					</div>
+					{userDetailsInfo.isAdmin && (
+						<div className='profile-admin box-shadow '>
+							<h2>Opcje Administratora</h2>
+							<div className='profile-admin-options'>
+								<Link
+									className='link-on-profile'
+									to='/Modezp-Shop/admin/userslist'
+								>
+									Lista użytkowników{' '}
+									<i className="fa-solid fa-arrow-right"></i>
+								</Link>
+								<Link
+									className='link-on-profile'
+									to='/Modezp-Shop/admin/productslist'
+								>
+									Lista produktów {' '}
+									<i className="fa-solid fa-arrow-right"></i>
+								</Link>
+								<Link
+									className='link-on-profile'
+									to='/Modezp-Shop/admin/orderslist'
+								>
+									Lista zamówień{' '}
+									<i className="fa-solid fa-arrow-right"></i>
+								</Link>
+							</div>
+						</div>
+					)}
 				</div>
 			)}
 		</>

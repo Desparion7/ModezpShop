@@ -36,7 +36,7 @@ body {
 	font-size: 1rem;
 	border-radius: 5px;
 	border: none;
-	padding: 0.7rem 1rem;
+	padding: 0.5rem 2rem;
 	margin-bottom: 1rem;
 	background: var(--buttons-color);
 	transition: background 0.3s;
@@ -55,6 +55,5 @@ body {
 @media screen and (max-width: 500px) {
 	.btn {
 		font-size: 1rem;
-		padding: 0.5rem 1rem;
 	}
 }

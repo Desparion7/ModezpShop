@@ -170,10 +170,13 @@
 }
 @media screen and (max-width: 700px) {
 	.item-box {
-		justify-content: space-between;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 0px;
 		margin-top: 1rem;
+	}
+	.cart-box{
+		padding: 0;
 	}
 	.change-amount-box {
 		flex: 0 0 100%;

@@ -4,39 +4,64 @@
 	min-height: 75vh;
 	margin: 2rem 4rem;
 }
+.profile-menu h2 {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color: var(--font-color);
+}
 .profile-user-name {
 	margin-bottom: 2rem;
 }
+.profile-user-name h2 {
+	color: var(--font-color);
+	margin-bottom: 1rem;
+}
 .profil-info {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 }
-.profile-info-account,
+
 .profile-info-orders {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
 }
 .subtitle {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	margin: 0.8rem 0;
 }
-
+.no-address {
+	font-size: 0.8rem;
+}
 .link-on-profile {
+	position: relative;
 	text-decoration: none;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: black;
+	font-weight: 500;
 	cursor: pointer;
 	width: fit-content;
 	margin: 0.8rem 0;
+	
 }
 .link-on-profile:hover {
 	color: var(--font-color);
 }
+.link-on-profile:hover:before {
+	right: 0;
+}
+.link-on-profile:before {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	right: 100%;
+	height: 1px;
+	background: var(--font-color);
+	transition: right 0.3s;
+}
 .profile-admin {
 	margin-top: 2rem;
-	margin-right: 1rem;
 }
 .profile-user {
 	margin-right: 1rem;
@@ -64,9 +89,23 @@
 		font-size: 1rem;
 	}
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 534px) {
+	.profile-menu h2{
+		font-size: 1.2rem;
+	}
+	.link-on-profile {
+		font-size: 0.9rem;
+		margin: 0.4rem 0;
+	}
 	.profil-info {
 		flex-direction: column;
 		justify-content: center;
+	}
+	.profil-user-address{
+		font-size: 0.9rem;
+	}
+	.profile-info-account,
+	.profile-info-orders {
+		width: 100%;
 	}
 }

@@ -8,14 +8,15 @@
 	background: var(--main-color);
 	text-align: center;
 	border-radius: 5px;
-	z-index: 10;
+	z-index: 1000;
 }
 .menu span {
 	color: var(--buttons-hover-color);
 	cursor: pointer;
 }
-.menu-links{
+.menu-links {
 	text-align: start;
+	padding: 0.5rem 1rem 0 1rem;
 }
 .menu-link {
 	display: block;
@@ -24,7 +25,7 @@
 	margin-bottom: 1rem;
 	font-size: 1rem;
 }
-.menu-link:hover{
+.menu-link:hover {
 	color: var(--buttons-hover-color);
 }
 .menu-link-register {

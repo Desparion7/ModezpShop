@@ -30,12 +30,10 @@ const ShippingScreen = () => {
 		if (!userDetailsInfo) {
 			navigate('/Modezp-Shop/login');
 		}
-	}, [navigate, userDetailsInfo]);
-
-	useEffect(() => {
-		if (!userDetailsInformation.addressName) {
+		if (!userDetailsInformation._id ||userDetailsInformation._id !==userDetailsInfo._id) {
 			dispatch(getUserDetails('profile'));
-		} else {
+		}
+		if (userDetailsInformation.addressName) {
 			setAddressName(userDetailsInformation.addressName);
 			setSurname(userDetailsInformation.surname);
 			setStreet(userDetailsInformation.street);
@@ -43,7 +41,9 @@ const ShippingScreen = () => {
 			setCity(userDetailsInformation.city);
 			setPhone(userDetailsInformation.phone);
 		}
-	}, [dispatch, userDetailsInformation]);
+	}, [dispatch, navigate, userDetailsInfo, userDetailsInformation]);
+
+	useEffect(() => {}, [dispatch]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

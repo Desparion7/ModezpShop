@@ -128,6 +128,7 @@ const CartScreen = () => {
 						</div>
 						<Link to='/Modezp-Shop'>
 							<button className='btn cart-add-products-btn'>
+								<i className='fa-solid fa-arrow-left'></i> {' '}
 								Dobierz produkty
 							</button>
 						</Link>
@@ -141,6 +142,8 @@ const CartScreen = () => {
 							<Link to='/Modezp-Shop/shipping'>
 								<button className='btn btn-cart-screen'>
 									Dostawa i płatność
+									{'  '}
+									<i className='fa-solid fa-arrow-right'></i>
 								</button>
 							</Link>
 						</div>

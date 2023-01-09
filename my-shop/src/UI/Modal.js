@@ -23,13 +23,13 @@ const Popup = ({
 					<div className='popup-window-text'>{modalText}</div>
 					<div className='popup-window-button-box'>
 						<button
-							className='popup-window-btn popup-btn-left '
+							className='popup-window-btn popup-btn-left'
 							onClick={leftBtn}
 						>
 							{leftBtnText}
 						</button>
 						<button
-							className='popup-window-btn popup-btn-right'
+							className='popup-window-btn popup-btn-right '
 							onClick={() => rightBtn(modalID)}
 						>
 							{rightBtnText}

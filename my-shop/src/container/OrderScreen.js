@@ -57,11 +57,26 @@ const OrderScreen = () => {
 	]);
 
 	const successPaymentHandler = (paymentResult) => {
+		console.log(paymentResult);
 		dispatch(payOrder(params.id, paymentResult));
 	};
 
 	const deliveredHandler = () => {
 		dispatch(deliverOrder(order));
+	};
+	const paidHandler = () => {
+		const timestamp = Date.now();
+		const timestampString = timestamp.toString();
+		const randomString = Math.random().toString(36).substring(2, 15);
+		const randomId = timestampString + randomString;
+		dispatch(
+			payOrder(params.id, {
+				id: randomId,
+				status: 'COMPLETED',
+				update_time: timestamp,
+				payer: { email_address: 'sb-qgkde23883619@personal.example.com' },
+			})
+		);
 	};
 
 	return (
@@ -190,7 +205,6 @@ const OrderScreen = () => {
 									}}
 									onApprove={function (data, actions) {
 										return actions.order.capture().then(function (details) {
-											console.log('ok');
 											successPaymentHandler(details);
 										});
 									}}
@@ -198,6 +212,14 @@ const OrderScreen = () => {
 							</PayPalScriptProvider>
 						)}
 						{loadingDeliver && <LoadingSpinner />}
+						{userDetailsInfo &&
+							userDetailsInfo.isAdmin &&
+							!order.isPaid &&
+							!order.isDelivered && (
+								<button className='btn' onClick={paidHandler}>
+									Odznacz jako zapłacone
+								</button>
+							)}
 						{userDetailsInfo &&
 							userDetailsInfo.isAdmin &&
 							order.isPaid &&

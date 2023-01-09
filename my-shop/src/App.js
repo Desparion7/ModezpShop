@@ -115,15 +115,9 @@ function App() {
 				</Routes>
 			</main>
 			<Footer></Footer>
-			{/* dodać karuzele top produktów */}
-			{/* dodać responsywność kategorii */}
-			{/* dodać sortowanie po kategoriach */}
 			{/*  W przyszłośći dodać wyszukiwanie produktów w panelu administaratora */}
 			{/* dodac mozliwość ustawienia ilości obektów na stronie */}
-			{/* poprawić wyzualnie wygląd głównego profilu iresponsywność */}
-			{/* poprzenosić stany ze storage do backendu */}
 			{/* poprwic wygląd listy zamówień */}
-			{/* dodać przyciski powrotu lub rozbudować nawigacje */}
 		</div>
 	);
 }

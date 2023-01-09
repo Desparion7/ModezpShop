@@ -20,7 +20,7 @@ export const productsFetching = (
 			try {
 				dispatch(productsListActions.productsListRequest());
 				const { data } = await axios.get(
-					`$/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
+					`/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
 				);
 				dispatch(productsListActions.productsListSuccess(data));
 			} catch (error) {

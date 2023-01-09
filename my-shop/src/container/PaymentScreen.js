@@ -27,7 +27,7 @@ const PaymentScreen = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(savePaymentMethod(paymentMethod));
-		navigate('/Modezp-Shop/placeorder');
+		navigate('/placeorder');
 	};
 	return (
 		<div className='paymentscreen margin-section'>

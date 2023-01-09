@@ -63,7 +63,7 @@ const CartScreen = () => {
 			{cartItems.length < 1 ? (
 				<div className='empty-cart margin-section'>
 					<img src='./images/cart.png' alt='cart'></img>
-					<Link to='/Modezp-Shop'>
+					<Link to='/'>
 						<button className='btn'>Dobierz produkty</button>
 					</Link>
 				</div>
@@ -86,7 +86,7 @@ const CartScreen = () => {
 								<div className='product-name'>
 									<Link
 										className='link'
-										to={`/Modezp-Shop/products/${product._id}`}
+										to={`/products/${product._id}`}
 									>
 										{product.name}
 									</Link>
@@ -126,7 +126,7 @@ const CartScreen = () => {
 								Razem <span>{fullPrice} zł</span>
 							</div>
 						</div>
-						<Link to='/Modezp-Shop'>
+						<Link to='/'>
 							<button className='btn cart-add-products-btn'>
 								<i className='fa-solid fa-arrow-left'></i> {' '}
 								Dobierz produkty
@@ -139,7 +139,7 @@ const CartScreen = () => {
 							<div>Wartość produktów: {fullPrice} zł</div>
 							<div>Dostawa od: 0,00 zł</div>
 							<div>Razem z dostawą: {fullPrice} zł</div>
-							<Link to='/Modezp-Shop/shipping'>
+							<Link to='/shipping'>
 								<button className='btn btn-cart-screen'>
 									Dostawa i płatność
 									{'  '}

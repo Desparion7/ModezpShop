@@ -84,7 +84,7 @@ const OrdersUserListScreen = () => {
 										<div className='order-list-product-name'>
 											<Link
 												className='link'
-												to={`/Modezp-Shop/products/${product._id}`}
+												to={`/products/${product._id}`}
 											>
 												{product.name}
 											</Link>
@@ -94,7 +94,7 @@ const OrdersUserListScreen = () => {
 										<div className='order-list-product-review'>
 											<Link
 												className='order-list-product-review-link'
-												to={`/Modezp-Shop/product/review/${product._id}`}
+												to={`/product/review/${product._id}`}
 											>
 												Oceń
 											</Link>
@@ -108,7 +108,7 @@ const OrdersUserListScreen = () => {
 							<div className='order-list-btn-box'>
 								<Link
 									className='orders-list-btn'
-									to={`/Modezp-Shop/order/${order._id}`}
+									to={`/order/${order._id}`}
 								>
 									Szczegóły{' '}
 								</Link>

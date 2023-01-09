@@ -67,14 +67,14 @@ const ProductDetail = ({ product }) => {
 		);
 	};
 	const navigateHandler = () => {
-		navigate('/Modezp-Shop/cart');
+		navigate('/cart');
 	};
 	const closeModalHandler = () => {
 		setShowModal(false);
 	};
 
 	const buyByCartHandler = () => {
-		navigate('/Modezp-Shop/cart');
+		navigate('/cart');
 		addToCart();
 	};
 	const addToCartHandler = () => {

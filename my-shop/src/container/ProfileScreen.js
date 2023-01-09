@@ -10,7 +10,7 @@ const ProfileScreen = () => {
 
 	useEffect(() => {
 		if (userInfo.userDetailsInfo === null) {
-			navigate('/Modezp-Shop/login');
+			navigate('/login');
 		} else {
 		}
 	}, [navigate, userInfo]);
@@ -42,14 +42,14 @@ const ProfileScreen = () => {
 
 							<Link
 								className='link-on-profile'
-								to='/Modezp-Shop/profile/address'
+								to='/profile/address'
 							>
 								Zmień adres do wysyłki {' '}
 								<i className="fa-solid fa-arrow-right"></i>
 							</Link>
 							<Link
 								className='link-on-profile'
-								to='/Modezp-Shop/profile/update'
+								to='/profile/update'
 							>
 								Zmień ustawienia konta {' '}
 								<i className="fa-solid fa-arrow-right"></i>
@@ -59,7 +59,7 @@ const ProfileScreen = () => {
 							<h2>Zamówienia</h2>
 							<Link
 								className='link-on-profile'
-								to='/Modezp-Shop/profile/orderlist'
+								to='/profile/orderlist'
 							>
 								Przejdz do moich zamówień {' '}
 								<i className="fa-solid fa-arrow-right"></i>
@@ -72,21 +72,21 @@ const ProfileScreen = () => {
 							<div className='profile-admin-options'>
 								<Link
 									className='link-on-profile'
-									to='/Modezp-Shop/admin/userslist'
+									to='/admin/userslist'
 								>
 									Lista użytkowników{' '}
 									<i className="fa-solid fa-arrow-right"></i>
 								</Link>
 								<Link
 									className='link-on-profile'
-									to='/Modezp-Shop/admin/productslist'
+									to='/admin/productslist'
 								>
 									Lista produktów {' '}
 									<i className="fa-solid fa-arrow-right"></i>
 								</Link>
 								<Link
 									className='link-on-profile'
-									to='/Modezp-Shop/admin/orderslist'
+									to='/admin/orderslist'
 								>
 									Lista zamówień{' '}
 									<i className="fa-solid fa-arrow-right"></i>

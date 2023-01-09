@@ -149,7 +149,7 @@ const OrderScreen = () => {
 										<div className='placeorder-product-name'>
 											<Link
 												className='link'
-												to={`/Modezp-Shop/products/${product._id}`}
+												to={`/products/${product._id}`}
 											>
 												{product.name}
 											</Link>

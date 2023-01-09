@@ -25,10 +25,10 @@ const ProductEditScreen = () => {
 	const [uploading2, setUploading2] = useState(false);
 	const [uploading3, setUploading3] = useState(false);
 	const [uploading4, setUploading4] = useState(false);
-	const [photo1, setPhoto1] = useState('/Modezp-Shop/images/plus.png');
-	const [photo2, setPhoto2] = useState('/Modezp-Shop/images/plus.png');
-	const [photo3, setPhoto3] = useState('/Modezp-Shop/images/plus.png');
-	const [photo4, setPhoto4] = useState('/Modezp-Shop/images/plus.png');
+	const [photo1, setPhoto1] = useState('/images/plus.png');
+	const [photo2, setPhoto2] = useState('/images/plus.png');
+	const [photo3, setPhoto3] = useState('/images/plus.png');
+	const [photo4, setPhoto4] = useState('/images/plus.png');
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const productInfo = useSelector((state) => state.product);
@@ -58,27 +58,27 @@ const ProductEditScreen = () => {
 						if (product.image[0]) {
 							setPhoto1(product.image[0]);
 						} else {
-							setPhoto1('/Modezp-Shop/images/plus.png');
+							setPhoto1('/images/plus.png');
 						}
 						if (product.image[1]) {
 							setPhoto2(product.image[1]);
 						} else {
-							setPhoto2('/Modezp-Shop/images/plus.png');
+							setPhoto2('/images/plus.png');
 						}
 						if (product.image[2]) {
 							setPhoto3(product.image[2]);
 						} else {
-							setPhoto3('/Modezp-Shop/images/plus.png');
+							setPhoto3('/images/plus.png');
 						}
 						if (product.image[3]) {
 							setPhoto4(product.image[3]);
 						} else {
-							setPhoto4('/Modezp-Shop/images/plus.png');
+							setPhoto4('/images/plus.png');
 						}
 					}
 				}
 			} else {
-				navigate('/Modezp-Shop');
+				navigate('/');
 			}
 		}
 	}, [dispatch, navigate, userLogin, product, productId, updateSuccess]);
@@ -130,7 +130,7 @@ const ProductEditScreen = () => {
 
 	return (
 		<div className='margin-section change-product'>
-			<Link to='/Modezp-Shop/admin/productslist'>
+			<Link to='/admin/productslist'>
 				<button className='btn'>Wróć</button>
 			</Link>
 			{updateLoading && <LoadingSpinner />}

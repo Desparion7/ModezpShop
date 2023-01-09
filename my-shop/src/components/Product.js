@@ -6,10 +6,10 @@ import './Product.css';
 const Product = ({ product }) => {
 	return (
 		<div className='product-box'>
-			<Link to={`/Modezp-Shop/products/${product._id}`}>
+			<Link to={`/products/${product._id}`}>
 				<img src={product.image[0]} alt={product.name}></img>
 			</Link>
-			<Link className='link-title' to={`/Modezp-Shop/products/${product._id}`}>
+			<Link className='link-title' to={`/products/${product._id}`}>
 				<div className='title'>{product.name}</div>
 			</Link>
 			<Rating

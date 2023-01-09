@@ -107,9 +107,6 @@
 	.nav-options {
 		width: 35%;
 	}
-	.menu-arrow {
-		display: none;
-	}
 }
 @media screen and (max-width: 1450px) {
 	.icon-name {

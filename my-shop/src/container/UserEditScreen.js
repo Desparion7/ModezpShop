@@ -45,7 +45,7 @@ const UserEditScreen = () => {
 					}
 				}
 			} else {
-				navigate('/Modezp-Shop');
+				navigate('/');
 			}
 		}
 	}, [dispatch, userId, navigate, userLogin, user, updateSuccess]);
@@ -63,7 +63,7 @@ const UserEditScreen = () => {
 
 	return (
 		<div className='margin-section change-user'>
-			<Link to='/Modezp-Shop/admin/userslist'>
+			<Link to='/admin/userslist'>
 				<button className='btn'>Wróć</button>
 			</Link>
 			{updateLoading && <LoadingSpinner />}

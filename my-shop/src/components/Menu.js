@@ -20,7 +20,7 @@ const Menu = ({ hideMenu }) => {
 			{user ? (
 				<div className='menu-links'>
 					<Link
-						to='/Modezp-Shop/profile'
+						to='/profile'
 						className='menu-link'
 						onClick={hideMenu}
 					>
@@ -33,10 +33,10 @@ const Menu = ({ hideMenu }) => {
 					>
 						Moje zamówienia
 					</Link>
-					<Link to='/Modezp-Shop/profile/messagecenter' className='menu-link' onClick={hideMenu}>
+					<Link to='/profile/messagecenter' className='menu-link' onClick={hideMenu}>
 						Wyślij wiadomość
 					</Link>
-					<Link to='/Modezp-Shop/login'>
+					<Link to='/login'>
 						<button
 							className='btn'
 							onClick={(e) => {
@@ -50,7 +50,7 @@ const Menu = ({ hideMenu }) => {
 				</div>
 			) : (
 				<>
-					<Link to='/Modezp-Shop/login'>
+					<Link to='/login'>
 						<button className='btn' onClick={hideMenu}>
 							Zaloguj się
 						</button>
@@ -58,7 +58,7 @@ const Menu = ({ hideMenu }) => {
 
 					<p>Nie masz konta?</p>
 					<Link
-						to='/Modezp-Shop/register'
+						to='/register'
 						className='menu-link-register'
 						onClick={hideMenu}
 					>

@@ -28,7 +28,7 @@ const ShippingScreen = () => {
 
 	useEffect(() => {
 		if (!userDetailsInfo) {
-			navigate('/Modezp-Shop/login');
+			navigate('/login');
 		}
 		if (!userDetailsInformation._id ||userDetailsInformation._id !==userDetailsInfo._id) {
 			dispatch(getUserDetails('profile'));
@@ -59,7 +59,7 @@ const ShippingScreen = () => {
 			})
 		);
 		dispatch(getUserDetails('profile'));
-		navigate('/Modezp-Shop/payment');
+		navigate('/payment');
 	};
 
 	return (

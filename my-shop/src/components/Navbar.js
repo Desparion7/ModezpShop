@@ -41,7 +41,7 @@ const Navbar = () => {
 			<div className='navbar'>
 				<Link
 					className='name'
-					to='/Modezp-Shop'
+					to='/'
 					onClick={() => {
 						dispatch(categoryActions.categoryReset());
 					}}
@@ -51,7 +51,7 @@ const Navbar = () => {
 				<SearchBox />
 				<div className='nav-options'>
 					<div className='btn-cart'>
-						<Link className='link' to='/Modezp-Shop/cart'>
+						<Link className='link' to='/cart'>
 							<i className='fa-solid fa-cart-shopping nav-cart-box menu-icon'>
 								{cartItemsAmount ? (
 									<div className='nav-cart-amount'>{cartItemsAmount}</div>
@@ -66,12 +66,6 @@ const Navbar = () => {
 							<span className='icon-name btn-my-account'>
 								{stateUser ? stateUser.name : 'Moje Konto '}
 							</span>
-							{showMyAccountOptions && (
-								<i className='fa-solid fa-chevron-up menu-arrow'></i>
-							)}
-							{!showMyAccountOptions && (
-								<i className='fa-solid fa-chevron-down menu-arrow'></i>
-							)}
 						</p>
 						<div>
 							{showMyAccountOptions ? <Menu hideMenu={hideMenuHandler} /> : ''}

@@ -53,7 +53,7 @@ const CategorySmall = () => {
 	});
 	const changeCategoryHandler = (e) => {
 		e.preventDefault();
-		navigate(`/Modezp-Shop/category/${category}`);
+		navigate(`/category/${category}`);
 		dispatch(categoryActions.categoryChoose(category));
 		setHoodies(false);
 		setSweater(false);

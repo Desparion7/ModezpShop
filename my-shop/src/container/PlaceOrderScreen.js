@@ -23,7 +23,7 @@ const PlaceOrderScreen = () => {
 
 	useEffect(() => {
 		if (success) {
-			navigate(`/Modezp-Shop/order/${orderInfo._id}`);
+			navigate(`/order/${orderInfo._id}`);
 			dispatch(cartActions.resetCart());
 			localStorage.setItem('cartItems', []);
 		}
@@ -85,7 +85,7 @@ const PlaceOrderScreen = () => {
 									<div className='placeorder-product-name'>
 										<Link
 											className='link'
-											to={`/Modezp-Shop/products/${product._id}`}
+											to={`/products/${product._id}`}
 										>
 											{product.name}
 										</Link>

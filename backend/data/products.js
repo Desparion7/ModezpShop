@@ -2,10 +2,10 @@ const products = [
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA LILO STICH',
 		image: [
-			'/Modezp-Shop/images/big-stich-1.jpg',
-			'/Modezp-Shop/images/big-stich-2.jpg',
-			'/Modezp-Shop/images/big-stich-3.jpg',
-			'/Modezp-Shop/images/big-stich-4.jpg',
+			'/images/big-stich-1.jpg',
+			'/images/big-stich-2.jpg',
+			'/images/big-stich-3.jpg',
+			'/images/big-stich-4.jpg',
 		],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
@@ -19,10 +19,10 @@ const products = [
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA KOALA',
 		image: [
-			'/Modezp-Shop/images/big-koala-1.jpg',
-			'/Modezp-Shop/images/big-koala-2.jpg',
-			'/Modezp-Shop/images/big-koala-3.jpg',
-			'/Modezp-Shop/images/big-koala-4.jpg',
+			'/images/big-koala-1.jpg',
+			'/images/big-koala-2.jpg',
+			'/images/big-koala-3.jpg',
+			'/images/big-koala-4.jpg',
 		],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
@@ -36,10 +36,10 @@ const products = [
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA ŻABA',
 		image: [
-			'/Modezp-Shop/images/big-frog-1.jpg',
-			'/Modezp-Shop/images/big-frog-2.jpg',
-			'/Modezp-Shop/images/big-frog-3.jpg',
-			'/Modezp-Shop/images/big-frog-4.jpg',
+			'/images/big-frog-1.jpg',
+			'/images/big-frog-2.jpg',
+			'/images/big-frog-3.jpg',
+			'/images/big-frog-4.jpg',
 		],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy',
@@ -53,10 +53,10 @@ const products = [
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA DZIECIĘCA LILO STICH',
 		image: [
-			'/Modezp-Shop/images/small-stich-1.jpg',
-			'/Modezp-Shop/images/small-stich-2.jpg',
-			'/Modezp-Shop/images/small-stich-3.jpg',
-			'/Modezp-Shop/images/small-stich-4.jpg',
+			'/images/small-stich-1.jpg',
+			'/images/small-stich-2.jpg',
+			'/images/small-stich-3.jpg',
+			'/images/small-stich-4.jpg',
 		],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
@@ -69,7 +69,7 @@ const products = [
 	},
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA DZIECIĘCA PIKACHU',
-		image: ['/Modezp-Shop/images/small-pikachu-1.jpg'],
+		image: ['/images/small-pikachu-1.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
@@ -81,7 +81,7 @@ const products = [
 	},
 	{
 		name: 'JEDNOCZĘŚCIOWA PIŻAMA DZIECIĘCA KOTEK',
-		image: ['/Modezp-Shop/images/small-cat-1.jpg'],
+		image: ['/images/small-cat-1.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
@@ -93,7 +93,7 @@ const products = [
 	},
 	{
 		name: 'PIŻAMA DINOZAUR SMOK DZIECIĘCA',
-		image: ['/Modezp-Shop/images/small-dragon.jpg'],
+		image: ['/images/small-dragon.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
@@ -105,7 +105,7 @@ const products = [
 	},
 	{
 		name: 'PIŻAMA ZWIERZĘTA JEDNOCZĘŚCIOWA NIETOPERZ',
-		image: ['/Modezp-Shop/images/big-bat.jpg'],
+		image: ['/images/big-bat.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['S', 'M', 'L', 'Xl'],
@@ -117,7 +117,7 @@ const products = [
 	},
 	{
 		name: 'PIŻAMA ZWIERZĘTA JEDNOCZĘŚCIOWA LEMUR KRÓL JULIAN',
-		image: ['/Modezp-Shop/images/big-julian.jpg'],
+		image: ['/images/big-julian.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['S', 'M', 'L', 'Xl'],
@@ -129,7 +129,7 @@ const products = [
 	},
 	{
 		name: 'PIŻAMA KROWA KRÓWKA DLA DZIECKA ZWIERZĘTA',
-		image: ['/Modezp-Shop/images/small-cow.jpg'],
+		image: ['/images/small-cow.jpg'],
 		description:
 			'Pidżamy wykonane są delikatnego i bardzo przyjemnego w dotyku materiału. Kapcie widoczne na niektórych zdjęciach nie są częścią piżamy. Pidżamy wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału. Piżamy bardzo cieplutkie ',
 		size: ['105', '115', '125', '135', '145'],
@@ -141,7 +141,7 @@ const products = [
 	},
 	{
 		name: 'BLUZA MĘSKA 3D Z KAPTUREM RICK AND MORTY ',
-		image: ['/Modezp-Shop/images/hoodie-rick-purple.jpg'],
+		image: ['/images/hoodie-rick-purple.jpg'],
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
@@ -153,7 +153,7 @@ const products = [
 	},
 	{
 		name: 'BLUZA MĘSKA 3D Z KAPTUREM RICK AND MORTY ',
-		image: ['/Modezp-Shop/images/hoodie-rick-yellow.jpg'],
+		image: ['/images/hoodie-rick-yellow.jpg'],
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
@@ -165,7 +165,7 @@ const products = [
 	},
 	{
 		name: 'BLUZA MĘSKA 3D Z KAPTUREM RICK AND MORTY ',
-		image: ['/Modezp-Shop/images/hoodie-rick-grey.jpg'],
+		image: ['/images/hoodie-rick-grey.jpg'],
 		description:
 			'Wysokiej jakości bluza Z MOTYWEM RICK AND MORTY. Bluza bardzo wygodna i ciepła. Wysoka jakość wykonania w atrakcyjnej cenie',
 		size: ['S', 'M', 'L', 'Xl', '2XL'],
@@ -177,7 +177,7 @@ const products = [
 	},
 	{
 		name: 'DAMSKI SWETER GOLF CIEPŁY OCIEPLANY ELEGANCKI',
-		image: ['/Modezp-Shop/images/sweater-brow.jpg'],
+		image: ['/images/sweater-brow.jpg'],
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
@@ -189,7 +189,7 @@ const products = [
 	},
 	{
 		name: 'DAMSKI SWETER GOLF CIEPŁY OCIEPLANY ELEGANCKI',
-		image: ['/Modezp-Shop/images/sweater-pink.jpg'],
+		image: ['/images/sweater-pink.jpg'],
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
@@ -201,7 +201,7 @@ const products = [
 	},
 	{
 		name: 'DAMSKI SWETER GOLF CIEPŁY OCIEPLANY ELEGANCKI',
-		image: ['/Modezp-Shop/images/sweater-white.jpg'],
+		image: ['/images/sweater-white.jpg'],
 		description:
 			'ELEGANSKI OCIEPLANY SWETER DAMSKI NIESAMOWITY STYL WYSOKA JAKOŚĆ WYKONANIA SWETER NIE POGRUBIA A JEDNOCZESNIE JEST BARDZO CIEPŁY',
 		size: ['S', 'M', 'L', 'Xl'],
@@ -213,7 +213,7 @@ const products = [
 	},
 	{
 		name: 'Koszulka Termoaktywna SPIDER-MAN VENOM',
-		image: ['/Modezp-Shop/images/venom.jpg'],
+		image: ['/images/venom.jpg'],
 		description:
 			'Termoaktywne koszulki w oryginalnych wzorach. Wysoka jakość nadruku HD, Koszulki produkowane ze specjalnie projektowanych dzianin syntetycznych, które posiadają zdolność sprawnego odprowadzania potu i pary wodnej ze skóry pozostawiając ją suchą, nawet przy intensywnym wysiłku fizycznym',
 		size: ['S', 'M', 'L', 'Xl', '2Xl', '3Xl'],
@@ -225,7 +225,7 @@ const products = [
 	},
 	{
 		name: 'STRÓJ KĄPIELOWY DŁUGI RĘKAW ODSŁONIETY W KWIATY',
-		image: ['/Modezp-Shop/images/swimsuit.jpg'],
+		image: ['/images/swimsuit.jpg'],
 		description:
 			'SPORTOWY Strój kąpielowy. Przysłania ramiona i plecy dzięki temu idealnie się sprawdza do osłonięcia mocno opalonych miejsc. Wysoka jakość materiału wykonanie z dbałością o szczegóły',
 		size: ['S', 'M', 'L'],
@@ -237,7 +237,7 @@ const products = [
 	},
 	{
 		name: 'BLUZA DAMSKA SWETER KANGUREK PIESEŁ SHIBA',
-		image: ['/Modezp-Shop/images/shiba.jpg'],
+		image: ['/images/shiba.jpg'],
 		description:
 			'Wyjątkowo BLUZA kangurek wykonana pod wzór pieska Shiba. Bluza wykonane są z delikatnego i bardzo przyjemnego w dotyku materiału',
 		size: ['S', 'M', 'L', 'Xl', '2Xl'],
@@ -249,7 +249,7 @@ const products = [
 	},
 	{
 		name: 'KOSZULKA T-shirt DAMSKA BABY YODA',
-		image: ['/Modezp-Shop/images/shirt-women.jpg'],
+		image: ['/images/shirt-women.jpg'],
 		description:
 			'Koszulka Baby Yoda. Produkt w 100% nowy nie używany. Azjatyckie rozmiary',
 		size: ['S', 'M', 'L', 'Xl', '2Xl'],
@@ -261,7 +261,7 @@ const products = [
 	},
 	{
 		name: 'Medalion Naszyjnik Wiedźmin 3 Dziki Gon Szkoła Kot',
-		image: ['/Modezp-Shop/images/cat.jpg'],
+		image: ['/images/cat.jpg'],
 		description:
 			'Długość łańcuszka: 50 cm. Wymiary medalionu podane na zdjęciach w galerii. W skład zestawu wchodzi:	Medalion, Łańcuszek, Woreczek na medalion.',
 		size: [],
@@ -273,7 +273,7 @@ const products = [
 	},
 	{
 		name: 'Medalion Naszyjnik Wiedźmin 3 Dziki Gon Szkoła Węża',
-		image: ['/Modezp-Shop/images/snake.jpg'],
+		image: ['/images/snake.jpg'],
 		description:
 			'Długość łańcuszka: 50 cm. Wymiary medalionu podane na zdjęciach w galerii. W skład zestawu wchodzi:	Medalion, Łańcuszek, Woreczek na medalion.',
 		size: [],
@@ -285,7 +285,7 @@ const products = [
 	},
 	{
 		name: 'Medalion Naszyjnik Wiedźmin 3 Dziki Gon Szkoła Gryfa',
-		image: ['/Modezp-Shop/images/gryf.jpg'],
+		image: ['/images/gryf.jpg'],
 		description:
 			'Długość łańcuszka: 50 cm. Wymiary medalionu podane na zdjęciach w galerii. W skład zestawu wchodzi:	Medalion, Łańcuszek, Woreczek na medalion.',
 		size: [],
@@ -297,7 +297,7 @@ const products = [
 	},
 	{
 		name: 'Medalion Naszyjnik Wiedźmin 3 Dziki Gon Szkoła Niedźwiedzia',
-		image: ['/Modezp-Shop/images/bear.jpg'],
+		image: ['/images/bear.jpg'],
 		description:
 			'Długość łańcuszka: 50 cm. Wymiary medalionu podane na zdjęciach w galerii. W skład zestawu wchodzi:	Medalion, Łańcuszek, Woreczek na medalion.',
 		size: [],

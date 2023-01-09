@@ -21,7 +21,7 @@ const RegisterScreen = () => {
 
 	useEffect(() => {
 		if (user) {
-			navigate('/Modezp-Shop');
+			navigate('/');
 		}
 	}, [navigate, user]);
 
@@ -93,7 +93,7 @@ const RegisterScreen = () => {
 				</div>
 				<div className='rediret-box'>
 					<label>Masz konto?</label>
-					<Link to='/Modezp-Shop/management' className='management-box-redirect-link'>
+					<Link to='/management' className='management-box-redirect-link'>
 						ZALOGUJ SIĘ
 					</Link>
 				</div>

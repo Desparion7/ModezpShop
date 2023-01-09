@@ -21,7 +21,7 @@ const DetailLoading = () => {
 	return (
 		<>
 			<div className='margin-section'>
-				<Link to='/Modezp-Shop'>
+				<Link to='/'>
 					<button className='btn'>Wróć</button>
 				</Link>
 			</div>

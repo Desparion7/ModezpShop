@@ -24,7 +24,7 @@ const UsersListScreen = () => {
 				dispatch(getUsersList());
 			}
 		} else {
-			navigate('/Modezp-Shop');
+			navigate('/');
 		}
 	}, [dispatch, navigate, userLogin]);
 
@@ -62,7 +62,7 @@ const UsersListScreen = () => {
 					<Message>{error}</Message>
 				) : (
 					<div className='margin-section'>
-						<Link to='/Modezp-Shop/profile'>
+						<Link to='/profile'>
 							<button className='btn'>Wróć</button>
 						</Link>
 						<div className='userslist'>
@@ -98,7 +98,7 @@ const UsersListScreen = () => {
 												)}
 											</div>
 											<div className='userslist-body-text'>
-												<Link to={`/Modezp-Shop/admin/user/${user._id}/edit`}>
+												<Link to={`/admin/user/${user._id}/edit`}>
 													<button className='btn-edit'>
 														<i className='fas fa-edit'></i>
 													</button>
@@ -147,7 +147,7 @@ const UsersListScreen = () => {
 										)}
 									</div>
 									<div>
-										<Link to={`/Modezp-Shop/admin/user/${user._id}/edit`}>
+										<Link to={`/admin/user/${user._id}/edit`}>
 											<button className='btn-edit'>
 												<i className='fas fa-edit'></i>
 											</button>

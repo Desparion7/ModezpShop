@@ -28,11 +28,12 @@ const ProfileAddressScreen = () => {
 
 	useEffect(() => {
 		if (!userDetailsInfo) {
-			navigate('/Modezp-Shop');
+			navigate('/');
 		} else {
-			if (!user.name) {
+			if (!user._id) {
 				dispatch(getUserDetails('profile'));
-			} else {
+			}
+			if(user._addressName) {
 				setAddressName(user.addressName);
 				setSurname(user.surname);
 				setStreet(user.street);
@@ -62,7 +63,7 @@ const ProfileAddressScreen = () => {
 
 	return (
 		<div className='margin-section'>
-			<Link to='/Modezp-Shop/profile'>
+			<Link to='/profile'>
 				<button className='btn'>Wróć</button>
 			</Link>
 			<div className='management-box '>

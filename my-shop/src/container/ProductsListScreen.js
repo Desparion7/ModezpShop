@@ -48,10 +48,10 @@ const ProductsListScreen = () => {
 				dispatch(productsFetching('', pageNumber, ''));
 			}
 		} else {
-			navigate('/Modezp-Shop');
+			navigate('/');
 		}
 		if (createSuccess) {
-			navigate(`/Modezp-Shop/admin/product/${createProdukt._id}/edit`);
+			navigate(`/admin/product/${createProdukt._id}/edit`);
 		}
 	}, [
 		dispatch,
@@ -104,7 +104,7 @@ const ProductsListScreen = () => {
 						{createError && <Message>{deleteError}</Message>}
 						{createLoading && <LoadingSpinner />}
 						<div className='margin-section'>
-							<Link to='/Modezp-Shop/profile'>
+							<Link to='/profile'>
 								<button className='btn'>Wróć</button>
 							</Link>
 							<button className='btn btn-add' onClick={createProductHandler}>
@@ -133,7 +133,7 @@ const ProductsListScreen = () => {
 												</div>
 												<Link
 													className='link'
-													to={`/Modezp-Shop/products/${product._id}`}
+													to={`/products/${product._id}`}
 												>
 													<div className='productslist-body-text'>
 														{product.name}
@@ -147,7 +147,7 @@ const ProductsListScreen = () => {
 												</div>
 												<div className='productslist-body-text'>
 													<Link
-														to={`/Modezp-Shop/admin/product/${product._id}/edit`}
+														to={`/admin/product/${product._id}/edit`}
 													>
 														<button className='btn-edit'>
 															<i className='fas fa-edit'></i>
@@ -179,7 +179,7 @@ const ProductsListScreen = () => {
 											<div className='productslist-small-header'>Nazwa:</div>
 											<Link
 												className='link'
-												to={`/Modezp-Shop/products/${product._id}`}
+												to={`/products/${product._id}`}
 											>
 												<div> {product.name}</div>
 											</Link>
@@ -196,7 +196,7 @@ const ProductsListScreen = () => {
 										</div>
 										<div>
 											<Link
-												to={`/Modezp-Shop/admin/product/${product._id}/edit`}
+												to={`/admin/product/${product._id}/edit`}
 											>
 												<button className='btn-edit'>
 													<i className='fas fa-edit'></i>

@@ -52,7 +52,7 @@ const Navbar = () => {
 				<div className='nav-options'>
 					<div className='btn-cart'>
 						<Link className='link' to='/Modezp-Shop/cart'>
-							<i className='fa-solid fa-cart-shopping nav-cart-box'>
+							<i className='fa-solid fa-cart-shopping nav-cart-box menu-icon'>
 								{cartItemsAmount ? (
 									<div className='nav-cart-amount'>{cartItemsAmount}</div>
 								) : null}
@@ -62,15 +62,15 @@ const Navbar = () => {
 					</div>
 					<div ref={menuRef} className='my-account'>
 						<p onClick={showMyAccount}>
-							<i className='fa-regular fa-user'></i>
+							<i className='fa-regular fa-user menu-icon'></i>
 							<span className='icon-name btn-my-account'>
 								{stateUser ? stateUser.name : 'Moje Konto '}
 							</span>
 							{showMyAccountOptions && (
-								<i className='fa-solid fa-chevron-up'></i>
+								<i className='fa-solid fa-chevron-up menu-arrow'></i>
 							)}
 							{!showMyAccountOptions && (
-								<i className='fa-solid fa-chevron-down'></i>
+								<i className='fa-solid fa-chevron-down menu-arrow'></i>
 							)}
 						</p>
 						<div>

@@ -19,9 +19,11 @@
 	width: 100%;
 	font-size: 1rem;
 	padding: 0.3rem;
+	padding-left: 0.5rem;
 	border: 0.5px solid grey;
 	border-right: none;
 }
+
 .navbar-search-btn {
 	display: flex;
 	justify-content: center;
@@ -63,5 +65,11 @@
 @media screen and (max-width: 400px) {
 	.navbar-category-search-box {
 		margin: 0.5rem 1rem;
+	}
+	.navbar-search-box input {
+		padding-left: 0.3rem;
+	}
+	.navbar-search-box input::placeholder {
+		font-size: 0.9rem;
 	}
 }

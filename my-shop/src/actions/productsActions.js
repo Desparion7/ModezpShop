@@ -1,6 +1,4 @@
 
-const url ='https://modezp-shop.onrender.com'
-
 import {
 	productsListActions,
 	productDetailActions,
@@ -22,7 +20,7 @@ export const productsFetching = (
 			try {
 				dispatch(productsListActions.productsListRequest());
 				const { data } = await axios.get(
-					`${url}/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
+					`$/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
 				);
 				dispatch(productsListActions.productsListSuccess(data));
 			} catch (error) {

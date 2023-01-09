@@ -20,6 +20,7 @@ import ProductsListScreen from './container/ProductsListScreen';
 import ProductEditScreen from './container/ProductEditScreen';
 import OrdersAdminListScreen from './container/OrdersAdminListScreen';
 import ProductCreateReview from './container/ProductCreateReview';
+import MessageCenter from './container/MessageCenter';
 
 import './App.css';
 
@@ -111,6 +112,10 @@ function App() {
 					<Route
 						path='/Modezp-Shop/profile/orderlist'
 						element={<OrdersUserListScreen />}
+					/>
+					<Route
+						path='/Modezp-Shop/profile/messagecenter'
+						element={<MessageCenter />}
 					/>
 				</Routes>
 			</main>

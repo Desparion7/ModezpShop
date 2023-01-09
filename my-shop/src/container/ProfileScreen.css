@@ -42,7 +42,6 @@
 	cursor: pointer;
 	width: fit-content;
 	margin: 0.8rem 0;
-	
 }
 .link-on-profile:hover {
 	color: var(--font-color);
@@ -90,7 +89,7 @@
 	}
 }
 @media screen and (max-width: 534px) {
-	.profile-menu h2{
+	.profile-menu h2 {
 		font-size: 1.2rem;
 	}
 	.link-on-profile {
@@ -101,7 +100,11 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	.profil-user-address{
+	.profile-info-orders {
+		margin-top: 1.5rem;
+		
+	}
+	.profil-user-address {
 		font-size: 0.9rem;
 	}
 	.profile-info-account,

@@ -1,16 +1,15 @@
 .account-title {
 	text-align: center;
-	margin-bottom: 2rem;
+	/* padding: 1rem 2rem; */
 }
 .management-box {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	min-height: 75vh;
 }
 .management-container {
-	padding: 1rem 2rem;
+	padding: 1rem;
 	background-color: var(--main-color);
 	border-radius: 5%;
 }
@@ -41,4 +40,9 @@
 }
 .management-box-redirect-link:hover {
 	text-decoration: underline;
+}
+@media screen and (max-width: 534px) {
+	.management-box-form input {
+		min-width: 250px;
+	}
 }

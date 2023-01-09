@@ -33,7 +33,7 @@ const Menu = ({ hideMenu }) => {
 					>
 						Moje zamówienia
 					</Link>
-					<Link to='/Modezp-Shop' className='menu-link' onClick={hideMenu}>
+					<Link to='/Modezp-Shop/profile/messagecenter' className='menu-link' onClick={hideMenu}>
 						Wyślij wiadomość
 					</Link>
 					<Link to='/Modezp-Shop/login'>

@@ -24,7 +24,7 @@ const OrdersUserListScreen = () => {
 					<LoadingSpinner />
 				) : error ? (
 					<Message>{error}</Message>
-				) : (
+				) : ordersList.length > 0 ? (
 					reverseOrderList.map((order) => (
 						<div className='order-list-border' key={order._id}>
 							<div className='order-list-detail'>
@@ -82,10 +82,7 @@ const OrdersUserListScreen = () => {
 											/>
 										</div>
 										<div className='order-list-product-name'>
-											<Link
-												className='link'
-												to={`/products/${product._id}`}
-											>
+											<Link className='link' to={`/products/${product._id}`}>
 												{product.name}
 											</Link>
 										</div>
@@ -106,15 +103,14 @@ const OrdersUserListScreen = () => {
 								</div>
 							))}
 							<div className='order-list-btn-box'>
-								<Link
-									className='orders-list-btn'
-									to={`/order/${order._id}`}
-								>
+								<Link className='orders-list-btn' to={`/order/${order._id}`}>
 									Szczegóły{' '}
 								</Link>
 							</div>
 						</div>
 					))
+				) : (
+					<Message>Brak zamówień</Message>
 				)}
 			</div>
 		</div>

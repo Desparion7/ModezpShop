@@ -136,8 +136,13 @@ const ProductDetail = ({ product }) => {
 							</div>
 							<div className='detail-stock'>
 								{product.countInStock > 0
-									? `ze: ${product.countInStock} sztuk`
+									? `z: ${product.countInStock} sztuk`
 									: 'Brak na magazynie'}
+							</div>
+							<div className='size-box'>
+								{product.size.map((size) => (
+									<span key={size}>{size},</span>
+								))}
 							</div>
 
 							<button

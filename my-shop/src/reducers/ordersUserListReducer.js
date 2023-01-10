@@ -16,6 +16,7 @@ const ordersUserListSlice = createSlice({
 		ordersUserListSuccess(state, action) {
 			state.loading = false;
 			state.ordersList = action.payload;
+			state.reducers = null;
 		},
 		ordersUserListFail(state, action) {
 			state.loading = false;

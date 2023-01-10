@@ -64,7 +64,18 @@ const Rating = ({ value, text, color }) => {
 					}
 				></i>
 			</span>
-			<span> {text && text } {text && "ocena"} </span>
+			<span>
+				{text && text}{' '}
+				{text === '0'
+					? ''
+					: text === 1
+					? 'ocena'
+					: text > 1 && text < 5
+					? 'oceny'
+					: text > 5 && text < 11
+					? 'ocen'
+					: 'ocen'}
+			</span>
 		</div>
 	);
 };

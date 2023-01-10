@@ -162,6 +162,7 @@
 }
 @media screen and (max-width: 900px) {
 	.cart {
+		justify-content: flex-start;
 		flex-direction: column;
 	}
 	.second-summary-box {
@@ -175,7 +176,7 @@
 		gap: 0px;
 		margin-top: 1rem;
 	}
-	.cart-box{
+	.cart-box {
 		padding: 0;
 	}
 	.change-amount-box {

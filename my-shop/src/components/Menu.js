@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../actions/usersActions.js';
 import { userRegisterActions } from '../store.js';
 import './Menu.css';
 
 const Menu = ({ hideMenu }) => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userLogin.userDetailsInfo);
 
@@ -13,27 +14,28 @@ const Menu = ({ hideMenu }) => {
 		e.preventDefault();
 		dispatch(logout());
 		dispatch(userRegisterActions.userRegisterReset());
+		navigate('/');
 	};
 
 	return (
 		<div className='menu box-shadow'>
 			{user ? (
 				<div className='menu-links'>
-					<Link
-						to='/profile'
-						className='menu-link'
-						onClick={hideMenu}
-					>
+					<Link to='/profile' className='menu-link' onClick={hideMenu}>
 						Moje Konto
 					</Link>
 					<Link
-						to='Modezp-Shop/profile/orderlist'
+						to='/profile/orderlist'
 						className='menu-link'
 						onClick={hideMenu}
 					>
 						Moje zamówienia
 					</Link>
-					<Link to='/profile/messagecenter' className='menu-link' onClick={hideMenu}>
+					<Link
+						to='/profile/messagecenter'
+						className='menu-link'
+						onClick={hideMenu}
+					>
 						Wyślij wiadomość
 					</Link>
 					<Link to='/login'>

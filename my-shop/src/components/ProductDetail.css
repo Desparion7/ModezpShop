@@ -106,6 +106,11 @@
 	cursor: pointer;
 	font-size: 20px;
 }
+.size-box {
+	display: flex;
+	gap: 5px;
+	margin-bottom: 0.5rem;
+}
 .comments-box {
 	margin-top: 1rem;
 	border: 1px rgba(205, 205, 205, 0.867) solid;
@@ -116,10 +121,10 @@
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
 }
-.one-comment-box{
+.one-comment-box {
 	margin-bottom: 0.5rem;
 }
-.comment-user-name{
+.comment-user-name {
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin-bottom: 0.5rem;

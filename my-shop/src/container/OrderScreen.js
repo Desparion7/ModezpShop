@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+// import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { detailsOrder, payOrder, deliverOrder } from '../actions/orderActions';
 import { orderPayActions, orderDeliverActions } from '../store';
@@ -181,7 +181,7 @@ const OrderScreen = () => {
 							Razem z dostawą:
 							<span className='full-price'> {order.totalPrice}</span> zł
 						</div>
-						{!order.isPaid && (
+						{/* {!order.isPaid && (
 							<PayPalScriptProvider
 								options={{
 									'client-id':
@@ -210,7 +210,7 @@ const OrderScreen = () => {
 									}}
 								/>
 							</PayPalScriptProvider>
-						)}
+						)} */}
 						{loadingDeliver && <LoadingSpinner />}
 						{userDetailsInfo &&
 							userDetailsInfo.isAdmin &&

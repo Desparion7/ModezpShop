@@ -12,6 +12,7 @@ const productDetailSlice = createSlice({
 		productDetailSuccess(state, action) {
 			state.product = action.payload;
 			state.loading = false;
+			state.error = null;
 		},
 		productDetailFail(state, action) {
 			state.loading = false;

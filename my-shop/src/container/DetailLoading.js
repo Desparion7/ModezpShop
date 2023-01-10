@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProductDetail from '../components/ProductDetail';
 import { productDetails } from '../actions/productsActions';
 import LoadingSpinner from '../UI/LoadingSpinner';
@@ -20,11 +20,6 @@ const DetailLoading = () => {
 
 	return (
 		<>
-			<div className='margin-section'>
-				<Link to='/'>
-					<button className='btn'>Wróć</button>
-				</Link>
-			</div>
 			{loading ? (
 				<LoadingSpinner />
 			) : error ? (

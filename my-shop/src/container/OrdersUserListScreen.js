@@ -82,8 +82,11 @@ const OrdersUserListScreen = () => {
 											/>
 										</div>
 										<div className='order-list-product-name'>
-											<Link className='link' to={`/products/${product._id}`}>
-												{product.name}
+											<Link
+												className='link'
+												to={`/products/${product._id.substring(0, 24)}`}
+											>
+												{product.name} {product.size}
 											</Link>
 										</div>
 									</div>
@@ -91,7 +94,7 @@ const OrdersUserListScreen = () => {
 										<div className='order-list-product-review'>
 											<Link
 												className='order-list-product-review-link'
-												to={`/product/review/${product._id}`}
+												to={`/product/review/${product._id.substring(0, 24)}`}
 											>
 												Oceń
 											</Link>

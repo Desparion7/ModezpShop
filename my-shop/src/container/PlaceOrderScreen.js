@@ -83,11 +83,9 @@ const PlaceOrderScreen = () => {
 										/>
 									</div>
 									<div className='placeorder-product-name'>
-										<Link
-											className='link'
-											to={`/products/${product._id}`}
-										>
-											{product.name}
+										<Link className='link' to={`/products/${product._id}`}>
+											{product.name}{' '}
+											{product.size}
 										</Link>
 									</div>
 									<div className='placeorder-amount-box'>

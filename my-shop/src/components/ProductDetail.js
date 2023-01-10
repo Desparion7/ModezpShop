@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Rating from './Rating';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -12,11 +12,18 @@ const ProductDetail = ({ product }) => {
 	const dispatch = useDispatch();
 	const [showModal, setShowModal] = useState(false);
 
+	const [size, setSize] = useState('');
+
+	useEffect(() => {
+		if (product.size.length > 0) {
+			setSize(product.size[0]);
+		}
+	}, [product]);
+
 	const [mainImg, setImage] = useState(product.image[0]);
 	const [amountInput, setAmountInput] = useState('1');
 
 	const photos = useRef();
-
 	const changePhotoHandler = (img, i) => {
 		setImage(img);
 		photos.current.childNodes.forEach((element) => {
@@ -53,12 +60,13 @@ const ProductDetail = ({ product }) => {
 	const addToCart = () => {
 		dispatch(
 			cartActions.addItem({
-				_id: product._id,
+				_id: product._id.concat(size),
 				name: product.name,
 				image: product.image,
 				price: product.price,
 				countInStock: product.countInStock,
 				qty: amountInput,
+				size: size,
 			})
 		);
 		localStorage.setItem(
@@ -139,11 +147,18 @@ const ProductDetail = ({ product }) => {
 									? `z: ${product.countInStock} sztuk`
 									: 'Brak na magazynie'}
 							</div>
-							<div className='size-box'>
-								{product.size.map((size) => (
-									<span key={size}>{size},</span>
-								))}
-							</div>
+							{product.size.length > 0 && (
+								<select
+									className='size-box'
+									onChange={(e) => setSize(e.target.value)}
+								>
+									{product.size.map((size) => (
+										<option key={size} value={size}>
+											{size}
+										</option>
+									))}
+								</select>
+							)}
 
 							<button
 								className='btn'

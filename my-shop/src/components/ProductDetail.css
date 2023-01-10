@@ -107,10 +107,12 @@
 	font-size: 20px;
 }
 .size-box {
-	display: flex;
-	gap: 5px;
+	padding: 0.2rem;
+	font-size: 1rem;
+	text-align: center;
 	margin-bottom: 0.5rem;
 }
+
 .comments-box {
 	margin-top: 1rem;
 	border: 1px rgba(205, 205, 205, 0.867) solid;

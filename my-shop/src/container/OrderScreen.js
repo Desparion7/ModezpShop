@@ -149,9 +149,9 @@ const OrderScreen = () => {
 										<div className='placeorder-product-name'>
 											<Link
 												className='link'
-												to={`/products/${product._id}`}
+												to={`/products/${product._id.substring(0, 24)}`}
 											>
-												{product.name}
+												{product.name} {product.size}
 											</Link>
 										</div>
 										<div className='placeorder-amount-box'>

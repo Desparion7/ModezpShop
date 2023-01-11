@@ -1,6 +1,10 @@
 # Modezp-Shop
-ECommerce written by myself. MERN.The shop have a lot functionally, more in documentation. If you want to see  it from admin site please wrote to me. I will send you login and password
+ECommerce written by myself use redux, router etc. MERN.The shop have a lot functionally. If you want to see  it from admin perspective please wrote to me. I will send you login and password. 
 
+
+# email:example@gmail.com
+# password: 123456
+# Following functionality:
 
 Full featured shopping cart
 

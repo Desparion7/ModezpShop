@@ -155,18 +155,7 @@ const getUserById = asyncHandler(async (req, res) => {
 	const user = await User.findById(req.params.id).select('-password');
 
 	if (user) {
-		res.json({
-			_id: updateUser._id,
-			name: updateUser.name,
-			email: updateUser.email,
-			isAdmin: updateUser.isAdmin,
-			addressName: updateUser.addressName,
-			surname: updateUser.surname,
-			street: updateUser.street,
-			postalCode: updateUser.postalCode,
-			city: updateUser.city,
-			phone: updateUser.phone,
-		});
+		res.json(user);
 	} else {
 		res.status(404);
 		throw new Error('Nie znaleziono użytkownika o podanym id');

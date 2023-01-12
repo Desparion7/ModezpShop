@@ -9,11 +9,14 @@ const PaymentScreen = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [paymentMethod, setPaymentMethod] = useState('PayPal');
-	const cartItems = useSelector((state) => state.cart.cartItems);
+	const { cartItems, deliveryPrice } = useSelector((state) => state.cart);
+
 	const fullPrice = cartItems
 		.reduce((acc, item) => acc + item.qty * item.price, 0)
 		.toFixed(2);
 
+	const fullPriceWithDelivery = (Number(fullPrice) + deliveryPrice).toFixed(2);
+	
 	const changePaymentHandler = (e) => {
 		e.preventDefault();
 		const paymentIcons = document.querySelectorAll('.payment-icon');
@@ -79,9 +82,10 @@ const PaymentScreen = () => {
 			<div className='second-summary-box'>
 				<div className='box-shadow'>
 					<div>Wartość produktów: {fullPrice} zł</div>
-					<div>Dostawa od: 0,00 zł</div>
+					<div>Dostawa {deliveryPrice} zł</div>
 					<div>
-						Razem z dostawą:<span className='full-price'> {fullPrice}</span> zł
+						Razem z dostawą:
+						<span className='full-price'> {fullPriceWithDelivery}</span> zł
 					</div>
 					<div className='payment-second-summary-box-btn'>
 						<button

@@ -71,7 +71,7 @@ const ProductDetail = ({ product }) => {
 		);
 		localStorage.setItem(
 			'cartItems',
-			JSON.stringify(store.getState().cart.cartItems)
+			JSON.stringify(store.getState().cart)
 		);
 	};
 	const navigateHandler = () => {

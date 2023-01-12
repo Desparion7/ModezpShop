@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Checkout from '../components/Checkout';
 import { updateUserProfile, getUserDetails } from '../actions/usersActions';
+import { cartActions } from '../store';
+import store from '../store';
 import './ShippingScreen.css';
 
 const ShippingScreen = () => {
@@ -14,6 +16,8 @@ const ShippingScreen = () => {
 	const [postalCode, setPostalCode] = useState('');
 	const [city, setCity] = useState('');
 	const [phone, setPhone] = useState('');
+	const [delivery, setDelivery] = useState('Poczta list polecony 0 zł');
+	const [deliveryPrice, setDeliveryPrice] = useState(0);
 
 	const userInfo = useSelector((state) => state.userLogin);
 	const { userDetailsInfo } = userInfo;
@@ -25,12 +29,15 @@ const ShippingScreen = () => {
 	const fullPrice = cartItems
 		.reduce((acc, item) => acc + item.qty * item.price, 0)
 		.toFixed(2);
-
+	const FullPriceWithDelivery = (+fullPrice + deliveryPrice).toFixed(2);
 	useEffect(() => {
 		if (!userDetailsInfo) {
 			navigate('/login');
 		}
-		if (!userDetailsInformation._id ||userDetailsInformation._id !==userDetailsInfo._id) {
+		if (
+			!userDetailsInformation._id ||
+			userDetailsInformation._id !== userDetailsInfo._id
+		) {
 			dispatch(getUserDetails('profile'));
 		}
 		if (userDetailsInformation.addressName) {
@@ -45,6 +52,25 @@ const ShippingScreen = () => {
 
 	useEffect(() => {}, [dispatch]);
 
+	const deliverHandler = (e) => {
+		if (e.target.value === 'Poczta list polecony 0 zł') {
+			setDelivery(e.target.value);
+			setDeliveryPrice(0);
+		}
+		if (e.target.value === 'Poczta paczka 12,99 zł') {
+			setDelivery(e.target.value);
+			setDeliveryPrice(12.99);
+		}
+		if (e.target.value === 'Kurier DPD 14,99 zł') {
+			setDelivery(e.target.value);
+			setDeliveryPrice(14.99);
+		}
+		if (e.target.value === 'Kurier Inpost 14,99 zł') {
+			setDelivery(e.target.value);
+			setDeliveryPrice(14.99);
+		}
+	};
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(
@@ -58,6 +84,15 @@ const ShippingScreen = () => {
 				phone,
 			})
 		);
+		dispatch(
+			cartActions.addDelivery({
+				delivery: delivery,
+				deliveryPrice: deliveryPrice,
+			})
+		);
+
+		localStorage.setItem('cartItems', JSON.stringify(store.getState().cart));
+
 		dispatch(getUserDetails('profile'));
 		navigate('/payment');
 	};
@@ -67,7 +102,7 @@ const ShippingScreen = () => {
 			<div className='shipping-box'>
 				<Checkout step2 />
 				<div>
-					<div className='address-form-title'>Dane odbiorcy przesyłki:</div>
+					<div className='address-form-title'>Dane odbiorcy i forma dostawy:</div>
 					<form
 						className='address-form box-shadow'
 						id='form-address'
@@ -117,6 +152,24 @@ const ShippingScreen = () => {
 							required
 							onChange={(e) => setPhone(e.target.value)}
 						></input>
+						<label>Forma dostawy:</label>
+						<select
+							onChange={(e) => {
+								deliverHandler(e);
+							}}
+							defaultValue='Poczta list polecony 0 zł'
+						>
+							<option value='Poczta list polecony 0 zł'>
+								Poczta Polska list polecony 0 zł
+							</option>
+							<option value='Poczta paczka 12,99 zł'>
+								Poczta Polska paczka 12,99 zł
+							</option>
+							<option value='Kurier DPD 14,99 zł'>Kurier DPD 14,99 zł</option>
+							<option value='Kurier Inpost 14,99 zł'>
+								Kurier Inpost 14,99 zł
+							</option>
+						</select>
 					</form>
 				</div>
 				<div className='summary-box'>
@@ -129,9 +182,10 @@ const ShippingScreen = () => {
 			<div className='second-summary-box'>
 				<div className='box-shadow'>
 					<div>Wartość produktów: {fullPrice} zł</div>
-					<div>Dostawa od: 0,00 zł</div>
+					<div>Dostawa: {delivery}</div>
 					<div>
-						Razem z dostawą: <span className='full-price'> {fullPrice}</span> zł
+						Razem z dostawą:{' '}
+						<span className='full-price'> {FullPriceWithDelivery}</span> zł
 					</div>
 					<button
 						type='submit'

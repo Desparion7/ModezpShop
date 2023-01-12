@@ -9,15 +9,20 @@ import './PlaceOrderScreen.css';
 const PlaceOrderScreen = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const cartItems = useSelector((state) => state.cart.cartItems);
+	const { cartItems, delivery, deliveryPrice } = useSelector(
+		(state) => state.cart
+	);
 	const userInformations = useSelector((state) => state.userDetails.user);
 	const payment = useSelector((state) => state.payment);
 
 	const fullItemsPrice = cartItems
 		.reduce((acc, item) => acc + item.qty * item.price, 0)
 		.toFixed(2);
-	const shippingPrice = 0;
-	const TotalPrice = Number(fullItemsPrice) + shippingPrice;
+
+	const fullPriceWithDelivery = (
+		Number(fullItemsPrice) + deliveryPrice
+	).toFixed(2);
+
 	const orderCreate = useSelector((state) => state.order);
 	const { orderInfo, success, error } = orderCreate;
 
@@ -43,8 +48,9 @@ const PlaceOrderScreen = () => {
 				},
 				paymentMethod: payment.paymentMethod,
 				itemsPrice: fullItemsPrice,
-				shippingPrice: shippingPrice,
-				totalPrice: TotalPrice,
+				shippingPrice: deliveryPrice,
+				shippingMethod: delivery,
+				totalPrice: fullPriceWithDelivery,
 			})
 		);
 	};
@@ -84,8 +90,7 @@ const PlaceOrderScreen = () => {
 									</div>
 									<div className='placeorder-product-name'>
 										<Link className='link' to={`/products/${product._id}`}>
-											{product.name}{' '}
-											{product.size}
+											{product.name} {product.size}
 										</Link>
 									</div>
 									<div className='placeorder-amount-box'>
@@ -111,10 +116,10 @@ const PlaceOrderScreen = () => {
 				<div className='second-summary-box'>
 					<div className='box-shadow'>
 						<div>Wartość produktów: {fullItemsPrice} zł</div>
-						<div>Dostawa od: 0,00 zł</div>
+						<div>Dostawa: {deliveryPrice} zł</div>
 						<div>
-							Razem z dostawą:<span className='full-price'> {TotalPrice}</span>{' '}
-							zł
+							Razem z dostawą:
+							<span className='full-price'> {fullPriceWithDelivery}</span> zł
 						</div>
 						<div className='placeorder-second-summary-box-btn'>
 							<button

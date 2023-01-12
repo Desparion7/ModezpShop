@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Checkout from '../components/Checkout';
 import { updateUserProfile, getUserDetails } from '../actions/usersActions';
+import { cartActions } from '../store';
+import store from '../store';
 import './ShippingScreen.css';
 
 const ShippingScreen = () => {
@@ -82,6 +84,15 @@ const ShippingScreen = () => {
 				phone,
 			})
 		);
+		dispatch(
+			cartActions.addDelivery({
+				delivery: delivery,
+				deliveryPrice: deliveryPrice,
+			})
+		);
+
+		localStorage.setItem('cartItems', JSON.stringify(store.getState().cart));
+
 		dispatch(getUserDetails('profile'));
 		navigate('/payment');
 	};
@@ -91,7 +102,7 @@ const ShippingScreen = () => {
 			<div className='shipping-box'>
 				<Checkout step2 />
 				<div>
-					<div className='address-form-title'>Dane odbiorcy przesyłki:</div>
+					<div className='address-form-title'>Dane odbiorcy i forma dostawy:</div>
 					<form
 						className='address-form box-shadow'
 						id='form-address'

@@ -57,7 +57,6 @@ const OrderScreen = () => {
 	]);
 
 	const successPaymentHandler = (paymentResult) => {
-		console.log(paymentResult);
 		dispatch(payOrder(params.id, paymentResult));
 	};
 
@@ -176,7 +175,7 @@ const OrderScreen = () => {
 
 					<div className='box-shadow'>
 						<div>Wartość produktów: {itemsPrice} zł</div>
-						<div>Dostawa od: 0,00 zł</div>
+						<div>{order.shippingMethod}</div>
 						<div className='placeorder-full-price'>
 							Razem z dostawą:
 							<span className='full-price'> {order.totalPrice}</span> zł

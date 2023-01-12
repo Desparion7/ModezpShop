@@ -17,17 +17,15 @@ const CartScreen = () => {
 	const updateLocalStorage = () => {
 		localStorage.setItem(
 			'cartItems',
-			JSON.stringify(store.getState().cart.cartItems)
+			JSON.stringify(store.getState().cart)
 		);
 	};
 
 	const decrementHandler = (id) => {
-		console.log(id);
 		dispatch(cartActions.decrementItem(id));
 		updateLocalStorage();
 	};
 	const incrementHandler = (id) => {
-		console.log(id);
 		dispatch(cartActions.incrementItem(id));
 		updateLocalStorage();
 	};

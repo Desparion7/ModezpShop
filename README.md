@@ -2,6 +2,7 @@
 ECommerce written by myself use redux, router etc. MERN.The shop have a lot functionally. If you want to see  it from admin perspective please wrote to me. I will send you login and password. 
 
 
+# Access by normal user or you can create new account
 # email:example@gmail.com
 # password: 123456
 # Following functionality:

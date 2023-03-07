@@ -2,6 +2,25 @@
 	min-height: 75vh;
 }
 
+.productslistAdmin-header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.productslistAdmin-header-search {
+	margin-left: 1rem;
+	text-align: center;
+}
+.productslistAdmin-header input {
+	font-size: 1rem;
+	padding: 0.4rem;
+	margin-left: 1rem;
+}
+.productslistAdmin-btn {
+	margin-left: 0.5rem;
+}
+
 .productslist-box {
 	margin: 1rem 4rem;
 	padding: 2rem;
@@ -101,5 +120,11 @@
 	}
 	.productslist-small {
 		display: block;
+	}
+}
+@media screen and (max-width: 414px) {
+	.productslistAdmin-btn {
+		margin-top: 1rem;
+		margin-left: 0;
 	}
 }

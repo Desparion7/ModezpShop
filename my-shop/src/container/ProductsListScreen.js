@@ -18,8 +18,10 @@ const ProductsListScreen = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 
+	const keyword = params.keyword;
 	const pageNumber = params.pageNumber;
 
+	const [searchWord, setSearchWord] = useState('');
 
 	const [showModal, setShowModal] = useState(false);
 	const [modalProductID, setModalProductID] = useState(2);
@@ -39,13 +41,11 @@ const ProductsListScreen = () => {
 		product: createProdukt,
 	} = newProductCreate;
 
-	
-
 	useEffect(() => {
 		dispatch(productCreateActions.productReset());
 		if (userLogin.userDetailsInfo !== null) {
 			if (userLogin.userDetailsInfo.isAdmin) {
-				dispatch(productsFetching('', pageNumber, ''));
+				dispatch(productsFetching(keyword, pageNumber, ''));
 			}
 		} else {
 			navigate('/');
@@ -61,6 +61,7 @@ const ProductsListScreen = () => {
 		createSuccess,
 		createProdukt,
 		pageNumber,
+		keyword
 	]);
 
 	const showModalHandler = () => {
@@ -75,6 +76,14 @@ const ProductsListScreen = () => {
 	};
 	const createProductHandler = () => {
 		dispatch(productCreate());
+	};
+
+	const searchHandler = () => {
+		if (searchWord === '') {
+			navigate(`/admin/productslist/page`);
+		} else {
+			navigate(`/admin/productslist/search/${searchWord}`);
+		}
 	};
 
 	return (
@@ -103,13 +112,21 @@ const ProductsListScreen = () => {
 						{deleteError && <Message>{deleteError}</Message>}
 						{createError && <Message>{deleteError}</Message>}
 						{createLoading && <LoadingSpinner />}
-						<div className='margin-section'>
-							<Link to='/profile'>
-								<button className='btn'>Wróć</button>
-							</Link>
-							<button className='btn btn-add' onClick={createProductHandler}>
-								Dodaj nowy produkt
-							</button>
+						<div className='productslistAdmin margin-section'>
+							<div className='productslistAdmin-header'>
+								<button className='btn btn-add' onClick={createProductHandler}>
+									Dodaj nowy produkt
+								</button>
+								<div className='productslistAdmin-header-search'>
+									<input onChange={(e) => setSearchWord(e.target.value.trim())} />
+									<button
+										className='productslistAdmin-btn btn'
+										onClick={searchHandler}
+									>
+										Szukaj
+									</button>
+								</div>
+							</div>
 							<div className='productslist'>
 								<div className='productslist-box'>
 									<div className='productslist-header'>
@@ -131,10 +148,7 @@ const ProductsListScreen = () => {
 												<div className='productslist-body-text'>
 													{product._id}
 												</div>
-												<Link
-													className='link'
-													to={`/products/${product._id}`}
-												>
+												<Link className='link' to={`/products/${product._id}`}>
 													<div className='productslist-body-text'>
 														{product.name}
 													</div>
@@ -146,9 +160,7 @@ const ProductsListScreen = () => {
 													{product.category}
 												</div>
 												<div className='productslist-body-text'>
-													<Link
-														to={`/admin/product/${product._id}/edit`}
-													>
+													<Link to={`/admin/product/${product._id}/edit`}>
 														<button className='btn-edit'>
 															<i className='fas fa-edit'></i>
 														</button>
@@ -177,10 +189,7 @@ const ProductsListScreen = () => {
 										</div>
 										<div className='productslist-small-body'>
 											<div className='productslist-small-header'>Nazwa:</div>
-											<Link
-												className='link'
-												to={`/products/${product._id}`}
-											>
+											<Link className='link' to={`/products/${product._id}`}>
 												<div> {product.name}</div>
 											</Link>
 										</div>
@@ -195,9 +204,7 @@ const ProductsListScreen = () => {
 											<div>{product.category}</div>
 										</div>
 										<div>
-											<Link
-												to={`/admin/product/${product._id}/edit`}
-											>
+											<Link to={`/admin/product/${product._id}/edit`}>
 												<button className='btn-edit'>
 													<i className='fas fa-edit'></i>
 												</button>
@@ -218,12 +225,7 @@ const ProductsListScreen = () => {
 						</div>
 					</>
 				)}
-				<Pagination
-					pages={pages}
-					page={page}
-					isAdmin={true}
-				
-				/>
+				<Pagination pages={pages} page={page} isAdmin={true} />
 			</div>
 		</>
 	);

@@ -15,9 +15,8 @@ const Pagination = ({
 	const pageChange = (e) => {
 		if (isAdmin) {
 			if (keyword) {
-				// W przyszłośći dodać wyszukiwanie produktów w panelu administaratora
 				navigate(
-					`/admin/productslist/${keyword}/page/${e.selected + 1}`
+					`/admin/productslist/search/${keyword}/page/${e.selected + 1}`
 				);
 			} else {
 				navigate(`/admin/productslist/page/${e.selected + 1}`);

@@ -31,10 +31,7 @@ function App() {
 			<main>
 				<Routes>
 					<Route path='/' element={<Home />}></Route>
-					<Route
-						path='/category/:category'
-						element={<Home />}
-					></Route>
+					<Route path='/category/:category' element={<Home />}></Route>
 					<Route
 						path='/category/:category/page/:pageNumber'
 						element={<Home />}
@@ -43,25 +40,27 @@ function App() {
 						path='/category/:category/search/:keyword'
 						element={<Home />}
 					></Route>
-					<Route
-						path='/page/:pageNumber'
-						element={<Home />}
-					></Route>
+					<Route path='/page/:pageNumber' element={<Home />}></Route>
 					<Route path='/search/:keyword' element={<Home />}></Route>
 					<Route
 						path='/search/:keyword/page/:pageNumber'
 						element={<Home />}
 					></Route>
-					<Route
-						path='/admin/userslist'
-						element={<UsersListScreen />}
-					></Route>
+					<Route path='/admin/userslist' element={<UsersListScreen />}></Route>
 					<Route
 						path='/admin/productslist'
 						element={<ProductsListScreen />}
 					></Route>
 					<Route
 						path='/admin/productslist/page/:pageNumber'
+						element={<ProductsListScreen />}
+					></Route>
+					<Route
+						path='/admin/productslist/search/:keyword'
+						element={<ProductsListScreen />}
+					></Route>
+					<Route
+						path='/admin/productslist/search/:keyword/page/:pageNumber'
 						element={<ProductsListScreen />}
 					></Route>
 					<Route
@@ -76,53 +75,27 @@ function App() {
 						path='/admin/product/:id/edit'
 						element={<ProductEditScreen />}
 					></Route>
-					<Route
-						path='/products/:id'
-						element={<DetailLoading />}
-					></Route>
+					<Route path='/products/:id' element={<DetailLoading />}></Route>
 					<Route
 						path='/product/review/:id'
 						element={<ProductCreateReview />}
 					></Route>
 					<Route path='/cart' element={<CartScreen />} />
 					<Route path='/shipping' element={<ShippingScreen />} />
-					<Route
-						path='/payment'
-						element={<PaymentScreen />}
-					></Route>
-					<Route
-						path='/placeorder'
-						element={<PlaceOrderScreen />}
-					></Route>
-					<Route
-						path='/order/:id'
-						element={<OrderScreen />}
-					></Route>
+					<Route path='/payment' element={<PaymentScreen />}></Route>
+					<Route path='/placeorder' element={<PlaceOrderScreen />}></Route>
+					<Route path='/order/:id' element={<OrderScreen />}></Route>
 					<Route path='/login' element={<LoginScreen />} />
 					<Route path='/register' element={<RegisterScreen />} />
 					<Route path='/profile' element={<ProfileScreen />} />
-					<Route
-						path='/profile/update'
-						element={<ProfileUpdateScreen />}
-					/>
-					<Route
-						path='/profile/address'
-						element={<ProfileAddressScreen />}
-					/>
-					<Route
-						path='/profile/orderlist'
-						element={<OrdersUserListScreen />}
-					/>
-					<Route
-						path='/profile/messagecenter'
-						element={<MessageCenter />}
-					/>
+					<Route path='/profile/update' element={<ProfileUpdateScreen />} />
+					<Route path='/profile/address' element={<ProfileAddressScreen />} />
+					<Route path='/profile/orderlist' element={<OrdersUserListScreen />} />
+					<Route path='/profile/messagecenter' element={<MessageCenter />} />
 				</Routes>
 			</main>
 			<Footer></Footer>
-			{/*  W przyszłośći dodać wyszukiwanie produktów w panelu administaratora */}
 			{/* dodac mozliwość ustawienia ilości obektów na stronie */}
-			{/* poprwic wygląd listy zamówień */}
 		</div>
 	);
 }

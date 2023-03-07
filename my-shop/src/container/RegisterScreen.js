@@ -39,8 +39,9 @@ const RegisterScreen = () => {
 			{loading && <LoadingSpinner />}
 			{error && <Message>Nieprawidłowy email lub hasło</Message>}
 			{message && <Message>{message}</Message>}
-			<div className='management-container box-shadow'>
+			<div className='management-container box-shadow-form'>
 				<div className='management-box-form'>
+					<h3>Panel Rejestracji</h3>
 					<form onSubmit={submitHandler}>
 						<label htmlFor='name'>Nazawa konta:</label>
 						<input
@@ -93,7 +94,7 @@ const RegisterScreen = () => {
 				</div>
 				<div className='rediret-box'>
 					<label>Masz konto?</label>
-					<Link to='/management' className='management-box-redirect-link'>
+					<Link to='/login' className='management-box-redirect-link'>
 						ZALOGUJ SIĘ
 					</Link>
 				</div>

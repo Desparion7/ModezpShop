@@ -1,10 +1,10 @@
 :root {
 	/* --font-family: 'Manrope', sans-serif; */
 	--main-color: rgb(255, 255, 255);
-	--font-color: #286bbc;
+	--font-color: black;
 	/* --popup-title: #286bbc; */
-	--buttons-color: #ebacbc;
-	--buttons-hover-color: #e38589;
+	--buttons-color: #e9809b;
+	--buttons-hover-color: #f86168;
 	--disabled-color: #d1cfcf;
 	--main-text: 'Open Sans', sans-serif;
 	--bold-text: 'Roboto', sans-serif;

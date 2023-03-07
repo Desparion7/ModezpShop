@@ -5,17 +5,34 @@
 .management-box {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	min-height: 75vh;
+	min-height: 70vh;
 }
 .management-container {
-	padding: 1rem;
 	background-color: var(--main-color);
 	border-radius: 5%;
+}
+.management-box-form {
+	position: relative;
+}
+.management-box-form h3 {
+	position: relative;
+	text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background: black;
+	color: white;
+	width: 100%;
 }
 .management-box-form form {
 	display: flex;
 	flex-direction: column;
+	padding: 1rem;
+	padding-bottom: 0;
 }
 .management-box-form input {
 	margin: 0.5rem 0;
@@ -26,12 +43,14 @@
 .btn-management {
 	margin-top: 0.8rem;
 }
+
 .rediret-box {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 	margin-top: 0.5rem;
 	text-align: center;
+	margin-bottom: 1rem;
 }
 .management-box-redirect-link {
 	text-decoration: none;

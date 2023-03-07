@@ -25,7 +25,7 @@
 }
 .popup-window {
 	width: 300px;
-	height: 230px;
+	height: 250px;
 	background: white;
 	border-radius: 5px;
 	border: none;
@@ -34,9 +34,10 @@
 .popup-window-title {
 	font-size: 1.3rem;
 	text-align: center;
-	margin-bottom: 0.5rem;
+	margin-bottom: 2rem;
 	padding: 1rem;
-	color: var(--font-color);
+	color: white;
+	background: black;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	border: none;
@@ -61,18 +62,20 @@
 .popup-btn-right {
 	border-radius: 5px;
 	border: 1px solid var(--font-color);
-	transition: background-color 0.3s;
+	transition: background 0.5s color 0.5s;
 }
 .popup-btn-left {
 	border-radius: 5px;
 	border: 1px solid var(--buttons-color);
-	transition: background-color 0.3s;
+	transition: background-color 0.5s color 0.5s;
 }
 .popup-btn-left:hover {
-	background-color: var(--buttons-color);
+	background-color: var(--buttons-hover-color);
+	color: white;
 }
 .popup-btn-right:hover {
-	background-color: var(--font-color);
+	background: var(--font-color);
+	color: white;
 }
 
 .slide-bottom {

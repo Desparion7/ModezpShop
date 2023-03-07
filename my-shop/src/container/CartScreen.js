@@ -1,24 +1,24 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../store';
 import store from '../store';
 import Checkout from '../components/Checkout';
 import './CartScreen.css';
+import Modal from '../UI/Modal';
 
 const CartScreen = () => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector((state) => state.cart.cartItems);
+	const [showModal, setShowModal] = useState(false);
+	const [productIdToRemove, setProductIdToRemove] = useState('');
 
 	const fullPrice = cartItems
 		.reduce((acc, item) => acc + item.qty * item.price, 0)
 		.toFixed(2);
 
 	const updateLocalStorage = () => {
-		localStorage.setItem(
-			'cartItems',
-			JSON.stringify(store.getState().cart)
-		);
+		localStorage.setItem('cartItems', JSON.stringify(store.getState().cart));
 	};
 
 	const decrementHandler = (id) => {
@@ -51,13 +51,28 @@ const CartScreen = () => {
 			updateLocalStorage();
 		}
 	};
-	const removeHandler = (id) => {
-		dispatch(cartActions.removeItem(id));
+	const removeHandler = () => {
+		dispatch(cartActions.removeItem(productIdToRemove));
 		updateLocalStorage();
+		setShowModal(false)
+	};
+
+	const closeModalHandler = () => {
+		setShowModal(false);
 	};
 
 	return (
 		<>
+			{showModal && (
+				<Modal
+					modalTitle={'Usuwanie produktu z koszyka!'}
+					modalText={'Czy na pewno chcesz usunąć produkt?'}
+					rightBtn={removeHandler}
+					rightBtnText={'Tak'}
+					leftBtn={closeModalHandler}
+					leftBtnText={'Nie'}
+				></Modal>
+			)}
 			{cartItems.length < 1 ? (
 				<div className='empty-cart margin-section'>
 					<img src='./images/cart.png' alt='cart'></img>
@@ -114,7 +129,11 @@ const CartScreen = () => {
 								<div className='remove-box'>
 									<i
 										className='fa-regular fa-trash-can'
-										onClick={removeHandler.bind(null, product._id)}
+										onClick={() => {
+											setShowModal(true);
+											setProductIdToRemove(product._id);
+											// removeHandler.bind(null, product._id);
+										}}
 									></i>
 								</div>
 							</div>
@@ -126,8 +145,7 @@ const CartScreen = () => {
 						</div>
 						<Link to='/'>
 							<button className='btn cart-add-products-btn'>
-								<i className='fa-solid fa-arrow-left'></i> {' '}
-								Dobierz produkty
+								<i className='fa-solid fa-arrow-left'></i> Dobierz produkty
 							</button>
 						</Link>
 					</div>

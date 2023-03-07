@@ -64,7 +64,7 @@ const Rating = ({ value, text, color }) => {
 					}
 				></i>
 			</span>
-			<span>
+			<span>{' '}
 				{text && text}{' '}
 				{text === '0'
 					? ''
@@ -80,7 +80,7 @@ const Rating = ({ value, text, color }) => {
 	);
 };
 Rating.defaultProps = {
-	color: '#efb7ba',
+	color: '#f86168',
 };
 Rating.propTypes = {
 	value: PropTypes.number.isRequired,

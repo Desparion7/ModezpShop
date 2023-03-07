@@ -25,6 +25,7 @@ const ProfileAddressScreen = () => {
 
 	const userUpdateProfil = useSelector((state) => state.userUpdate);
 	const { success } = userUpdateProfil;
+	
 
 	useEffect(() => {
 		if (!userDetailsInfo) {
@@ -33,7 +34,7 @@ const ProfileAddressScreen = () => {
 			if (!user._id) {
 				dispatch(getUserDetails('profile'));
 			}
-			if(user._addressName) {
+			if(user.addressName) {
 				setAddressName(user.addressName);
 				setSurname(user.surname);
 				setStreet(user.street);
@@ -68,7 +69,6 @@ const ProfileAddressScreen = () => {
 			</Link>
 			<div className='management-box '>
 				<div className='change-address-form '>
-					<h2 className='account-title'>Adres do wysyłki:</h2>
 					{loading && <LoadingSpinner />}
 					{success && successShow && (
 						<Message style={{ backgroundColor: '#b3ebac' }}>
@@ -76,9 +76,10 @@ const ProfileAddressScreen = () => {
 						</Message>
 					)}
 					{error && <Message>{error}</Message>}
-					<div className='management-container'>
-						<div className='management-box-form'>
-							<form className='box-shadow' onSubmit={submitHandler}>
+					<div className='management-container box-shadow-form'>
+						<div className='management-box-form box-shadow-form'>
+							<h3>Ustaw adres do wysyłki</h3>
+							<form onSubmit={submitHandler}>
 								<label>Imię:</label>
 								<input
 									type='text'

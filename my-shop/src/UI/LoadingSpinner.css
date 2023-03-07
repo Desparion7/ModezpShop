@@ -1,8 +1,8 @@
 .spinner-box {
 	display: flex;
 	justify-content: center;
-    align-items: center;
-    height: 400px;
+	align-items: center;
+	min-height: 70vh;
 }
 .lds-ring {
 	display: inline-block;

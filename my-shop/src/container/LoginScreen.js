@@ -28,13 +28,19 @@ const LoginScreen = () => {
 		setEmail('');
 		setPassword('');
 	};
+	const handlerDemoLogin = () => {
+		const demoEmail = 'admin@example.com';
+		const demoPassword = '123456';
+		dispatch(login(demoEmail, demoPassword));
+	};
 
 	return (
 		<div className='management-box margin-section'>
 			{loading && <LoadingSpinner />}
 			{error && <Message>Nieprawidłowy email lub hasło</Message>}
-			<div className='management-container box-shadow'>
+			<div className='management-container box-shadow-form'>
 				<div className='management-box-form'>
+					<h3>Panel logowania</h3>
 					<form onSubmit={submitHandler}>
 						<label htmlFor='email'>Email:</label>
 						<input
@@ -60,6 +66,13 @@ const LoginScreen = () => {
 						></input>
 						<button className='btn btn-management' type='submit'>
 							Zaloguj się
+						</button>
+						<button
+							className='btn btn-management'
+							type='button'
+							onClick={handlerDemoLogin}
+						>
+							Demo
 						</button>
 					</form>
 				</div>

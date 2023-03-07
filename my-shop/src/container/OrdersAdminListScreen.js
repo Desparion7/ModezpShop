@@ -50,7 +50,7 @@ const OrdersAdminListScreen = () => {
 									<div className='orderslist-buttons'></div>
 								</div>
 								<div className='orderslist-body'>
-									{(ordersList.length > 0) &&
+									{ordersList.length > 0 &&
 										ordersList.map((order) => (
 											<div className='orderslist-body-user' key={order._id}>
 												<div className='orderslist-body-text'>{order._id}</div>
@@ -96,55 +96,62 @@ const OrdersAdminListScreen = () => {
 							</div>
 						</div>
 						<div className='orderslist-small'>
-							{ordersList.map((order) => (
-								<div className='orderslist-small-user' key={order._id}>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>ID: </div>
-										<div>{order._id}</div>
-									</div>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>Użytkownik:</div>
-										<div>{order.user.name}</div>
-									</div>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>Kwota: </div>
-										<div>{order.totalPrice} zł</div>
-									</div>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>
-											Data zamówienia:{' '}
+							{ordersList.length > 0 &&
+								ordersList.map((order) => (
+									<div className='orderslist-small-user' key={order._id}>
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>ID: </div>
+											<div>{order._id}</div>
 										</div>
-										<div>{order.createdAt.substring(0, 10)}</div>
-									</div>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>
-											Data opłacenia:{' '}
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>Użytkownik:</div>
+											{/* <div>{order.user.name}</div> */}
 										</div>
-										{order.isPaid ? (
-											order.paidAt.substring(0, 10)
-										) : (
-											<i className='fas fa-times' style={{ color: 'red' }}></i>
-										)}
-									</div>
-									<div className='orderslist-small-body'>
-										<div className='orderslist-small-header'>
-											Data dostarczenia:{' '}
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>Kwota: </div>
+											<div>{order.totalPrice} zł</div>
 										</div>
-										{order.isDelivered ? (
-											order.deliveredAt.substring(0, 10)
-										) : (
-											<i className='fas fa-times' style={{ color: 'red' }}></i>
-										)}
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>
+												Data zamówienia:{' '}
+											</div>
+											<div>{order.createdAt.substring(0, 10)}</div>
+										</div>
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>
+												Data opłacenia:{' '}
+											</div>
+											{order.isPaid ? (
+												order.paidAt.substring(0, 10)
+											) : (
+												<i
+													className='fas fa-times'
+													style={{ color: 'red' }}
+												></i>
+											)}
+										</div>
+										<div className='orderslist-small-body'>
+											<div className='orderslist-small-header'>
+												Data dostarczenia:{' '}
+											</div>
+											{order.isDelivered ? (
+												order.deliveredAt.substring(0, 10)
+											) : (
+												<i
+													className='fas fa-times'
+													style={{ color: 'red' }}
+												></i>
+											)}
+										</div>
+										<div>
+											<Link to={`/order/${order._id}`}>
+												<button className='btn-edit'>
+													<i className='fas fa-edit'></i>
+												</button>
+											</Link>
+										</div>
 									</div>
-									<div>
-										<Link to={`/order/${order._id}`}>
-											<button className='btn-edit'>
-												<i className='fas fa-edit'></i>
-											</button>
-										</Link>
-									</div>
-								</div>
-							))}
+								))}
 						</div>
 					</div>
 				)}

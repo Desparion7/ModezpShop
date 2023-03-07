@@ -57,7 +57,7 @@ const ProfileUpdateScreen = () => {
 			</Link>
 
 			<div className='management-box '>
-				<h2 className='account-title'> Zmień ustawienia konta:</h2>
+
 				{loading && <LoadingSpinner />}
 				{success && successShow && (
 					<Message style={{ backgroundColor: '#b3ebac' }}>
@@ -66,9 +66,10 @@ const ProfileUpdateScreen = () => {
 				)}
 				{error && <Message>Nieprawidłowy email lub hasło</Message>}
 				{message && <Message>{message}</Message>}
-				<div className='management-container'>
+				<div className='management-container box-shadow-form'>
 					<div className='management-box-form'>
-						<form className='box-shadow' onSubmit={submitHandler}>
+						<h3>Zmień ustawienia konta</h3>
+						<form onSubmit={submitHandler}>
 							<label htmlFor='name'>Nazawa konta:</label>
 							<input
 								autoComplete='name'
